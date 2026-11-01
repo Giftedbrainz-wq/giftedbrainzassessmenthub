@@ -1,0 +1,13 @@
+{
+  "name": "gifted-brainz-assessment-hub",
+  "private": true,
+  "version": "51.0.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node --check app.js && node --check edge-functions/api/index.js && node --check edge-functions/api/eduspace-bridge.js && python -m py_compile test_server.py",
+    "test": "node tests/private-library-regression.mjs && node tests/brainz-biltz-regression.mjs && node tests/eduspace-integration.test.mjs"
+  },
+  "type": "module"
+}

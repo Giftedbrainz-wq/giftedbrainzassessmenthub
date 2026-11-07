@@ -1,0 +1,596 @@
+/* Gifted Brainz Assessment Hub v50.5.0 — Premium Examination Interface
+   Assessment-only styling. No EduSpace team emblems, avatars or subject covers.
+   Baskerville Old Face is prioritised by baskerville-centered.css.
+*/
+:root{
+  --exam-ink:#152842;--exam-navy:#0b2e61;--exam-navy-deep:#061b3c;
+  --exam-gold:#d3a344;--exam-border:#dce5f0;--exam-paper:#fff;
+  --exam-fog:#f4f7fb;--exam-subtle:#eff4fa;
+  --exam-shadow:0 18px 50px rgba(9,37,80,.1);
+  --exam-ease:cubic-bezier(.22,1,.36,1)
+}
+html{scrollbar-gutter:stable}
+body{line-height:1.56}
+#app{min-width:0}
+:is(.app-shell,.student-landing,.cbt-shell,.student-result,.boost-student-shell,.biltz-page) :is(button,input,select,textarea):focus-visible,
+:is(.app-shell,.student-landing,.cbt-shell,.student-result,.boost-student-shell,.biltz-page) a:focus-visible{
+  outline:3px solid #c69a2d;outline-offset:3px
+}
+.btn,.mini{transition:transform .17s var(--exam-ease),box-shadow .17s ease,background-color .17s ease,border-color .17s ease}
+@media(hover:hover){.btn:not([disabled]):hover,.mini:not([disabled]):hover{transform:translateY(-1px)}}
+.btn:disabled,.mini:disabled{cursor:not-allowed;opacity:.56}
+
+/* 1. Clean admin system, avoiding gratuitous stickers or illustrations. */
+.app-shell .sidebar{background:linear-gradient(180deg,#0b316a,#071f48 80%);box-shadow:2px 0 24px rgba(5,21,45,.09)}
+.app-shell .nav button{border-radius:11px}
+.app-shell .nav button.active{box-shadow:0 3px 13px rgba(4,23,55,.12)}
+.app-shell .main{background:radial-gradient(circle at 95% -5%,rgba(216,169,69,.065),transparent 35rem),#f5f7fb}
+.app-shell .content{max-width:1580px;margin-inline:auto;width:100%;min-width:0}
+.app-shell .topbar{background:rgba(255,255,255,.975);border-bottom:1px solid #e4eaf2}
+.app-shell .page-title{color:var(--exam-navy);font-size:clamp(27px,2.7vw,36px);line-height:1.14;letter-spacing:-.022em}
+.app-shell .page-sub{max-width:67ch;font-size:14px;line-height:1.55}
+.app-shell .card,.app-shell .quiz-management-card{border:1px solid var(--exam-border);box-shadow:0 8px 25px rgba(8,45,99,.045);border-radius:18px}
+.app-shell .hero{position:relative;overflow:hidden;background:linear-gradient(118deg,#0b356e,#082656);border:1px solid rgba(255,255,255,.15);box-shadow:var(--exam-shadow);border-radius:21px}
+.app-shell .hero:before{content:"";position:absolute;inset:auto -75px -110px auto;width:295px;height:295px;border:1px solid rgba(228,184,89,.17);border-radius:50%;pointer-events:none}
+.app-shell .hero:after{content:"";position:absolute;right:5.5%;bottom:16%;width:9px;height:9px;background:#d4aa52;border-radius:50%;box-shadow:35px 21px 0 -2px rgba(212,170,82,.6);pointer-events:none}
+.app-shell .hero>*{position:relative;z-index:1}
+.app-shell .stat{border-radius:16px;border:1px solid var(--exam-border);background:#fff;box-shadow:0 6px 20px rgba(11,46,97,.04)}
+.app-shell .stat .value{color:#0a356f;font-variant-numeric:tabular-nums}
+.app-shell .tag{letter-spacing:.015em}
+.app-shell .quiz-management-card:hover{border-color:#a6bdd9;box-shadow:0 15px 35px rgba(11,46,97,.075)}
+.app-shell .quiz-card-actions{gap:10px}
+.app-shell .quiz-management-card :is(.mini,.btn){white-space:normal}
+.app-shell .ai-banner{background:linear-gradient(115deg,#0b326a,#11447c);border:1px solid rgba(255,255,255,.12);border-radius:19px}
+.app-shell .ai-banner h3{color:#fff}
+.app-shell .ai-banner p{color:#e3ecf7}
+
+/* 2. One quiet visual focal point on the assessment welcome screen. */
+.student-landing{background:radial-gradient(ellipse at 50% 0%,rgba(223,181,90,.16),transparent 53%),linear-gradient(180deg,#f7f9fc,#eaf0f8);padding:clamp(14px,4vw,38px)}
+.student-landing .student-card{
+  width:min(770px,100%);padding:clamp(20px,4vw,44px);background:#fff;
+  border:1px solid #dce5f0;border-top:5px solid var(--exam-navy);border-radius:23px;
+  box-shadow:0 24px 65px rgba(7,34,71,.12);position:relative
+}
+.student-landing .student-card:after{content:"";height:2px;width:84px;background:linear-gradient(90deg,transparent,var(--exam-gold),transparent);position:absolute;top:0;left:calc(50% - 42px);pointer-events:none}
+.student-landing .gb-student-identity strong{color:#0e305f;letter-spacing:.06em}
+.student-landing .gb-student-identity small{color:#667790}
+.student-landing .student-card .gb-assessment-preview{background:#f7f9fc!important;border:1px solid #e1e8f1!important;border-radius:18px;min-height:0}
+.student-landing .gb-assessment-preview h1{font-size:clamp(27px,4.4vw,43px);line-height:1.11;text-wrap:balance}
+.student-landing .student-card .student-summary{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.student-landing .student-card .student-summary>div{padding:14px 9px;border-radius:12px;background:#f7f9fc;border:1px solid #e3eaf3}
+.student-landing .student-card .student-summary>div span{font-size:11px;color:#63748b}
+.student-landing .student-card .student-summary>div b{font-size:clamp(17px,2vw,22px);color:#092e61;line-height:1.2}
+.student-landing .student-card .start-assessment-btn{min-height:53px;border-radius:13px;box-shadow:0 9px 20px rgba(11,46,97,.16);letter-spacing:.015em}
+.student-landing .student-card .student-note{max-width:580px;margin-inline:auto;color:#637188;font-size:13px}
+.premium-exam-badge{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:7px;color:#37547a;font-size:12px;font-weight:700;margin:16px auto 5px;letter-spacing:.01em}
+.premium-exam-badge-mark{display:grid;place-items:center;border:1px solid #b6cfba;border-radius:50%;width:21px;height:21px;color:#237348;background:#f0f8f2;font-weight:900}
+.premium-exam-badge-divider{width:4px;height:4px;border-radius:50%;background:#a3b4ca}
+.student-landing .student-card .optional-channel-card{margin-top:20px}
+
+/* 3. Loading states: actual indeterminate status, not fake percentages. */
+.student-loading-landing .student-loading-card{border-top:5px solid var(--exam-navy);overflow:hidden}
+.student-loading-card .loading-emblem{isolation:isolate;filter:drop-shadow(0 9px 18px rgba(10,48,97,.16))}
+.student-loading-card h1{font-size:clamp(26px,4vw,39px);text-wrap:balance}
+.student-loading-card .loading-progress-track{height:7px;border:0;border-radius:50px;background:#e4ebf5;overflow:hidden;max-width:335px;box-shadow:inset 0 1px 3px rgba(7,33,65,.07)}
+.student-loading-card .loading-progress-track span{display:block;animation:examIndeterminate 1.6s ease-in-out infinite;width:42%;height:100%;border-radius:50px;background:linear-gradient(90deg,#0b3974,#d6ae5e)!important}
+.student-loading-card .loading-status{font-size:12px;color:#60738b}
+@keyframes examIndeterminate{0%{transform:translateX(-110%)}100%{transform:translateX(345%)}}
+.startup-fallback{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;padding:25px;text-align:center;background:#f5f8fc;color:#0b336a}
+.startup-fallback strong{font-size:clamp(26px,4vw,38px)}
+.startup-fallback span{font-size:14px;color:#5c7089}
+
+/* 4. Question experience — readable, consistent, calm. */
+.cbt-shell{background:#f1f5fa;min-height:100vh;color:#203654}
+.cbt-shell .cbt-header{border-bottom:1px solid #dde6f1;box-shadow:0 4px 18px rgba(10,45,92,.055)}
+.cbt-shell .cbt-header .timer{font-variant-numeric:tabular-nums;min-width:87px;text-align:center;border:1px solid #b6cbe2;border-radius:11px;background:#f4f8fe;color:#0d3e7e;font-size:18px;font-weight:800;transition:background-color .2s ease,border-color .2s ease,color .2s ease}
+.cbt-shell .cbt-header .timer.timer-notice{background:#fff7e4;border-color:#d9b86e;color:#815612}
+.cbt-shell .cbt-header .timer.urgent{background:#fff0ee;border-color:#e3a19a;color:#ae231b;animation:examTimerPulse 1.8s ease-in-out infinite}
+@keyframes examTimerPulse{0%,100%{box-shadow:0 0 0 0 rgba(173,35,27,0)}50%{box-shadow:0 0 0 5px rgba(173,35,27,.09)}}
+.cbt-shell .section-tabs{background:#fff;border-bottom:1px solid #e0e7f2}
+.cbt-shell .cbt-body{max-width:1280px;gap:20px;align-items:start;padding-bottom:95px}
+.cbt-shell .question-main,.cbt-shell .navigator{border:1px solid #dce5f0;background:#fff;border-radius:18px;box-shadow:0 10px 32px rgba(8,39,82,.065)}
+.cbt-shell .question-main{padding:clamp(19px,3vw,33px)}
+.cbt-shell .question-top{display:flex;align-items:center;justify-content:space-between!important;gap:8px;flex-wrap:wrap;text-align:left!important;color:#153d77;font-size:14px;font-weight:700}
+.cbt-shell .question-progress-caption{font-size:12px;font-weight:650;color:#667893}
+.question-progress-bar,.navigator-progress-track{height:6px;background:#e9eef5;border-radius:15px;overflow:hidden}
+.question-progress-bar{margin:12px 0 25px}
+.question-progress-bar>span,.navigator-progress-track>span{display:block;height:100%;background:linear-gradient(90deg,#0b438d,#d7a84e);border-radius:15px;transition:width .2s ease}
+.cbt-shell .question-text{font-size:clamp(17px,2vw,21px);line-height:1.65;color:#152944;overflow-wrap:anywhere}
+.cbt-shell .cbt-option{background:#fff!important;border:1px solid #d8e2ef!important;box-shadow:none!important;border-radius:12px!important;min-height:58px;gap:13px;padding:14px 16px!important;text-align:left;transition:background .15s ease,border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+.cbt-shell .cbt-option>span{min-width:0;flex:1}
+.cbt-shell .cbt-option>span>b:first-child{display:inline-grid;place-items:center;width:30px;height:30px;border:1px solid #dbe5f1;border-radius:8px;background:#f5f8fc;color:#224974;margin-right:9px}
+.cbt-shell .cbt-option:has(input:checked),.cbt-shell .cbt-option.selected{border-color:#b88923!important;background:#fff8e8!important;box-shadow:inset 4px 0 0 #c9952c!important}
+.cbt-shell .cbt-option.selected>span>b:first-child,.cbt-shell .cbt-option:has(input:checked)>span>b:first-child{background:#0f3c77;color:#fff;border-color:#0f3c77}
+@media(hover:hover){.cbt-shell .cbt-option:hover{border-color:#8eaccf!important;background:#f8fbff!important;transform:translateY(-1px)}}
+.cbt-shell .cbt-option:focus-within{outline:3px solid rgba(211,163,68,.24);outline-offset:2px}
+.cbt-shell .cbt-option input{width:17px;height:17px;accent-color:#0f447f;flex:none}
+.cbt-shell .cbt-nav{border-top:1px solid #e8eef5;margin-top:25px;padding-top:19px;gap:9px;flex-wrap:wrap}
+.cbt-shell .cbt-nav>*{min-height:42px}
+.cbt-shell .navigator{position:sticky;top:100px;padding:clamp(16px,2.4vw,23px)}
+.cbt-shell .navigator-title{font-size:18px;color:#133765}
+.navigator-overview{display:flex;align-items:center;gap:12px;margin:16px 0 12px;flex-wrap:wrap}
+.navigator-overview strong{font-size:27px;line-height:1.1;font-variant-numeric:tabular-nums;color:#0b3977}
+.navigator-overview strong span{font-size:16px;font-weight:600;color:#8491a1}
+.navigator-overview small{max-width:120px;font-size:11px;line-height:1.25;color:#61738d}
+.navigator-flags{font-size:11px;color:#63758e;margin:8px 0 16px}
+.cbt-shell .navigator .legend{line-height:1.7;gap:8px;margin-top:6px}
+.cbt-shell .nav-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.cbt-shell .nav-grid .qdot{font-size:12px;font-weight:800;min-width:0;min-height:37px;border-radius:9px;position:relative;transition:transform .15s ease}
+.cbt-shell .nav-grid .qdot:focus-visible{outline:3px solid #d4a348;outline-offset:2px}
+.cbt-shell .nav-grid .qdot.flag:after{content:"";position:absolute;top:2px;right:2px;width:6px;height:6px;border-radius:50%;background:#c48d24}
+.cbt-shell .nav-grid .qdot.current{outline:2px solid #d1a247;outline-offset:1px}
+.cbt-shell .navigator .btn-primary{margin-top:17px;min-height:44px}
+.cbt-shell .question-main .passage-box{margin:15px 0 22px;line-height:1.66}
+.cbt-shell .question-figure img{max-width:100%;height:auto;object-fit:contain}
+
+/* 5. Results and published performance bulletin */
+.result-wrap{background:linear-gradient(180deg,#f3f7fd,#edf2f8);padding:clamp(15px,3vw,38px)}
+.result-wrap .result-card{border:1px solid #e0e8f3;border-top:5px solid #0b3a77;box-shadow:var(--exam-shadow);border-radius:22px;padding:clamp(20px,4vw,42px);background:#fff}
+.result-wrap .result-card h1{font-size:clamp(27px,4vw,40px);color:#0b3168}
+.result-wrap .score-ring{border-radius:50%;width:min(190px,55vw);height:min(190px,55vw);box-shadow:0 13px 32px rgba(8,45,99,.09)!important}
+.result-performance-caption{font-size:13px;line-height:1.52;color:#64758b;max-width:440px;margin:0 auto 20px;text-wrap:balance}
+.result-wrap .result-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:19px 0}
+.result-wrap .result-stat{background:#f7f9fc;border:1px solid #e3e9f1;border-radius:12px;padding:13px 9px;min-width:0}
+.result-wrap .result-stat b{overflow-wrap:anywhere;color:#0a3169;font-size:clamp(15px,2vw,21px)}
+.result-wrap .result-actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:22px}
+.result-wrap .result-actions .btn{min-height:44px}
+.official-leaderboard{border-radius:20px;overflow:auto;background:#fff}
+.official-leaderboard-header{background:linear-gradient(145deg,#0b3169,#061e45);color:#fff;border-bottom:3px solid #cda14d}
+.official-leaderboard-header h2,.official-leaderboard-header .official-heading{color:#fff}
+.official-leaderboard-caption{font-size:12px;color:#e2eaf5;margin:8px auto;letter-spacing:.02em;text-align:center}
+.leaderboard-board-head{background:#f5f8fc;border-radius:13px;border:1px solid #e6edf4;padding:13px 16px}
+.leaderboard-entry{border:1px solid #e2eaf4;border-radius:13px;box-shadow:none;background:#fff;transition:border-color .15s ease,box-shadow .15s ease}
+.leaderboard-entry:hover{border-color:#b7cbe2;box-shadow:0 7px 19px rgba(8,45,99,.055)}
+.leaderboard-entry[data-rank="1"]{border-color:#d9bb78;background:#fffaf0}
+.leaderboard-entry[data-rank="2"]{border-color:#ccd8e5;background:#f8fafc}
+.leaderboard-entry[data-rank="3"]{border-color:#d1b6a4;background:#fff9f4}
+.leaderboard-entry[data-rank="1"] .leaderboard-entry-rank strong{background:#f7e6b8;color:#6b4b09}
+.leaderboard-entry-person>strong,.leaderboard-entry-metric strong{overflow-wrap:anywhere}
+
+/* 6. Question Bank: useful search/filter controls + 25-at-a-time list */
+.question-bank-filters{display:grid;grid-template-columns:minmax(190px,2fr) minmax(130px,1fr) minmax(130px,1fr);gap:12px;align-items:end;background:linear-gradient(125deg,#f5f8fc,#fff);border:1px solid #e1e9f3;border-radius:14px;padding:17px;margin-bottom:12px}
+.question-bank-filters label{display:grid;gap:5px;min-width:0}
+.question-bank-filters label span{font-size:11px;color:#495e77;font-weight:750}
+.question-bank-filters :is(input,select){width:100%;min-width:0;min-height:42px;padding:9px 12px;border:1px solid #ccd9e7;background:#fff;border-radius:9px;color:#18345b;font:inherit}
+.question-bank-filters input::placeholder{color:#7d8da2}
+.question-bank-search-status{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:9px 3px 13px;color:#526985;font-size:12px;font-weight:650}
+.question-bank-page-controls{display:flex;align-items:center;flex-wrap:wrap;gap:9px}
+.question-bank-page-controls .mini{min-height:36px}
+.question-bank-page-controls #questionBankPage{min-width:84px;text-align:center}
+.question-bank-list .question-card{background:#fff;border-radius:13px;border:1px solid #e4eaf2;padding:clamp(14px,2vw,19px);margin-bottom:12px;box-shadow:0 4px 13px rgba(7,41,88,.035)}
+.question-bank-list .question-card[hidden]{display:none!important}
+.question-bank-list .bulk-toolbar{border:1px solid #e4ebf3;border-radius:11px;padding:12px;top:72px}
+.question-bank-list .question-title{color:#143865;font-size:16px;line-height:1.6}
+.question-bank-list .option-list .option{border-color:#e7edf3}
+
+/* 7. Guided document extraction: real stages, not a cosmetic spinner. */
+.extraction-workflow{border:1px solid #dce6f1;border-radius:15px;background:linear-gradient(150deg,#f7fafe,#fff);padding:16px;margin-top:17px;min-width:0}
+.extraction-stepper{margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;list-style:none}
+.extraction-stepper li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;font-size:11px;font-weight:700;color:#677991;min-width:0;overflow-wrap:anywhere}
+.extraction-step-num{display:grid;place-items:center;width:29px;height:29px;border-radius:50%;border:1px solid #cbd8e8;background:#eef3f9;color:#56708f;font-size:12px;font-weight:800}
+.extraction-stepper li.active .extraction-step-num{background:#0d3e7d;border-color:#0d3e7d;color:white;box-shadow:0 0 0 4px #e7f0fc}
+.extraction-stepper li.complete .extraction-step-num{background:#f2f8f3;color:#237848;border-color:#b5d3be}
+.extraction-stepper li.active{color:#163e78}
+.extraction-workflow-status{display:flex;align-items:flex-start;gap:9px;line-height:1.45;font-size:12px;color:#516782;padding-top:16px;margin-top:14px;border-top:1px solid #e5eaf3}
+.extraction-workflow-dot{background:#d0a34b;box-shadow:0 0 0 4px #fdf5e6;border-radius:50%;width:9px;height:9px;flex:none;margin-top:4px}
+.extraction-workflow-dot.ready{background:#17834d;box-shadow:0 0 0 4px #eaf6ee}
+.extraction-workflow-dot.error{background:#bc4036;box-shadow:0 0 0 4px #fceeed}
+.extraction-totals{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.extraction-totals>span{font-size:11px;padding:6px 10px;border-radius:9px;color:#3d5877;background:#edf3fa;border:1px solid #dbe6f3}
+.extraction-totals .success{background:#eef8f2;color:#23724a;border-color:#cce5d4}
+.extraction-totals .attention{background:#fff9ec;color:#886117;border-color:#ead7a9}
+.extraction-workflow+ .upload-zone{margin-top:16px}
+.upload-zone{border:2px dashed #b3cae4!important;background:#f9fbff!important;min-height:145px;transition:background-color .15s ease,border-color .15s ease}
+.upload-zone:hover{border-color:#cc9f43!important;background:#fffaf0!important}
+.draft-needs-review{border-left:4px solid #c79d43}
+.draft-page-toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.draft-card :is(textarea,input){max-width:100%;min-width:0}
+
+/* 8. Brainz Biltz: distinct excitement, but academically focused. */
+.boost-student-shell{background:radial-gradient(circle at 50% -25%,rgba(203,160,71,.13),transparent 33rem),#f3f7fc}
+.boost-welcome,.boost-play,.boost-results{border:1px solid #dfe8f2;border-top:4px solid #0b356f;border-radius:21px;box-shadow:0 16px 40px rgba(7,32,67,.08);background:#fff}
+.boost-welcome .eyebrow,.boost-play .eyebrow,.boost-results .eyebrow{letter-spacing:.11em;color:#8a6520}
+.boost-welcome h1,.boost-results h1{font-size:clamp(27px,4vw,43px);line-height:1.14;text-wrap:balance}
+.boost-facts{gap:10px;margin-block:21px}
+.boost-facts>div{background:#f6f9fd;border-radius:14px;border:1px solid #e2eaf3;padding:16px}
+.boost-facts strong{color:#0b3977}
+.boost-play-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.boost-play .boost-clock{border-radius:10px;border:1px solid #ccdcec;min-width:74px;text-align:center;font-variant-numeric:tabular-nums}
+.boost-play .boost-clock.urgent{color:#a52d28;border-color:#dfafa7;background:#fff1ef}
+.boost-question{border-radius:16px;background:#f9fbfe;border:1px solid #e6edf5}
+.boost-question h2{line-height:1.53;text-wrap:pretty}
+.boost-answer-list .boost-answer{border-radius:12px;border:1px solid #d9e4f0;background:#fff;box-shadow:none;min-height:52px;transition:transform .15s ease,border-color .15s ease,background-color .15s ease}
+.boost-answer-list .boost-answer.selected{background:#fff8ec;border-color:#c4973d;box-shadow:inset 4px 0 0 #c4973d}
+.boost-progress{height:6px;background:#e8eef5;border-radius:14px}
+.boost-progress>span{background:linear-gradient(90deg,#0d3d80,#d5a44a);border-radius:14px}
+.boost-score{border-radius:19px;border:1px solid #e5dfcb;background:#fffaf0;color:#0c376f}
+.biltz-page{overflow-x:clip}
+.biltz-entry-card{box-shadow:0 24px 62px rgba(5,15,33,.25)}
+.biltz-entry-kicker,.biltz-entry-footer{letter-spacing:.09em}
+
+/* 9. Legacy dark themes removed; all screens use the light palette. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select){background:#0d2138;color:#edf6ff;border-color:#546985}
+
+
+
+
+
+
+
+/* 10. Mobile-first: no overlays, no clipped controls. */
+@media(max-width:1020px){
+ .cbt-shell .cbt-body{grid-template-columns:minmax(0,1fr) minmax(195px,245px)}
+ .cbt-shell .navigator{top:90px}
+}
+@media(max-width:780px){
+ html{scrollbar-gutter:auto}
+ .student-landing{padding:12px}
+ .student-landing .student-card{border-radius:17px;padding:19px 14px}
+ .student-landing .student-card .student-summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .student-landing .student-card .student-summary>div{padding:12px 9px}
+ .student-landing .gb-student-identity{gap:8px}
+ .cbt-shell .cbt-body{display:flex;flex-direction:column;gap:12px;padding:12px 10px 85px;max-width:650px}
+ .cbt-shell .question-main,.cbt-shell .navigator{width:100%;max-width:100%;border-radius:14px}
+ .cbt-shell .question-main{padding:16px 13px}
+ .cbt-shell .question-text{font-size:18px;line-height:1.63}
+ .cbt-shell .cbt-option{padding:12px 10px!important;min-height:54px;font-size:15px}
+ .cbt-shell .cbt-option>span>b:first-child{width:26px;height:27px;margin-right:5px}
+ .cbt-shell .question-top{font-size:13px}
+ .cbt-shell .question-progress-bar{margin:9px 0 16px}
+ .cbt-shell .navigator{position:static;padding:14px;order:2}
+ .cbt-shell .nav-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .cbt-shell .nav-grid .qdot{min-height:42px}
+ .cbt-shell .cbt-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .cbt-shell .cbt-nav>*{margin:0;max-width:100%;white-space:normal}
+ .cbt-shell .cbt-nav>*:last-child{grid-column:1/-1}
+ .result-wrap .result-stats{gap:6px}
+ .result-wrap .result-stat{padding:11px 6px}
+ .result-wrap .result-actions .btn{flex:1 1 180px}
+ .question-bank-filters{grid-template-columns:repeat(2,minmax(0,1fr));padding:11px;gap:9px}
+ .question-bank-filters .question-bank-search{grid-column:1/-1}
+ .question-bank-search-status{flex-direction:column;align-items:stretch}
+ .question-bank-page-controls{justify-content:space-between}
+ .extraction-workflow{padding:12px 9px}
+ .extraction-stepper{gap:3px}
+ .extraction-stepper li{font-size:9px}
+ .extraction-step-num{width:24px;height:24px}
+ .official-leaderboard{max-width:calc(100vw - 12px)}
+}
+@media(max-width:360px){
+ .student-landing .student-card .student-summary>div b{font-size:16px}
+ .premium-exam-badge{font-size:11px}
+ .cbt-shell .nav-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+ .cbt-shell .cbt-nav{grid-template-columns:1fr}
+ .cbt-shell .cbt-nav>*:last-child{grid-column:auto}
+ .cbt-shell .cbt-option>span{font-size:14px}
+ .result-wrap .result-stats{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+/* QA corrections: high-contrast assessment title and a single-column results flow. */
+.student-landing .student-card .gb-assessment-preview h1{
+  color:#102f61!important;
+  -webkit-text-fill-color:#102f61!important;
+  text-shadow:none!important
+}
+.student-landing .student-card .gb-assessment-preview .student-description{
+  color:#506782!important;-webkit-text-fill-color:#506782!important;text-shadow:none!important
+}
+.student-landing .student-card .gb-assessment-preview .eyebrow{color:#806019!important;text-shadow:none!important}
+.result-wrap{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;gap:0;width:100%;min-width:0}
+.result-wrap>.result-card{flex:none;width:min(860px,100%);max-width:100%}
+.result-wrap>.student-feedback-panel{flex:none;width:min(860px,100%);max-width:100%;margin:18px auto 0}
+
+
+
+
+
+
+/* Result-action QA: mobile column flex-basis must size by content, never 180px tall. */
+.result-wrap .result-actions .btn{flex:0 1 auto!important;height:auto!important;min-height:45px!important;max-height:none!important;padding:12px 16px}
+@media(max-width:780px){.result-wrap .result-actions{flex-direction:column;align-items:stretch}.result-wrap .result-actions .btn{flex:0 0 auto!important;width:100%;max-width:100%;min-height:46px!important}}
+
+/* =====================================================================
+   v50.6.0 — Light-only, responsive navigation, collections and quiz UX
+   ===================================================================== */
+:root{color-scheme:light;--hub-blue:#0b3f81;--hub-ink:#172b49;--hub-paper:#fff}
+html,body,#app{background:#f5f7fb;color:#172b49;max-width:100%;min-width:0}
+
+#themeToggle,#studentThemeToggle,.theme-toggle,.settings-theme-icon{display:none!important}
+/* Blue surfaces always use white foreground. Labels on pale blue surfaces retain dark contrast. */
+.btn-primary,.app-shell .btn-primary,.student-landing .btn-primary,.boost-student-shell .btn-primary,
+.cbt-shell .btn-primary,.gb-history-actions .btn-primary,.boost-play-footer .btn-primary,
+.pool-mode-card .btn-primary,.start-assessment-btn,.btn.btn-primary:disabled,
+.btn-primary:hover,.btn-primary:active,.btn-primary:focus-visible,
+.app-shell .tag.blue,.app-shell .nav button.nav-blue{color:#fff!important}
+.btn-primary *, .btn-primary :is(span,strong,b,small,i,svg){color:#fff!important}
+/* Selected answers use a pale gold surface, so their text must remain dark. */
+.boost-answer.selected,.cbt-option.selected{color:#172b49!important}
+.boost-answer.selected :is(span,strong),.cbt-option.selected :is(span,strong){color:#172b49!important}
+.boost-answer.selected>b,.cbt-option.selected>span>b:first-child{color:#fff!important}
+
+/* Sidebar: a single accessible scroll region within a fixed navigation frame. */
+.app-shell{max-width:100%;overflow-x:clip}
+.app-shell>.sidebar{position:sticky;top:0;height:100dvh;min-height:0;max-height:100dvh;overflow:hidden!important;display:flex;flex-direction:column;overscroll-behavior:contain}
+.app-shell .sidebar .brand{flex:none}
+.app-shell .nav{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:rgba(195,213,237,.33) transparent;padding:12px 3px 16px}
+.app-shell .nav::-webkit-scrollbar{width:5px}
+.app-shell .nav::-webkit-scrollbar-thumb{background:rgba(195,213,237,.32);border-radius:10px}
+.app-shell .sidebar-footer{flex:none;padding:12px 9px 7px;border-top:1px solid rgba(255,255,255,.12);margin:0}
+.app-shell .nav button{display:flex;min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.app-shell .nav button span:not(.ic){flex:1 1 auto;min-width:0}
+.app-shell .main,.app-shell .content{min-width:0;overflow-x:clip}
+.app-shell .content > *{min-width:0;max-width:100%}
+
+/* Topic count no longer touches the name. */
+.pool-topic-pick-info{gap:12px;min-width:0!important;align-items:flex-start!important}
+.pool-topic-pick-info>.pool-topic-name-count{display:flex;flex-wrap:wrap;gap:7px 12px;min-width:0;align-items:center;flex:1}
+.pool-topic-name-count b{flex:1 1 180px;min-width:0;overflow-wrap:anywhere}
+.pool-topic-pick-info small.pool-count-badge{flex:none;background:#e9f1fc;color:#244a7d;padding:3px 9px;border-radius:99px;border:1px solid #dce7f5;font-size:11px;white-space:nowrap;font-weight:700}
+.pool-topic-pick-pct{white-space:nowrap;min-width:75px;text-align:right}
+/* Admin Question Pool cards: tidy card header, collapsible topic chips. */
+.pool-collection-card{padding:clamp(16px,2.6vw,26px)!important;overflow:hidden}
+.pool-collection-card .section-head{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;margin:0 0 10px}
+.pool-collection-card .section-head>div:first-child{flex:1 1 340px;min-width:0}
+.pool-collection-card .section-head h2{font-size:clamp(19px,2.2vw,25px);line-height:1.25;overflow-wrap:anywhere}
+.pool-collection-card .section-head .toolbar{flex:0 1 auto;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}
+.pool-topics-disclosure{padding:10px 0;margin:4px 0 5px;border-top:1px solid #e6ebf3}
+.pool-topics-disclosure summary{cursor:pointer;font-weight:780;color:#16497f;padding:3px 0 10px}
+.pool-chip-grid{display:flex;flex-wrap:wrap;gap:8px!important;align-items:flex-start;overflow:hidden}
+.pool-topic-chip{display:inline-flex;align-items:center;max-width:100%;gap:8px;min-height:32px;text-align:left;border:1px solid #dbe6f4;border-radius:99px;background:#eef4fc;color:#133968;line-height:1.4;font-size:12px;font-weight:700;padding:7px 9px 7px 12px;cursor:pointer}
+.pool-topic-chip:hover{background:#e2eefc;border-color:#9cbce1}
+.pool-topic-chip span{overflow-wrap:anywhere;min-width:0}
+.pool-topic-chip b{flex:none;background:#fff;color:#0b4078;min-width:28px;text-align:center;border-radius:100px;padding:2px 6px}
+.pool-collection-card .library-link{overflow-wrap:anywhere;font-size:12px}
+
+/* EduSpace connection remains visible; only saved, validated URLs show success. */
+.eduspace-settings{margin-bottom:3px}
+.eduspace-settings .field{max-width:760px;margin-top:16px}
+.eduspace-settings input{width:100%;min-width:0}
+.eduspace-connection{margin-top:13px;font-weight:780;padding:11px 14px;border-radius:10px;border:1px solid #dce5f0;background:#f7f9fc;color:#526178}
+.eduspace-connection.linked{border-color:#a7d6b9;background:#ecf9f0;color:#176a3b}
+
+/* Input controls and footer buttons must never overlap. */
+.student-card.left{position:relative;overflow:visible}
+.student-card.left .student-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px 18px;margin:20px 0 24px;position:static}
+.student-card.left .student-form .field{position:static;display:flex;flex-direction:column;gap:7px;min-width:0;max-width:100%}
+.student-card.left .student-form .field input{display:block;width:100%;max-width:100%;height:auto;min-height:50px;font-size:16px;line-height:1.4;padding:12px 14px;position:static}
+.student-card.left .toolbar.end{position:static!important;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end!important;gap:12px;clear:both;margin-top:20px;padding-top:14px;border-top:1px solid #e5ebf2}
+.student-card.left .toolbar.end .btn{position:static!important;min-width:110px;flex:0 1 auto;transform:none}
+
+/* Podium-style leaderboard — compact on both student and admin views. */
+.gb-leaderboard-compact{width:100%;max-width:100%;margin:auto;padding:clamp(8px,2.2vw,20px);background:#fff;color:#172b49}
+.gb-podium-heading{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.gb-podium-heading h3{color:#0c326b!important;margin:4px 0 14px;font-size:clamp(19px,3vw,25px)}
+.gb-entrant-counter{padding:7px 12px;border-radius:99px;background:#eff3fb;color:#294d7d;font-size:12px;font-weight:770}
+.gb-podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:10px;max-width:850px;margin:5px auto 24px}
+.gb-podium-spot{display:flex;flex-direction:column;min-width:0;gap:8px;align-items:stretch;text-align:center;position:relative}
+.gb-medal{font-size:26px;line-height:1.3;height:38px}
+.gb-podium-person{border:1px solid #e0e9f5;background:#f8fafe;border-radius:12px 12px 6px 6px;min-height:77px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8px 5px;gap:4px}
+.gb-podium-person strong{font-size:clamp(11px,1.7vw,16px);color:#142f55;line-height:1.32;overflow-wrap:anywhere}
+.gb-podium-person span{font-size:clamp(10px,1.4vw,12px);color:#526984}
+.gb-podium-block{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;border-radius:10px 10px 4px 4px;color:#fff;background:#93a9c3;min-height:95px}
+.gb-podium-block span{font-size:clamp(27px,4vw,48px);font-weight:950;line-height:1}
+.gb-podium-block small{font-size:10px;letter-spacing:.10em;font-weight:770;color:#fff}
+.gb-podium-spot.first .gb-podium-block{min-height:144px;background:linear-gradient(150deg,#ae8228,#d1a646)}
+.gb-podium-spot.second .gb-podium-block{background:linear-gradient(150deg,#6a819f,#a5b8cb)}
+.gb-podium-spot.third .gb-podium-block{min-height:75px;background:linear-gradient(150deg,#9b6e50,#c89a7d)}
+.gb-podium-spot.first .gb-podium-person{border-color:#ddc17b;background:#fff9eb}
+.gb-rank-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid #e4ebf5;padding:15px 0 8px}
+.gb-rank-heading h3{margin:0!important;font-size:17px;color:#0c326b!important}
+.gb-rank-heading small{color:#657891;font-size:11px}
+.gb-rank-list{display:flex;flex-direction:column;gap:6px}
+.gb-rank-row{display:grid;grid-template-columns:40px minmax(0,1fr) 100px 65px auto;align-items:center;gap:10px;padding:9px 12px;border:1px solid #e4eaf3;border-radius:10px;background:#f9fbfe;font-size:13px;min-width:0}
+.gb-rank-row[hidden]{display:none!important}
+.gb-rank-row strong{min-width:0;overflow-wrap:anywhere}
+.gb-rank-number{display:grid;place-items:center;width:33px;height:33px;background:#e5eef9;color:#134577;font-weight:900;border-radius:9px}
+.gb-rank-percent{text-align:right;color:#0a3a78}
+.gb-rank-score{color:#536a86;text-align:right}
+.gb-rank-more{display:block;margin:12px auto 0}
+.gb-rank-empty{text-align:center;padding:12px;color:#627590}
+.gb-leaderboard-compact .student-metadata{grid-column:2/5;text-align:left;font-size:11px;color:#667892}
+.student-metadata summary{cursor:pointer;color:#52739d;font-weight:700;font-size:11px;list-style:revert}
+.leaderboard-modal,.official-leaderboard{max-width:100%;overflow-x:hidden}
+.official-leaderboard-header{padding:clamp(13px,3vw,26px)!important}
+.leaderboard-page-backdrop .leaderboard-modal{width:min(900px,96vw);max-height:94dvh;overflow-y:auto}
+.leaderboard-page-backdrop .official-heading{font-size:clamp(23px,4.5vw,34px)}
+.leaderboard-admin-toolbar,.leaderboard-export-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* Assessment history: searchable compact cards, clear pagination. */
+.gb-history-filter{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px}
+.gb-history-filter label{display:flex;flex-direction:column;gap:6px;font-weight:700;flex:1;min-width:min(100%,250px)}
+.gb-history-filter input{min-height:44px;border:1px solid #dbe5f1;border-radius:10px;padding:10px 12px;width:100%}
+.gb-history-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,335px),1fr));gap:13px}
+.gb-history-card{padding:18px!important;margin:0!important;min-width:0}
+.gb-history-head,.gb-history-actions{display:flex;justify-content:space-between;gap:9px;flex-wrap:wrap;align-items:center}
+.gb-history-card h3{margin:10px 0 15px;overflow-wrap:anywhere}
+.gb-history-numbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.gb-history-numbers>div{display:flex;flex-direction:column;gap:5px;padding:11px 6px;border-radius:10px;background:#f2f6fc;text-align:center}
+.gb-history-numbers strong{color:#10417d;font-size:24px;font-weight:850}
+.gb-history-numbers span{font-size:11px;color:#63768d}
+.gb-history-actions{justify-content:flex-start;margin-top:16px}
+.gb-history-actions .btn{flex:1 1 125px;text-align:center;white-space:normal}
+.gb-pagination{display:flex;align-items:center;justify-content:center;gap:16px;padding:13px}
+.gb-pagination span{white-space:nowrap;font-weight:750;color:#496581}
+.gb-analytics-grid>section{min-width:0}
+.gb-score-histogram{display:grid;gap:14px;margin:16px 0}
+.gb-histogram-row{display:grid;grid-template-columns:69px minmax(0,1fr) 35px;align-items:center;gap:10px;font-variant-numeric:tabular-nums}
+.gb-histogram-row>div{height:14px;border-radius:6px;background:#ecf1f8;overflow:hidden}
+.gb-histogram-row i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#19539a,#d1a342)}
+.gb-analytics-quiz{padding:10px 0;display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e2e9f3}
+.gb-analytics-quiz>span{min-width:0;overflow-wrap:anywhere}
+.gb-analytics-quiz strong{flex:none;white-space:nowrap;color:#12457e}
+.gb-analytics-detail .table-wrap{max-width:100%;overflow-x:auto}
+.gb-question-analysis{border-top:1px solid #e1eaf3;padding-top:16px;margin-top:18px}
+
+/* Competitive standalone Brainz Biltz arena, not ordinary CBT. */
+.boost-student-shell{background:radial-gradient(circle at 75% 0%,rgba(218,170,71,.16),transparent 38%),linear-gradient(160deg,#071b38,#0b3979 68%,#071b38);min-height:100dvh;padding:clamp(12px,3vw,28px)}
+.boost-student-top{max-width:1040px;margin:0 auto 12px;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:12px;color:#fff}
+.boost-brand{color:#fff;font-weight:900;letter-spacing:.11em}
+.boost-competition-welcome{max-width:850px;margin:10px auto;padding:clamp(22px,4vw,50px);background:linear-gradient(140deg,#fff,#f3f7fc);border:2px solid #e7c46f;border-radius:23px;position:relative;overflow:hidden;box-shadow:0 22px 60px rgba(0,0,0,.18)}
+.boost-competition-welcome:before{content:"✦";position:absolute;right:6%;top:-25px;font-size:170px;opacity:.065;pointer-events:none;color:#bb8932}
+.boost-competition-welcome h1{color:#082d63!important;font-size:clamp(28px,5vw,50px);line-height:1.13;margin:12px 0}
+.boost-competition-welcome .eyebrow{color:#ae7c18;font-weight:900;letter-spacing:.16em}
+.boost-competition-welcome .boost-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}
+.boost-facts>div{border:1px solid #dfe7f3;background:#fff;border-radius:13px;padding:12px 9px;display:flex;flex-direction:column;text-align:center}
+.boost-facts strong{color:#0c3977!important;font-size:clamp(20px,3vw,32px);font-weight:900}
+.boost-facts small{color:#536782!important;font-size:11px}
+.boost-live-banner{display:flex;flex-direction:column;gap:5px;padding:14px 17px;border-radius:12px;margin:18px 0;border-left:5px solid #cb9e40;background:#fff7e5;color:#764d0a}
+.boost-live-banner.live{background:#e9f8f0;border-left-color:#24824f;color:#125d35}
+.boost-live-banner.closed{background:#f9ecec;border-left-color:#b44848;color:#903232}
+.boost-live-banner b{font-size:17px}
+.boost-live-banner span{font-size:13px;line-height:1.5}
+.boost-registered{display:flex;flex-direction:column;gap:5px;border:1px solid #c1e4ce;background:#effaf2;border-radius:12px;padding:15px;margin:18px 0;color:#19603a}
+.boost-registered strong{font-size:22px}
+.boost-registration-form{border-top:1px solid #e3e9f1;padding-top:16px;margin-top:14px}
+.boost-registration-form h2{font-size:19px;color:#0b3978}
+.boost-registration-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,255px),1fr));gap:12px;margin:14px 0}
+.boost-registration-grid .field input{width:100%;height:48px;border-radius:10px;border:1px solid #c9d8ec;padding:9px 12px;background:#fff;color:#142a49}
+.boost-registration-form .btn{min-height:49px}
+.boost-import-form{margin:15px 0;padding:clamp(12px,2vw,22px);border:1px solid #cedbed;border-radius:14px;background:#f8fbff}
+.boost-import-review{margin-top:18px}
+.boost-import-draft{background:#fff;border:1px solid #dbe6f3;border-radius:12px;padding:14px;margin:12px 0;display:grid;gap:8px}
+.boost-import-draft textarea,.boost-import-draft input{width:100%;min-width:0}
+.boost-import-draft .field{min-width:0}
+.boost-admin-card .boost-admin-actions{display:flex;flex-wrap:wrap;gap:6px}
+.boost-schedule-label{font-weight:700;color:#57708e}
+
+@media(max-width:800px){
+ .app-shell{display:block;overflow:clip}
+ .app-shell>.sidebar{position:fixed;inset:0 auto 0 0;height:100dvh;max-height:100dvh;width:min(286px,88vw);z-index:100;transform:translateX(-110%);transition:transform .22s ease;background:#0a2f66}
+ .app-shell>.sidebar.open{transform:translateX(0)}
+ .app-shell>.main{width:100%;margin:0;max-width:100%;min-width:0}
+ .app-shell .topbar{min-height:62px;padding:11px 14px}
+ .app-shell .content{padding:14px;gap:14px}
+ .app-shell .mobile-menu,.app-shell .hub-side-close{display:inline-flex}
+ .gb-podium{gap:5px}
+ .gb-podium-person{padding:8px 3px}
+ .gb-podium-block{min-height:70px}
+ .gb-podium-spot.first .gb-podium-block{min-height:110px}
+ .gb-podium-spot.third .gb-podium-block{min-height:55px}
+ .gb-rank-row{grid-template-columns:31px minmax(0,1fr) 62px;gap:5px;padding:8px}
+ .gb-rank-score{display:none}
+ .gb-rank-percent{grid-column:3}
+ .gb-rank-row .leaderboard-remove-btn{grid-column:2/4;justify-self:end}
+ .gb-rank-number{width:27px;height:29px}
+ .gb-history-grid{grid-template-columns:1fr}
+ .pool-collection-card .section-head .toolbar{width:100%;justify-content:flex-start}
+ .student-card.left .student-form{grid-template-columns:1fr}
+ .student-card.left .toolbar.end{flex-wrap:wrap;gap:10px;justify-content:stretch!important}
+ .student-card.left .toolbar.end .btn{flex:1 1 140px}
+ .boost-admin-card,.boost-admin-info{min-width:0}
+}
+@media(max-width:430px){
+ .gb-entrant-counter{font-size:10px}
+ .gb-medal{font-size:21px;height:30px}
+ .gb-podium-person strong{font-size:11px}
+ .gb-podium-person span{font-size:10px}
+ .gb-podium-block small{font-size:8px;letter-spacing:.04em}
+ .gb-podium-block span{font-size:29px}
+ .pool-topic-pick-info{flex-wrap:wrap;gap:6px}
+ .pool-topic-pick-pct{font-size:10px}
+ .gb-history-numbers strong{font-size:19px}
+ .boost-competition-welcome .boost-facts{gap:5px}
+ .boost-facts>div{padding:10px 3px}
+ .boost-facts strong{font-size:19px}
+ .boost-facts small{font-size:9px}
+}
+
+/* Gold hero buttons retain dark text for colour contrast. */
+body .app-shell .hero .btn-primary,body .app-shell .hero .btn-primary *{color:#0a2140!important;-webkit-text-fill-color:#0a2140!important}
+
+/* Consistent white ink on truly navy-blue surfaces; gold calls to action stay dark. */
+.app-shell .sidebar .nav button:not(.active):not([aria-current="page"]),
+.app-shell .sidebar .nav button:not(.active):not([aria-current="page"]) span,
+.app-shell .hero :is(h1,h2,h3,p,.eyebrow),
+.app-shell .ai-banner :is(h1,h2,h3,p),
+.biltz-page .biltz-entry-kicker {color:#fff!important}
+.app-shell .sidebar .nav button.active,.app-shell .sidebar .nav button[aria-current="page"],
+.app-shell .sidebar .nav button.active *, .app-shell .sidebar .nav button[aria-current="page"] *{color:#0a2140!important}
+
+/* v50.6.2: keep administrator navigation independently fixed while the main page scrolls. */
+@media (min-width: 801px){
+  .app-shell>.sidebar{position:fixed!important;inset:0 auto 0 0!important;top:0!important;bottom:0!important;width:260px;height:100dvh!important;max-height:100dvh;overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:rgba(195,213,237,.45) transparent}
+  .app-shell>.sidebar>.nav{flex:0 0 auto!important;overflow:visible!important;max-height:none!important;padding-bottom:18px}
+  .app-shell>.sidebar>.sidebar-footer{margin-top:auto;flex-shrink:0}
+  .app-shell>.main{margin-left:260px!important;width:calc(100% - 260px)!important}
+}
+@media (max-width:800px){
+  .app-shell>.sidebar{position:fixed!important;inset:0 auto 0 0!important;overflow-y:auto!important;overflow-x:hidden!important;max-height:100dvh!important}
+  .app-shell>.sidebar>.nav{flex:0 0 auto!important;overflow:visible!important;max-height:none!important}
+  .app-shell>.main{margin-left:0!important;width:100%!important}
+}
+/* Compact responsive library cards: same tidy, deliberate layout as Question Pools. */
+.app-shell .library-card{min-width:0;overflow:hidden}
+.app-shell .library-card>.section-head{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px}
+.app-shell .library-card>.section-head>div:first-child{flex:1 1 320px;min-width:0}
+.app-shell .library-card>.section-head h2{overflow-wrap:anywhere;line-height:1.28}
+.app-shell .library-card>.section-head .toolbar{flex:0 1 auto;display:flex;flex-wrap:wrap;gap:7px}
+.hub-library-topic-list{min-width:0;margin:15px 0 11px}
+.hub-library-chip-grid{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;max-width:100%}
+.hub-library-topic-chip{display:inline-flex;align-items:center;gap:8px;max-width:100%;min-width:0;border:1px solid #d9e4f1;background:#edf4fc;border-radius:12px;padding:8px 11px;color:#0b3266}
+.hub-library-topic-chip .hub-topic-name{min-width:0;font-size:12px;font-weight:750;line-height:1.35;overflow-wrap:anywhere;white-space:normal}
+.hub-library-topic-chip small{flex:none;white-space:nowrap;background:#fff;border-radius:7px;padding:3px 7px;font-size:10px;color:#466180}
+.hub-library-more{margin-top:10px}
+.hub-library-more summary{cursor:pointer;color:#0b3e79;font-weight:800;padding:9px 0}
+.hub-library-more[open] .hub-library-chip-grid{margin-top:8px}
+.library-card .library-link{overflow-wrap:anywhere;word-break:break-word}
+@media(max-width:600px){
+ .hub-library-chip-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:7px}
+ .hub-library-topic-chip{display:flex;justify-content:space-between;min-width:0}
+ .app-shell .library-card>.section-head .toolbar{width:100%}
+}
+/* Consistent schedule indicators and live countdowns */
+.hub-cbt-window{display:flex;align-items:center;flex-wrap:wrap;gap:5px 9px;margin-top:10px;font-size:12px;color:#143f70}
+.hub-cbt-window strong{font-weight:900}
+.hub-cbt-window small{flex-basis:100%;font-size:11px;color:#576d88}
+.hub-cbt-window.upcoming strong,.hub-cbt-window.upcoming .hub-countdown{color:#905c05}
+.hub-cbt-window.closed strong{color:#9b3141}
+.hub-countdown{font-variant-numeric:tabular-nums;font-weight:900;font-family:system-ui,sans-serif;letter-spacing:.04em}
+.hub-cbt-schedule-editor{margin-top:16px}
+.hub-cbt-schedule-editor .form-grid{margin:10px 0 0}
+.hub-student-schedule,.hub-boost-countdown{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;border:1px solid #d9e3f1;background:#eff5fc;color:#0d315f;border-radius:16px;padding:17px 14px;margin:15px 0}
+.hub-student-schedule strong{font-size:17px}
+.hub-student-schedule span,.hub-boost-countdown strong{font-variant-numeric:tabular-nums;font-family:system-ui,sans-serif;font-size:clamp(22px,5vw,32px);font-weight:900;letter-spacing:.04em}
+.hub-student-schedule small,.hub-boost-countdown small{font-size:12px;line-height:1.5;color:#566d8a}
+.hub-student-schedule.upcoming,.hub-boost-countdown{background:#fffaf0;border-color:#ecd7aa}
+.hub-student-schedule.closed{background:#fff2f3;border-color:#efc8d0}
+.hub-boost-countdown>span{font-weight:900;font-size:12px;letter-spacing:.09em;color:#9a6409}
+.hub-boost-countdown strong{color:#0b356e}
+
+
+/* v50.6.3 emergency layout fix: restore the entire administrator content pane.
+   Earlier .app-shell display:grid from the base theme put the fixed sidebar
+   outside the grid but treated .main as a 4px-wide implicit grid column.
+   This converts the dashboard shell to normal block layout; sidebar remains
+   viewport-fixed, and main is a full-width block with a 260px desktop inset. */
+.app-shell{display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;min-height:100dvh!important;overflow-x:clip!important}
+.app-shell>.main{display:block!important;min-width:0!important;max-width:none!important;overflow-x:clip!important}
+@media (min-width:761px){
+  .app-shell>.sidebar{position:fixed!important;left:0!important;top:0!important;bottom:0!important;width:260px!important;height:100dvh!important;max-height:100dvh!important;overflow-y:auto!important;overflow-x:hidden!important;z-index:100!important}
+  .app-shell>.main{width:calc(100% - 260px)!important;margin-left:260px!important;min-height:100dvh!important}
+}
+@media (max-width:760px){
+  .app-shell>.main{width:100%!important;margin-left:0!important;min-height:100dvh!important}
+  .app-shell>.sidebar{position:fixed!important;top:0!important;bottom:0!important;height:100dvh!important;max-height:100dvh!important;overflow-y:auto!important;overflow-x:hidden!important}
+}

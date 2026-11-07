@@ -1,0 +1,437 @@
+/*
+ * Gifted Brainz Assessment Hub — EduSpace visual system (v50.4.1).
+ * Shares EduSpace design tokens and corporate branding; excludes EduSpace-only avatars, team crests and subject covers. This file is loaded
+ * AFTER styles.css, and provides a single, coherent component language across
+ * all admin and student screens. Functionality remains in app.js.
+ */
+:root{
+  --navy:#082d63;--navy2:#0d3e83;--blue:#1763c6;--blue2:#0d4b94;
+  --gold:#d6a12d;--gold2:#f1ca65;--ink:#142642;--muted:#667085;
+  --text:#142642;--text-body:#142642;--bg:#f4f6fb;--card:#fff;
+  --surface:#fff;--surface-2:#f8fafe;--blue-soft:#eff6ff;
+  --gold-soft:#fff8e8;--line:#e3e8f2;--success:#067647;--danger:#b42318;
+  --shadow:0 12px 30px rgba(8,45,99,.075);
+  --shadow-sm:0 5px 15px rgba(8,45,99,.045);
+  --shadow-md:0 13px 34px rgba(8,45,99,.09);
+  --shadow-lg:0 22px 58px rgba(8,45,99,.14);--radius:16px;
+}
+html{scroll-behavior:smooth}
+body,button,input,select,textarea{font-family:var(--gb-font)}
+body{color:var(--ink);background:#f4f6fb;font-size:14px;line-height:1.55}
+img,svg,video,canvas{max-width:100%}
+button,a,input,textarea,select{touch-action:manipulation}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #e2b44b;outline-offset:2px}
+h1,h2,h3,h4,h5,.page-title,.hero h1,.card h2,.stat .value,.login-card h1,.student-card h1,.result-card h1{font-family:var(--gb-font);letter-spacing:-.025em}
+a{text-underline-offset:3px}
+.sub,.page-sub{color:#64748b;line-height:1.55}
+
+/* === Exact navigation pattern used by EduSpace admin === */
+.app-shell{display:grid;grid-template-columns:264px minmax(0,1fr);min-height:100vh;width:100%;overflow:clip}
+.app-shell>.sidebar{position:sticky;inset:auto;top:0;left:auto;width:264px;height:100vh;min-height:0;overflow-x:hidden;overflow-y:auto;z-index:22;align-self:start;padding:18px 12px;background:linear-gradient(180deg,#0a2f66 0%,#061d42 100%);display:flex;flex-direction:column;gap:14px;color:#fff;box-shadow:none}
+.app-shell .brand{display:flex;align-items:center;gap:10px;padding:4px 6px 14px;border-bottom:1px solid rgba(255,255,255,.1);min-width:0}
+.app-shell .brand img{width:42px;height:42px;flex:none;object-fit:contain;background:transparent;border-radius:0}
+.app-shell .brand>div{min-width:0}
+.app-shell .brand strong{font-size:12px;font-weight:900;line-height:1.15;letter-spacing:.035em;color:#fff}
+.app-shell .brand small{font-size:10px;line-height:1.3;letter-spacing:.08em;color:#aec3df}
+.app-shell .nav{display:flex;flex-direction:column;gap:10px;padding:0;margin:0}
+.app-shell .nav-group{display:flex;flex-direction:column;gap:3px;min-width:0}
+.app-shell .nav-group+.nav-group{border-top:1px solid rgba(255,255,255,.09);padding-top:10px}
+.app-shell .nav-group-title{padding:5px 10px;color:#95aed0;font-size:10px;font-weight:850;line-height:1.3;letter-spacing:.1em}
+.app-shell .nav button{width:100%;background:transparent;border:none;text-align:left;color:#dce7fb;padding:10px 11px;border-radius:12px;min-height:42px;display:flex;gap:10px;align-items:center;font-weight:720;font-size:13px;line-height:1.35;white-space:normal;overflow-wrap:anywhere;transition:background .16s ease,color .16s ease}
+.app-shell .nav button>.ic{flex:none;width:24px;display:inline-grid;place-items:center;font-size:17px;line-height:1.4}
+.app-shell .nav button:hover{background:rgba(255,255,255,.095);color:#fff}
+.app-shell .nav button.active,.app-shell .nav button[aria-current="page"]{background:#f5b301!important;color:#0a2140!important;font-weight:850;box-shadow:none;border:none}
+.app-shell .nav button.active:hover{background:#efb527!important}
+.app-shell .sidebar-footer{margin-top:auto;color:#b3c3d9;font-size:11px;line-height:1.65;padding:12px 8px}
+.app-shell>.main{display:flex;flex-direction:column;min-width:0;min-height:100vh;width:100%;margin:0;padding:0;background:#f4f6fb;color:var(--ink)}
+.app-shell .topbar{height:auto;min-height:71px;position:sticky;top:0;z-index:12;background:#fff;border-bottom:1px solid #e3e8f2;padding:13px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:none}
+.app-shell .top-left{display:flex;align-items:center;gap:10px;min-width:0}
+.app-shell .crumb{font-weight:860;font-size:18px;letter-spacing:-.025em;line-height:1.35;color:#0a2140;overflow-wrap:anywhere}
+.app-shell .user-chip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;color:#223951;font-size:12px}
+.app-shell .admin-avatar{width:36px;height:36px;object-fit:contain;background:#f5f8ff;border:1px solid #e4eaf3;padding:3px;border-radius:11px}
+.app-shell .user-chip .mini{font-size:12px}
+.app-shell .mobile-menu,.hub-side-close{display:none}
+.hub-menu-scrim{display:none}
+.app-shell .content{display:flex;flex-direction:column;gap:18px;width:100%;max-width:1180px;margin:0 auto;padding:22px;min-width:0;color:var(--ink)}
+.app-shell .content>*{min-width:0;max-width:100%}
+.app-shell .content>.grid{min-width:0}
+.app-shell .content>.hero{margin:0}
+.app-shell .hero,.app-shell .biltz-admin-hero{position:relative;isolation:isolate;background:linear-gradient(110deg,rgba(8,45,99,.96),rgba(8,45,99,.84)),url("assets/superbiz-doodle-bg.png") center/cover;color:#fff;padding:25px 27px;border:1px solid #173e79;border-radius:20px;box-shadow:0 15px 32px rgba(8,45,99,.14);min-width:0}
+.app-shell .hero:after{display:none}
+.app-shell .hero>*{position:relative;z-index:1;min-width:0}
+.app-shell .hero .eyebrow{color:#ffda84;font-size:11px;letter-spacing:.1em}
+.app-shell .hero h1{font-weight:850;font-size:clamp(22px,3vw,30px);margin:7px 0 8px;color:#fff;line-height:1.18}
+.app-shell .hero p{color:#e8eef9;font-size:14px;line-height:1.6}
+.app-shell .hero-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.app-shell .stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0}
+.app-shell .stat,.app-shell .card,.app-shell .settings-panel,.app-shell .question-card,.app-shell .draft-card,.app-shell .quiz-management-card,.app-shell .builder-card{background:#fff;border:1px solid #e3e8f2;border-radius:16px;box-shadow:var(--shadow-sm);color:#142642;min-width:0}
+.app-shell .stat{padding:18px;display:flex;flex-direction:column;gap:5px}
+.app-shell .stat .label{font-size:11px;color:#5d6b85;line-height:1.4;font-weight:820;letter-spacing:.04em}
+.app-shell .stat .value{font-size:28px;font-weight:850;color:#082d63;margin:0}
+.app-shell .card{padding:20px}
+.app-shell .card h2,.app-shell .card h3{font-weight:850;color:#0a2140;line-height:1.3}
+.app-shell .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.app-shell .page-title{font-weight:850;font-size:clamp(22px,2.6vw,29px);color:#0a2140}
+.app-shell .page-sub{font-size:14px;color:#627287}
+.app-shell .two{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
+
+/* Clear, consistent EduSpace buttons and form controls */
+.btn,.mini,.app-shell .nav button,.tag{font-family:var(--gb-font)}
+.btn{border-radius:11px;padding:11px 16px;min-height:42px;font-size:13px;font-weight:850;line-height:1.25;box-shadow:none;max-width:100%;white-space:normal;text-align:center}
+.btn-primary{background:#082d63!important;color:#fff!important;border:1px solid #082d63!important;box-shadow:none!important}
+.btn-primary:hover{background:#0e458b!important;color:#fff!important;transform:none}
+.btn-light{background:#fff;color:#082d63;border:1px solid #dce5f0}
+.btn-ghost{background:#edf3fa;color:#082d63;border:1px solid #e0e8f3}
+.btn-danger{background:#fee4e2;color:#9f271c}
+.mini{border-radius:10px;padding:8px 11px;font-weight:780;line-height:1.3}
+.app-shell .field{min-width:0;gap:7px}
+.field label{font-size:12px;font-weight:800;color:#33465d}
+.field input,.field select,.field textarea,.ai-q,.ai-opt{font:inherit;font-size:14px;line-height:1.5;color:#142642;border:1px solid #dbe3ee;border-radius:10px;padding:11px 12px;max-width:100%;background:#fff}
+.field input:focus,.field select:focus,.field textarea:focus,.ai-q:focus,.ai-opt:focus{outline:0;border-color:#bf982d;box-shadow:0 0 0 3px rgba(214,161,45,.19)}
+.form-grid,.form-grid.three,.settings-grid{min-width:0}
+.app-shell .ai-banner{background:#fffaf0;border-color:#ead6aa;gap:15px;box-shadow:none}
+.app-shell .upload-zone{background:#f8fafe;border-color:#bccce0}
+.app-shell .upload-zone:hover{background:#fffaf0;border-color:#d6a12d}
+.app-shell .tag{font-size:11px;letter-spacing:0;white-space:normal}
+.app-shell .table-wrap{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+.app-shell .table{width:100%;border-collapse:collapse}
+.app-shell .table td,.app-shell .table th{overflow-wrap:anywhere;vertical-align:middle}
+.app-shell .question-title,.app-shell .draft-options,.app-shell .quiz-title{overflow-wrap:anywhere}
+.app-shell .quiz-row{min-width:0}
+.app-shell .section-row,.app-shell .field-row{min-width:0}
+.app-shell .boost-admin-card{border:1px solid #e3e8f2;box-shadow:none;padding:17px;border-radius:16px;background:#fff}
+.app-shell .boost-question-form{background:#f8fafe;border:1px solid #dfe8f3;border-radius:14px}
+.app-shell .biltz-admin-hero{margin:0;padding:25px}
+.app-shell .biltz-admin-metrics{min-width:0;flex-wrap:wrap}
+.app-shell .biltz-admin-metrics>div{min-width:105px}
+.app-shell .biltz-admin-card-banner{background:#f0f5fc;color:#0a2140;border-radius:13px;border:1px solid #dbe6f4}
+.app-shell .biltz-admin-card-banner h3{color:#0a2140}
+
+/* === Student entry: shared EduSpace editorial cover, not stacked illustrations === */
+.student-landing,.student-exit,.result-wrap,.login-wrap{min-height:100vh;background:#f4f6fb;color:#142642;padding:clamp(16px,3vw,34px)}
+.student-landing,.result-wrap,.login-wrap{display:flex;justify-content:center;align-items:center}
+.student-card,.result-card,.login-card,.boost-welcome,.boost-play,.boost-results{background:#fff;border:1px solid #e3e8f2;border-radius:20px;box-shadow:0 12px 32px rgba(8,45,99,.08);color:#142642}
+.student-card{width:min(850px,100%);padding:clamp(20px,4vw,34px);text-align:left;min-width:0;position:relative;overflow:visible}
+.student-card .student-card-topbar{display:flex;justify-content:flex-end;min-height:32px;margin-bottom:13px}
+.gb-student-identity{display:flex;align-items:center;gap:11px;margin-bottom:17px;max-width:100%;min-width:0}
+.gb-student-identity .student-logo{display:block;width:53px;height:53px;object-fit:contain;border:none;border-radius:0;background:transparent;box-shadow:none;filter:none;padding:0;margin:0;flex:none}
+.gb-student-identity strong{display:block;font-size:13px;color:#092d61;font-weight:900;letter-spacing:.05em}
+.gb-student-identity small{display:block;font-size:10px;color:#5c6d88;line-height:1.4;letter-spacing:.025em;overflow-wrap:anywhere}
+.student-card .gb-assessment-preview{position:relative;isolation:isolate;background:linear-gradient(116deg,#0a2f66,#1763a1);color:#fff;border-radius:17px;display:grid;grid-template-columns:minmax(0,1fr);gap:0;align-items:center;min-height:155px;padding:24px 24px;overflow:hidden;text-align:left}
+.student-card .gb-assessment-preview:after{content:"";position:absolute;inset:0;background:url("assets/superbiz-doodle-bg.png") center/cover;opacity:.10;pointer-events:none;z-index:-1}
+.gb-assessment-copy{min-width:0;position:relative;z-index:1}
+.student-card .gb-assessment-preview .eyebrow{color:#ffe19a;font-size:11px;font-weight:850;letter-spacing:.11em}
+.student-card .gb-assessment-preview h1{font-size:clamp(22px,3.4vw,33px);color:#fff!important;font-weight:860;margin:6px 0 10px;line-height:1.22;overflow-wrap:anywhere}
+.student-card .gb-assessment-preview .student-description{margin:0;color:#e2eaf5!important;max-width:740px;font-size:14px;line-height:1.55}
+.student-card h1,.result-card h1{color:#0a2140;font-weight:860;line-height:1.25;letter-spacing:-.035em}
+.student-card .eyebrow{color:#0c4f96;font-weight:850}
+.student-card .student-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:20px 0 18px}
+.student-card .student-summary>div{background:#f8fafe;border:1px solid #e3e8f2;border-radius:13px;padding:15px 12px;min-width:0;box-shadow:none}
+.student-card .student-summary span{display:block;color:#627287;font-weight:740;font-size:11px;line-height:1.4}
+.student-card .student-summary b{display:block;color:#0a2140;font-size:18px;font-weight:870;line-height:1.45;overflow-wrap:anywhere}
+.student-card .student-actions{justify-content:flex-start}
+.student-card .student-note{font-size:12px;color:#687991;line-height:1.5}
+.student-card .optional-channel-card{margin-top:20px;border:1px solid #dce6f2;border-radius:13px;box-shadow:none;background:#f8fafe;max-width:100%;min-width:0;overflow-wrap:anywhere}
+.student-card .student-form,.student-card .instructions-box{max-width:100%}
+.student-card.left{text-align:left}
+.student-card .rules>div{background:#f8fafe;border-color:#e3e8f2}
+.student-card .step{color:#0b58ae}
+.student-card .loading-emblem{margin-inline:auto}
+.student-card .loading-emblem img{object-fit:contain}
+.login-wrap{background:linear-gradient(125deg,#082d63,#0e5198);background-image:linear-gradient(120deg,rgba(8,45,99,.97),rgba(8,45,99,.90)),url("assets/superbiz-doodle-bg.png");background-position:center;background-size:cover}
+.login-card{width:min(480px,100%);padding:clamp(23px,4vw,36px);border-radius:18px;box-shadow:0 23px 60px rgba(1,20,56,.25)}
+.login-card>img{width:82px;height:82px;object-fit:contain;display:block;margin:0 auto 10px}
+.login-card h1{text-align:center;color:#092d61;font-size:clamp(24px,3vw,30px)}
+.login-card>.eyebrow{text-align:center;color:#a87917}
+.login-card p{text-align:center;color:#526780;font-size:13px}
+.login-card .health-banner{border-radius:11px;font-size:12px}
+.login-card .field{text-align:left}
+.login-card .login-note{font-size:12px;color:#64748b}
+
+/* Student CBT: same whitespace, surfaces, controls and accent as EduSpace. */
+.cbt-shell{min-height:100vh;background:#f4f6fb;color:#142642}
+.cbt-header{min-height:71px;height:auto;background:#fff;border-bottom:1px solid #e3e8f2;box-shadow:0 3px 13px rgba(8,45,99,.035);display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:11px clamp(14px,2.7vw,27px);z-index:11}
+.cbt-brand{display:flex;align-items:center;gap:11px;min-width:0}
+.cbt-brand img{width:44px;height:44px;object-fit:contain;border:none;border-radius:0;background:transparent}
+.cbt-brand b{font-size:15px;font-weight:880;color:#0a2140}
+.cbt-brand small{color:#65768a;font-size:12px;display:block;line-height:1.4}
+.cbt-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.cbt-body{width:min(1250px,100%);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,284px);align-items:start;gap:18px;padding:22px clamp(12px,3vw,25px)}
+.cbt-body>*{min-width:0;max-width:100%}
+.question-main,.navigator{background:#fff;border:1px solid #e3e8f2;border-radius:17px;box-shadow:var(--shadow-sm);color:#142642;min-width:0}
+.question-main{padding:clamp(17px,3vw,28px);overflow:visible}
+.question-text{color:#182d4a;font-family:inherit;font-size:clamp(17px,2vw,21px);font-weight:730;line-height:1.6;overflow-wrap:anywhere}
+.question-top{color:#596d87;font-weight:800}
+.question-image,.question-main img,.passage-box img{height:auto;max-width:100%;object-fit:contain}
+.question-main .passage-box{background:#f8fafe;border:1px solid #dfe7f1;border-radius:13px;overflow-wrap:anywhere}
+.cbt-option{background:#fff;color:#22344c!important;border:1px solid #dce5ef;box-shadow:none;border-radius:12px;padding:14px 16px;min-height:48px;display:flex;align-items:center;gap:12px;line-height:1.55;overflow-wrap:anywhere;cursor:pointer}
+.cbt-option:hover{background:#f8fafe;border-color:#9cb6d4}
+.cbt-option.selected{background:#fff8e9!important;border-color:#d6a12d!important;box-shadow:0 0 0 2px rgba(214,161,45,.12)!important;color:#142642!important}
+.cbt-option input{accent-color:#082d63}
+.cbt-option>*{min-width:0}
+.navigator{padding:18px;position:sticky;top:93px;height:auto}
+.navigator-title{color:#0a2140;font-weight:840}
+.navigator .legend{color:#5a6980}
+.navigator .nav-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;max-width:100%}
+.navigator .qdot{width:100%;min-width:0;border-radius:8px}
+.cbt-nav{display:flex;gap:9px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.timer,.boost-clock{color:#fff;background:#0a2f66;border-radius:10px;border:none;padding:9px 13px;line-height:1.25;font-variant-numeric:tabular-nums;font-size:17px;font-weight:850}
+.result-wrap{padding:20px}
+.result-card{width:min(870px,100%);max-width:870px;text-align:center;padding:clamp(20px,4vw,36px);color:#142642}
+.result-card h1{font-size:clamp(24px,3vw,32px)}
+.result-stat,.result-stat-card,.score-ring,.score-ring-inner{max-width:100%}
+.results-table,.results-table-wrap,.result-breakdown,.leaderboard-table,.leaderboard-public-table-wrap{max-width:100%;overflow-x:auto}
+.result-card .result-actions{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
+.student-exit{font-size:16px}
+
+/* Question Pool and public libraries should feel like EduSpace Collections. */
+.library-public,.library-public-card,.library-public-item,.student-card .library-card{background:#fff;color:#142642;border:1px solid #e3e8f2;border-radius:16px;box-shadow:var(--shadow-sm);max-width:100%;min-width:0;overflow-wrap:anywhere}
+.library-public-item{padding:17px;transition:border-color .15s,box-shadow .15s}
+.library-public-item:hover{border-color:#c8d6e8;box-shadow:0 8px 21px rgba(8,45,99,.085)}
+.library-public img,.library-public-item img{max-width:100%;height:auto;object-fit:contain}
+.private-library-gate,.private-library-gate-wrap .student-card,.private-gate-icon{color:#142642}
+.private-library-gate .whatsapp-contact-btn,.whatsapp-contact-btn{background:#128c56;color:#fff;border-radius:11px}
+
+/* Results, leaderboard, and modal treatments: consistent surfaces, no overlapping layers. */
+.modal,.confirm-modal,.leaderboard-modal{max-width:calc(100vw - 26px);background:#fff;color:#142642;border-radius:17px;border:1px solid #e1e7f0;box-shadow:0 26px 65px rgba(6,25,54,.2)}
+.modal img,.leaderboard-modal img{max-width:100%;height:auto}
+.modal-head{min-width:0;gap:10px}
+.leaderboard-public-table-wrap,.leaderboard-board,.leaderboard-public-card{background:#fff;color:#142642;border:1px solid #e3e8f2;border-radius:16px;box-shadow:none}
+.official-leaderboard-header{background:linear-gradient(110deg,#0a2f66,#15569a);color:#fff;border-radius:16px}
+.official-leaderboard-header h1,.official-leaderboard-header h2{color:#fff}
+
+/* Standalone Brainz Biltz: EducSpace themed header, facts, cards and clear hierarchy. */
+.boost-student-shell{width:min(950px,100%);margin:0 auto;padding:clamp(14px,3vw,30px)}
+.boost-student-top{border-bottom:1px solid #e3e8f2;margin-bottom:18px;padding:0 0 14px}
+.boost-brand{color:#082d63;font-size:14px;font-weight:870}
+.boost-brand img{width:47px;height:47px;object-fit:contain}
+.boost-welcome,.boost-play,.boost-results{border-radius:18px;padding:clamp(19px,3.8vw,38px);box-shadow:var(--shadow-sm)}
+.boost-welcome h1,.boost-play h1,.boost-results h1{color:#0a2140;font-size:clamp(23px,3vw,34px)}
+.boost-facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.boost-facts>div{background:#f8fafe;border:1px solid #e3e8f2;border-radius:13px;min-width:0}
+.boost-facts strong{color:#0a2f66}
+.boost-clock{background:transparent;color:#0a2f66;padding:0}
+.boost-progress{background:#edf1f7}
+.boost-progress span{background:#d6a12d}
+.boost-answer{color:#142642;background:#fff;border-color:#dce5ef;border-radius:12px;min-height:50px}
+.boost-answer.selected{background:#fff8e8;border-color:#d6a12d}
+.boost-answer.selected>b{background:#0a2f66;color:#fff}
+.boost-score{background:#f8fafe;border-color:#dde7f1}
+.boost-score strong{color:#082d63}
+.boost-question h2{color:#142642;overflow-wrap:anywhere}
+
+.biltz-page{--biltz-blue:#1763c6;--biltz-gold:#d6a12d;min-height:100vh;background:#f4f6fb;color:#142642;overflow-x:clip;padding:0 clamp(12px,2vw,24px) 26px;font-family:inherit}
+.biltz-page:before,.biltz-entry-orb,.biltz-particles,.biltz-entry-card:before,.biltz-emblem-ring{display:none!important}
+.biltz-topbar{max-width:1130px;min-height:72px;background:#fff;border:1px solid #e3e8f2;border-top:none;border-radius:0 0 13px 13px;padding:10px 18px;color:#142642;z-index:5;gap:13px;display:flex;align-items:center;flex-wrap:wrap}
+.biltz-brand,.biltz-brand b{color:#082d63!important;font-weight:890;letter-spacing:.04em}
+.biltz-brand-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;color:#082d63;background:#fff2d2;border:1px solid #efdeb6}
+.biltz-powered{color:#60748a!important;font-size:11px;letter-spacing:.05em}
+.biltz-entry-wrap{width:min(820px,100%);margin:24px auto 0}
+.biltz-entry-card{background:#fff!important;color:#142642!important;border:1px solid #e3e8f2;border-radius:20px;padding:clamp(21px,4vw,37px);box-shadow:var(--shadow);opacity:1;animation:none;text-align:center;overflow:hidden;isolation:isolate}
+.biltz-entry-card.has-cover{background:#fff!important}
+.biltz-cover{z-index:-1;background-size:cover;opacity:.06!important;filter:grayscale(.45)}
+.biltz-brand-emblem{display:grid;place-items:center;margin:2px auto 14px;width:78px;height:78px}
+.biltz-emblem-core{width:72px;height:72px;background:#0a2f66!important;color:#f5c960!important;border:1px solid #284f85!important;border-radius:18px;box-shadow:0 8px 17px rgba(8,45,99,.12)!important;font-size:30px;animation:none!important}
+.biltz-entry-kicker{display:inline-flex;gap:8px;align-items:center;border-radius:50px;padding:7px 12px;background:#f1f6fd;color:#0d4784!important;border:1px solid #dce7f4;font-size:11px;font-weight:820;letter-spacing:.06em}
+.biltz-entry-card h1{font:850 clamp(24px,4vw,38px)/1.23 var(--gb-font);color:#082d63!important;letter-spacing:-.03em;overflow-wrap:anywhere}
+.biltz-entry-card .biltz-challenge-description,.biltz-entry-card>p{font-size:14px;line-height:1.65;color:#526780!important;max-width:620px;margin-left:auto;margin-right:auto}
+.biltz-stats-grid,.biltz-schedule{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:18px 0}
+.biltz-schedule{grid-template-columns:repeat(2,minmax(0,1fr))}
+.biltz-stats-grid>div,.biltz-schedule>div{min-width:0;background:#f8fafe!important;border:1px solid #e3e8f2!important;border-radius:12px!important;box-shadow:none;padding:14px 10px!important}
+.biltz-stats-grid span,.biltz-schedule span{color:#62758c!important;font-size:10px;line-height:1.4;letter-spacing:.06em}
+.biltz-stats-grid strong,.biltz-schedule strong,.biltz-stats-grid small{color:#092e64!important;font-weight:850;overflow-wrap:anywhere}
+.biltz-schedule strong{font-size:13px}
+.biltz-countdown-wrap,.biltz-state-panel,.biltz-approved-panel,.biltz-public-leaderboard{color:#142642;background:#f8fafe;border:1px solid #e1e7ef;border-radius:13px;max-width:100%}
+.biltz-countdown-wrap>strong,.biltz-countdown-wrap>span{color:#0a2f66!important}
+.biltz-entry-card .biltz-inline-message,.biltz-entry-card .biltz-muted,.biltz-entry-card .biltz-price,.biltz-entry-card .biltz-info-grid strong{color:#142642!important}
+.biltz-entry-card .biltz-info-grid>div,.biltz-entry-card .biltz-link-box{background:#f8fafe;border-color:#e3e8f2;color:#142642}
+.biltz-page input,.biltz-page select,.biltz-page textarea{background:#fff;color:#142642;border:1px solid #dce5f0;border-radius:10px}
+.biltz-entry-card .biltz-register-form,.biltz-entry-card .biltz-state-panel,.biltz-entry-card .biltz-approved-panel{color:#142642}
+.biltz-entry-card .biltz-register-form label{color:#334e6b}
+.biltz-public-leaderboard h2{color:#082d63}
+.biltz-public-ranks>div{color:#142642;background:#fff;border:1px solid #e3e8f2;border-radius:9px;min-width:0}
+.biltz-public-ranks b{color:#0a478a}
+.biltz-public-ranks span,.biltz-public-ranks strong{color:#294666!important}
+.biltz-entry-footer{border-color:#e3e8f2;color:#62758c}
+.biltz-privacy-note{color:#62758c!important;font-size:11px}
+
+/* Never overlap on phones, even for long STEM questions, leaderboards, modal content. */
+@media(max-width:1100px){
+  .app-shell .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .app-shell .two{grid-template-columns:minmax(0,1fr)}
+  .app-shell .hero{flex-wrap:wrap}
+  .app-shell .quiz-row{grid-template-columns:minmax(0,1fr) auto auto;gap:8px}
+}
+@media(max-width:900px){
+  .app-shell{grid-template-columns:minmax(0,1fr);overflow:clip}
+  .app-shell>.sidebar{position:fixed;inset:0 auto 0 0;top:0;height:100dvh;width:min(280px,84vw);transform:translateX(-104%);transition:transform .2s ease;z-index:35;box-shadow:0 14px 34px rgba(6,20,45,.13)}
+  .app-shell>.sidebar.open{transform:translateX(0)}
+  .app-shell .sidebar.open~.hub-menu-scrim{display:block;position:fixed;inset:0;z-index:34;background:rgba(6,20,45,.52);border:0;cursor:pointer}
+  .app-shell .hub-side-close{display:inline-grid;place-items:center;margin-left:auto;background:transparent;color:#fff;font-size:27px;width:35px;height:35px;flex:none}
+  .app-shell .mobile-menu{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:9px 11px;background:#0a2f66;color:#fff;font-size:12px;font-weight:800;min-height:40px}
+  .app-shell .topbar{padding:12px 16px;min-height:69px}
+  .app-shell .content{padding:18px}
+  .app-shell .admin-label{display:none}
+  .cbt-body{grid-template-columns:minmax(0,1fr)}
+  .navigator{position:static;top:auto}
+  .navigator .nav-grid{grid-template-columns:repeat(8,minmax(0,1fr))}
+}
+@media(max-width:620px){
+  .app-shell .content{padding:14px;gap:13px}
+  .app-shell .topbar{flex-wrap:wrap;gap:10px}
+  .app-shell .crumb{font-size:15px}
+  .app-shell .user-chip{gap:6px}
+  .app-shell .user-chip .theme-toggle-label,.app-shell .admin-avatar{display:none}
+  .app-shell .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .app-shell .stat{padding:15px}
+  .app-shell .stat .value{font-size:25px}
+  .app-shell .hero,.app-shell .biltz-admin-hero{padding:20px;border-radius:15px}
+  .app-shell .hero h1{font-size:24px}
+  .app-shell .card{padding:16px}
+  .app-shell .form-grid,.app-shell .form-grid.three,.app-shell .settings-grid,.app-shell .draft-options{grid-template-columns:minmax(0,1fr)}
+  .app-shell .field-row,.app-shell .section-row{display:flex;flex-wrap:wrap;gap:9px}
+  .app-shell .field-row>*,.app-shell .section-row>*{min-width:0;max-width:100%}
+  .app-shell .quiz-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+  .app-shell .quiz-row>:first-child{flex:1 1 100%;min-width:0}
+  .student-card{padding:18px}
+  .student-card .gb-assessment-preview{grid-template-columns:minmax(0,1fr);gap:0;padding:18px 15px;min-height:130px}
+  .student-card .gb-assessment-preview h1{font-size:21px}
+  .student-card .gb-assessment-preview .student-description{font-size:12px}
+  .student-card .student-summary{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .student-card .student-summary>div{padding:11px}
+  .student-card .student-actions>*{width:100%}
+  .student-card .student-actions{flex-wrap:wrap}
+  .cbt-header{padding:10px 13px}
+  .cbt-body{padding:12px;gap:12px}
+  .question-main{padding:17px}
+  .cbt-brand b{font-size:13px}
+  .cbt-option{padding:12px}
+  .navigator .nav-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .boost-facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .biltz-page{padding:0 11px 20px}
+  .biltz-topbar{min-height:66px;padding:10px}
+  .biltz-entry-card{padding:22px 15px;border-radius:16px}
+  .biltz-stats-grid,.biltz-schedule{gap:7px}
+  .biltz-stats-grid>div,.biltz-schedule>div{padding:10px 6px!important}
+  .biltz-stats-grid strong{font-size:clamp(13px,4vw,20px)}
+  .biltz-stats-grid span,.biltz-schedule span{font-size:9px}
+  .biltz-brand-emblem{height:63px;width:63px}
+  .biltz-emblem-core{height:60px;width:60px}
+}
+@media(max-width:380px){
+  .app-shell .stats{grid-template-columns:minmax(0,1fr)}
+  .app-shell .topbar .hub-signout{font-size:11px}
+  .student-card .gb-assessment-preview{grid-template-columns:minmax(0,1fr)}
+  .student-card .gb-assessment-copy{padding-right:9px}
+  .navigator .nav-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .biltz-stats-grid{grid-template-columns:minmax(0,1fr)}
+  .biltz-stats-grid>div{display:flex;align-items:center;justify-content:space-between}
+  .biltz-schedule{grid-template-columns:minmax(0,1fr)}
+  .boost-facts{grid-template-columns:minmax(0,1fr)}
+}
+/* Keep both existing optional themes readable without changing their behaviour. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(prefers-reduced-motion:reduce){
+  .app-shell .nav button,.cbt-option,.library-public-item,.boost-answer,.app-shell>.sidebar{transition:none!important}
+  .biltz-page *{animation:none!important}
+}
+/* Visual QA repairs: legacy spans, channel labels, and transient opacity should
+   not obscure navigation, answers or primary actions on any viewport. */
+.app-shell .nav button>span:last-child{display:block;width:auto!important;max-width:100%;min-width:0;flex:1 1 auto;text-align:left!important;line-height:1.4;font-size:13px!important;white-space:normal;word-break:normal;overflow-wrap:break-word}
+.app-shell .nav button>.ic{width:24px!important;text-align:center!important;flex:none!important;line-height:1.3!important}
+.app-shell .card,.app-shell .stat,.app-shell .question-card,.app-shell .draft-card,.question-main,.result-card{animation:none!important;opacity:1!important;transform:none!important}
+.student-card .student-actions .btn-primary,.student-card .student-actions .start-assessment-btn,.cbt-shell .cbt-nav .btn-primary,.navigator .btn-primary{color:#fff!important;background:#082d63!important;border:1px solid #082d63!important}
+.student-card .student-actions .start-assessment-btn:hover,.cbt-shell .cbt-nav .btn-primary:hover,.navigator .btn-primary:hover{background:#0e458b!important;color:#fff!important}
+.student-card .optional-channel-card{color:#0a2140!important}
+.student-card .optional-channel-card .optional-channel-copy,
+.student-card .optional-channel-card .optional-channel-copy strong{color:#0a2140!important}
+.student-card .optional-channel-card .optional-channel-copy small{color:#526780!important;opacity:1!important}
+.student-card .optional-channel-card .optional-channel-arrow{color:#0a478a!important}
+.student-card .optional-channel-card .optional-channel-icon{background:#eaf4ff!important;box-shadow:none!important}
+.student-card .optional-channel-card:hover{border-color:#b9cee7;box-shadow:0 6px 15px rgba(8,45,99,.055)}
+.app-shell .stats .stat{color:#142642!important;background:#fff!important}
+.app-shell .stats .stat .delta{color:#53718f!important}
+.app-shell .card h2,.app-shell .card h3,.app-shell .card .quiz-title{color:#0a2140!important}
+.app-shell .card .sub,.app-shell .card .empty,.app-shell .card p{color:#526780!important}
+.app-shell .card .chart .bar b{color:#0a2140!important}
+.app-shell .card .chart .bar span{color:#62758c!important}
+.app-shell .card .tag.green{color:#176034!important;background:#eaf8f1!important}
+.app-shell .card .tag.red{color:#9e2525!important;background:#fff0f1!important}
+.app-shell .card .tag.gold{color:#77551e!important;background:#fff5d9!important}
+
+
+
+
+
+/* The old Hub stylesheet assigned a hard-coded -webkit-text-fill-color on
+   prominent buttons and the channel notice. It overrode their visible colour
+   even after normal `color` was corrected; reset to currentColor explicitly. */
+body .app-shell .hero .btn-primary{background:#f5b301!important;border-color:#f5b301!important;color:#0a2140!important;-webkit-text-fill-color:#0a2140!important}
+body .app-shell .hero .btn-primary:hover{background:#ffca27!important;border-color:#ffca27!important}
+body .app-shell .hero .btn-light{background:#fff!important;color:#082d63!important;-webkit-text-fill-color:#082d63!important}
+body .app-shell .btn-primary,body .app-shell .btn-primary .sub{color:#fff!important;-webkit-text-fill-color:#fff!important}
+body .student-landing .btn-primary,body .student-landing .start-assessment-btn,
+body .cbt-shell .btn-primary,body .navigator .btn-primary,
+body .result-wrap .btn-primary,body .boost-student-shell .btn-primary{color:#fff!important;-webkit-text-fill-color:#fff!important}
+body .student-landing .optional-channel-card,
+body .student-landing .optional-channel-card strong,
+body .student-landing .optional-channel-card .optional-channel-copy,
+body .student-landing .optional-channel-card .optional-channel-copy strong,
+body .student-landing .optional-channel-card .optional-channel-copy small,
+body .student-landing .optional-channel-arrow{color:#0a2140!important;-webkit-text-fill-color:currentColor!important}
+body .student-landing .optional-channel-card .optional-channel-copy small{color:#526780!important;-webkit-text-fill-color:#526780!important}
+body .cbt-shell .navigator-title{font-family:var(--gb-font)!important}
+body .cbt-shell .question-text{font-family:var(--gb-font)!important}
+body .login-wrap .btn-primary{color:#fff!important;-webkit-text-fill-color:#fff!important}
+/* Mobile menu must never wrap into a stacked two-line icon. */
+.app-shell .topbar .mobile-menu{width:auto!important;min-width:69px;height:39px!important;flex:none;white-space:nowrap!important;word-break:normal!important;line-height:1!important;display:none}
+@media(max-width:900px){.app-shell .topbar .mobile-menu{display:inline-flex!important}}
+@media(max-width:380px){.app-shell .topbar .mobile-menu{min-width:61px;font-size:11px}}
+@media(max-width:380px){
+  .student-card .gb-assessment-copy{padding-right:0}
+}
+/* Biltz visual repair: the legacy midnight skin set explicit white text-fill
+   and dark fields. Both are incompatible with EduSpace's light content cards. */
+body .biltz-page .biltz-entry-card h1,
+body .biltz-page .biltz-entry-card h2,
+body .biltz-page .biltz-register-heading h2{color:#082d63!important;-webkit-text-fill-color:#082d63!important}
+body .biltz-page .biltz-entry-card .biltz-challenge-description,
+body .biltz-page .biltz-entry-card .biltz-register-heading p,
+body .biltz-page .biltz-entry-card .biltz-entry-footnote,
+body .biltz-page .biltz-entry-card .biltz-state-panel span,
+body .biltz-page .biltz-entry-card .biltz-approved-panel span{color:#526780!important;-webkit-text-fill-color:#526780!important;opacity:1!important}
+body .biltz-page .biltz-entry-card .eyebrow,
+body .biltz-page .biltz-entry-card .biltz-register-heading .eyebrow{color:#0d4b94!important;-webkit-text-fill-color:#0d4b94!important}
+body .biltz-page .biltz-entry-card .biltz-register-form input,
+body .biltz-page .biltz-entry-card .biltz-register-form textarea,
+body .biltz-page .biltz-entry-card .biltz-register-form select{background:#fff!important;color:#142642!important;-webkit-text-fill-color:#142642!important;border:1px solid #c8d6e8!important;opacity:1!important;box-shadow:none!important}
+body .biltz-page .biltz-entry-card .biltz-register-form input::placeholder{color:#74859c!important;-webkit-text-fill-color:#74859c!important}
+body .biltz-page .biltz-entry-card .biltz-register-form label{color:#284866!important;-webkit-text-fill-color:#284866!important}
+body .biltz-page .biltz-entry-card .biltz-enter-btn{background:#f5b301!important;color:#082d63!important;-webkit-text-fill-color:#082d63!important;border:1px solid #e6ad17!important;box-shadow:none!important}
+body .biltz-page .biltz-entry-card .biltz-enter-btn *{color:#082d63!important;-webkit-text-fill-color:#082d63!important}
+body .biltz-page .biltz-entry-card .biltz-live-indicator{opacity:1!important}
+body .biltz-page .biltz-entry-card .biltz-countdown-wrap small,
+body .biltz-page .biltz-entry-card .biltz-privacy-note,
+body .biltz-page .biltz-entry-card .biltz-state-panel p{color:#5d6e86!important;-webkit-text-fill-color:#5d6e86!important}
+body .biltz-page .biltz-entry-card .biltz-schedule strong,
+body .biltz-page .biltz-entry-card .biltz-stats-grid strong{color:#092e64!important;-webkit-text-fill-color:#092e64!important}
+body .biltz-page .biltz-entry-card .biltz-schedule span,
+body .biltz-page .biltz-entry-card .biltz-stats-grid span{color:#62758c!important;-webkit-text-fill-color:#62758c!important}
+body .biltz-page .biltz-entry-card .biltz-countdown-wrap strong{color:#082d63!important;-webkit-text-fill-color:#082d63!important}
+/* Prevent the old promotional intro animation from hiding a challenge title while
+   the page is first loading. The name is essential, not decorative content. */
+body .biltz-page .biltz-entry-card>h1 {animation:none!important;opacity:1!important;visibility:visible!important;transform:none!important;text-shadow:none!important;filter:none!important}

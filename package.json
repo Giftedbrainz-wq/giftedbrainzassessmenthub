@@ -1,0 +1,13 @@
+{
+  "name": "gifted-brainz-assessment-hub",
+  "private": true,
+  "version": "50.6.3",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node --check app.js && node --check edge-functions/api/index.js && python -m py_compile test_server.py",
+    "test": "node tests/app-settings-health-regression.mjs && node tests/private-library-regression.mjs && node tests/brainz-biltz-regression.mjs && node tests/extraction-1000-regression.mjs && node tests/brainz-biltz-standalone-regression.mjs && node tests/graphics-assets-regression.mjs && node tests/eduspace-ui-consistency.mjs && node tests/premium-examination-regression.mjs && node tests/comprehension-render-regression.mjs && node tests/cbt-schedule-navigation-regression.mjs && node tests/admin-main-layout-regression.mjs"
+  },
+  "type": "module"
+}

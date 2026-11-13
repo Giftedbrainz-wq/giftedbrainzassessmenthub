@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {readFileSync as read} from 'node:fs';
+const data=file=>read(new URL('../'+file,import.meta.url),'utf8');
+const html=data('index.html'),css=data('button-contrast.css'),app=data('app.js');
+assert.match(html,/button-contrast\.css\?v=50\.8\.0/);
+assert.ok(html.lastIndexOf('button-contrast.css')>html.lastIndexOf('premium-interface.css'),'contrast sheet must be loaded last');
+for(const name of ['.btn-primary','.btn-light','.btn-ghost','.optional-channel-card','.optional-channel-icon'])assert.ok(css.includes(name),name);
+assert.match(css,/--gb-action-blue:#0b4a90/);
+assert.match(css,/background:linear-gradient\(110deg,#148c48,#1a9f54\)!important/);
+assert.match(css,/body \.student-result \.result-actions \.btn-light/);
+assert.match(app,/Save changes/);
+assert.match(app,/Create CBT/);
+assert.match(app,/Submit CBT/);
+assert.match(app,/Return to EduSpace/);
+console.log('PASS action text, backgrounds, follow channel and white results/review controls');

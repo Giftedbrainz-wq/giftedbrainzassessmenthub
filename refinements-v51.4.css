@@ -1,0 +1,104 @@
+/* Gifted Brainz Assessment Hub v51.4 — restrained navy/gold visual hierarchy.
+   Targets the CBT and both Question Pool modes without rewriting older styles. */
+:root{--gb-quiet-gold:#c99b47;--gb-soft-select:#f8fafc;--gb-quiet-border:#b8c9dc}
+
+/* Selected answers: remove the dense blue/solid-letter treatment but keep
+   a distinct, accessible selected state and visible native radio indicator. */
+.cbt-shell.gb-exam-workspace .gb-exam-question .cbt-option.selected,
+.cbt-shell.gb-exam-workspace .gb-exam-question .cbt-option:has(input:checked),
+.cbt-shell.gb-pool-exam .cbt-option.selected,
+.cbt-shell.gb-pool-exam .cbt-option:has(input:checked){
+  background:var(--gb-soft-select)!important;
+  border:1px solid #7997b7!important;
+  box-shadow:inset 3px 0 0 var(--gb-quiet-gold)!important;
+  color:#203550!important;
+}
+.cbt-shell.gb-exam-workspace .gb-exam-question .cbt-option .gb-answer-letter,
+.cbt-shell.gb-exam-workspace .gb-exam-question .cbt-option.selected .gb-answer-letter,
+.cbt-shell.gb-exam-workspace .gb-exam-question .cbt-option:has(input:checked) .gb-answer-letter{
+  background:#f0f4f9!important;color:#173d65!important;
+  border:1px solid #dce5ef!important;
+  -webkit-text-fill-color:#173d65!important;
+  box-shadow:none!important;
+}
+.cbt-shell.gb-pool-exam .cbt-option>span>b:first-child,
+.cbt-shell.gb-pool-exam .cbt-option.selected>span>b:first-child,
+.cbt-shell.gb-pool-exam .cbt-option:has(input:checked)>span>b:first-child{
+  background:#f0f4f9!important;color:#173d65!important;
+  -webkit-text-fill-color:#173d65!important;border:1px solid #dce5ef!important;
+  box-shadow:none!important;
+}
+.cbt-shell.gb-pool-exam .cbt-option input[type=radio],
+.cbt-shell.gb-exam-workspace .gb-exam-question input[type=radio]{accent-color:#14538f!important}
+.cbt-shell.gb-exam-workspace .gb-exam-question .cbt-option:hover:not(.selected),
+.cbt-shell.gb-pool-exam .cbt-option:hover:not(.selected){background:#f8fbfe!important;border-color:#b6c9db!important}
+/* Correct / incorrect states retain semantic borders during Study Mode. */
+.cbt-shell.gb-exam-workspace .gb-exam-question .cbt-option.study-correct,
+.cbt-shell.gb-pool-exam .cbt-option.study-correct{background:#e9f8ef!important;border-color:#65b38e!important;box-shadow:inset 3px 0 0 #29905d!important}
+.cbt-shell.gb-exam-workspace .gb-exam-question .cbt-option.study-wrong,
+.cbt-shell.gb-pool-exam .cbt-option.study-wrong{background:#fff2ef!important;border-color:#dc9992!important;box-shadow:inset 3px 0 0 #c95d50!important}
+
+/* The top two buttons each occupy half the available row. Next / Submit
+   spans the full second row at every viewport, including narrow phones. */
+.cbt-shell.gb-exam-workspace .gb-exam-actions,
+.cbt-shell.gb-pool-exam .cbt-nav{
+  display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  align-items:stretch!important;gap:10px!important;justify-content:stretch!important;
+}
+.cbt-shell.gb-exam-workspace .gb-exam-actions>.btn,
+.cbt-shell.gb-pool-exam .cbt-nav>.btn{min-width:0!important;max-width:none!important;width:100%!important;min-height:44px!important;justify-self:stretch!important;justify-content:center!important;white-space:normal!important}
+.cbt-shell.gb-exam-workspace .gb-exam-actions>.btn:nth-child(3),
+.cbt-shell.gb-pool-exam .cbt-nav>.btn:nth-child(3){grid-column:1/-1!important;background:#103b73;color:#fff}
+.cbt-shell.gb-exam-workspace .gb-exam-actions>.gb-mark-review{border:1px solid #e5d2a4!important;background:#fff9ed!important;color:#71541d!important}
+.cbt-shell.gb-pool-exam .cbt-nav>.btn:nth-child(2){border:1px solid #e5d2a4!important;background:#fff9ed!important;color:#71541d!important}
+
+/* Preserve the original passage title and every deliberate paragraph break.
+   These are real DOM paragraphs, not cosmetic faux breaks. */
+.reading-passage .reading-passage-content{white-space:normal!important;overflow-wrap:anywhere;line-height:1.74}
+.reading-passage .reading-passage-content p,
+.gb-paragraph-preview p{white-space:pre-wrap;line-height:1.78;margin:0 0 .92em;color:inherit}
+.reading-passage .reading-passage-content p:last-child,.gb-paragraph-preview p:last-child{margin-bottom:0}
+.gb-draft-passage-editor{padding:15px;border:1px solid #eadab7;border-radius:14px;background:#fffdfa;display:grid;gap:11px;margin:13px 0}
+.gb-draft-passage-editor .field{min-width:0}
+.gb-draft-passage-editor input,.gb-draft-passage-editor textarea{font-size:14px;color:#163b63}
+.gb-draft-passage-editor .passage-preview{margin:0}
+.gb-draft-passage-editor .passage-preview b{font-size:14px;color:#183e69}
+.question-live-preview .passage-preview .gb-paragraph-preview{white-space:pre-wrap;line-height:1.7}
+
+/* Roman numeral list presentation shared by CBT, study, practice, admin bank,
+   extracted-content review and student correction review. */
+.gb-question-intro{margin-bottom:11px}
+.gb-roman-list{border:1px solid #dbe4ef;border-left:3px solid var(--gb-quiet-gold);background:#fbfcff;padding:11px 13px;border-radius:11px;margin:12px 0;display:grid;gap:8px;font-size:.95em;font-weight:500;max-width:100%}
+.gb-roman-item{display:grid;grid-template-columns:36px minmax(0,1fr);align-items:start;gap:10px;overflow-wrap:anywhere;line-height:1.55}
+.gb-roman-number{font-weight:800;color:#194772;text-align:right;font-variant-numeric:tabular-nums}
+
+/* Missing excessive separation between pool header, summary, and topic cards. */
+.student-landing .student-card.library-public{padding:clamp(18px,3vw,29px)!important}
+.student-landing .student-card.library-public .student-logo{margin-bottom:7px!important}
+.student-landing .student-card.library-public>.eyebrow{margin:3px auto 3px!important}
+.student-landing .student-card.library-public>h1{margin:6px auto 7px!important;font-size:clamp(22px,3vw,30px)!important;line-height:1.26!important}
+.student-landing .student-card.library-public>.student-description{margin:3px auto 12px!important;line-height:1.5!important}
+.student-landing .student-card.library-public .pool-progress-summary{margin:9px 0 14px!important}
+.student-landing .student-card.library-public>.section-head{margin:8px 0!important;align-items:center}
+.student-landing .student-card.library-public>.section-head h3{font-size:17px}
+.student-landing .student-card.library-public .pool-topic-pick-list{margin-top:11px!important;gap:11px!important}
+.app-shell .pool-collection-card .section-head{margin-bottom:6px!important;align-items:start!important}
+.app-shell .pool-collection-card .section-head h2{margin:0 0 5px!important;line-height:1.35}
+.app-shell .pool-collection-card .section-head .sub{margin:0!important;line-height:1.5}
+.app-shell .pool-collection-card .pool-topics-disclosure{margin-top:9px!important;padding-top:9px!important}
+.app-shell .page-sub{margin-bottom:12px!important}
+
+/* Study and Practice calculator: the same practical control as the CBT.
+   Question navigator remains visible on desktop and toggleable on mobile. */
+.gb-pool-exam .cbt-tools>.gb-calculator-toggle{display:inline-flex!important;align-items:center;justify-content:center;min-height:39px;gap:6px;padding:8px 10px!important;border:1px solid #d6e2ef;border-radius:10px;background:#f9fbff;color:#183d6d;flex-shrink:0}
+.gb-pool-exam .gb-pro-calculator,.gb-exam-workspace .gb-pro-calculator{position:fixed;right:clamp(12px,3vw,40px);top:80px;bottom:auto;z-index:130}
+.gb-pool-exam .gb-exam-question-toggle{border:1px solid #d6e2ef;border-radius:10px;background:#f9fbff;color:#183d6d}
+@media(max-width:640px){
+  .cbt-shell.gb-exam-workspace .gb-exam-actions,.cbt-shell.gb-pool-exam .cbt-nav{gap:8px!important}
+  .cbt-shell.gb-exam-workspace .gb-exam-actions>.btn,.cbt-shell.gb-pool-exam .cbt-nav>.btn{font-size:clamp(10px,2.9vw,13px)!important;padding:10px 6px!important}
+  .gb-pool-exam .cbt-tools>.gb-calculator-toggle{padding:7px!important;min-width:38px}
+  .gb-pool-exam .gb-calculator-toggle span{display:none}
+  .gb-pool-exam .gb-pro-calculator,.gb-exam-workspace .gb-pro-calculator{top:auto;bottom:13px;right:10px;max-height:76svh;overflow:auto}
+  .student-landing .student-card.library-public{padding:18px 14px!important}
+  .gb-roman-list{padding:9px;gap:7px}
+}

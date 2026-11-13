@@ -1,0 +1,9 @@
+/* Ordinary CBT Study Mode — light visual feedback */
+.gb-study-no-timer{display:inline-flex;align-items:center;padding:9px 13px;border:1px solid #d4e4f7;border-radius:13px;background:#edf5ff;color:#174d86;font-size:.85rem;font-weight:800}
+.gb-study-feedback{margin:15px 0 4px;padding:14px 16px;border:1px solid #b8daca;border-radius:13px;background:#edf9f3;color:#145b3b;line-height:1.65}
+.gb-study-feedback.gb-study-needs-work{background:#fff5ee;color:#81471a;border-color:#f6d8b8}
+.gb-study-feedback p{margin:4px 0}.gb-study-feedback strong{font-size:.98rem}.gb-study-feedback div{margin-top:8px;color:#293b4e}
+.gb-exam-workspace .cbt-option.study-correct{background:#e9f8ef!important;border-color:#5eab82!important;color:#164b33!important}
+.gb-exam-workspace .cbt-option.study-wrong{background:#fff0ed!important;border-color:#e8a7a0!important;color:#80342c!important}
+.gb-study-hint{color:#5b6c83;font-size:.87rem;padding:5px 2px}
+@media(max-width:600px){.gb-study-feedback{padding:12px 13px}.gb-study-no-timer{font-size:.79rem;padding:7px 10px}}

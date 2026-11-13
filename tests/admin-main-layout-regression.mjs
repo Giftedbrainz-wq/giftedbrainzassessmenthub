@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const css=fs.readFileSync(new URL('../premium-interface.css',import.meta.url),'utf8');
+const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
+const app=fs.readFileSync(new URL('../app.js',import.meta.url),'utf8');
+assert.match(css,/\.app-shell\{display:block!important;width:100%!important;/);
+assert.match(css,/\.app-shell>\.main\{display:block!important;/);
+assert.match(css,/@media \(min-width:761px\)\{[\s\S]*?\.app-shell>\.main\{width:calc\(100% - 260px\)!important;margin-left:260px!important;/);
+assert.match(css,/@media \(max-width:760px\)\{[\s\S]*?\.app-shell>\.main\{width:100%!important;margin-left:0!important;/);
+assert.match(html,/premium-interface\.css\?v=50\.8\.0-contrast/);
+assert.match(app,/<main class="main"><header class="topbar">/);
+assert.match(app,/<section class="content">/);
+console.log('PASS dashboard main-layout correction: block shell, fixed sidebar, visible desktop/mobile content and fresh assets');

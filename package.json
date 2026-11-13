@@ -1,0 +1,13 @@
+{
+  "name": "gifted-brainz-assessment-hub",
+  "private": true,
+  "version": "51.6.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node --check app.js && node --check edge-functions/api/index.js && python -m py_compile test_server.py",
+    "test": "node tests/eduspace-link-v2.integration.mjs && node tests/visual-correction-5071.mjs && node tests/app-settings-health-regression.mjs && node tests/private-library-regression.mjs && node tests/brainz-biltz-regression.mjs && node tests/extraction-1000-regression.mjs && node tests/brainz-biltz-standalone-regression.mjs && node tests/graphics-assets-regression.mjs && node tests/eduspace-ui-consistency.mjs && node tests/premium-examination-regression.mjs && node tests/comprehension-render-regression.mjs && node tests/cbt-schedule-navigation-regression.mjs && node tests/admin-main-layout-regression.mjs && node tests/answer-integrity-regression.mjs && node tests/action-contrast-v508.mjs && node tests/exam-workspace-v51-regression.mjs && node tests/v51.4-examination-polish.mjs && node tests/study-ai-v515.integration.mjs && node tests/study-mode-v512-regression.mjs && node --test tests/gifted-v513-targeted.test.mjs && node tests/study-ai-v516-gate-format.mjs"
+  },
+  "type": "module"
+}

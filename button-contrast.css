@@ -1,0 +1,72 @@
+/* Assessment Hub v50.8.0: readable, consistent actions in every interface.
+   Loaded AFTER premium-interface.css to override conflicting older styles.
+   Do not recolour answer options or result score indicators. */
+:root{--gb-action-blue:#0b4a90;--gb-action-blue-hover:#0a3c77;--gb-action-ink:#102c4e}
+body :is(.app-shell,.student-landing,.cbt-shell,.result-wrap,.boost-student-shell,.login-wrap,.modal-backdrop,.confirm-modal,.library-public-item,.pool-mode-card) .btn-primary,
+body :is(.app-shell,.student-landing,.cbt-shell,.result-wrap,.boost-student-shell,.login-wrap,.modal-backdrop,.confirm-modal,.library-public-item,.pool-mode-card) .btn.btn-primary:disabled{
+  background:var(--gb-action-blue)!important;
+  border:1px solid var(--gb-action-blue)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  text-decoration:none;
+}
+body :is(.app-shell,.student-landing,.cbt-shell,.result-wrap,.boost-student-shell,.login-wrap,.modal-backdrop,.confirm-modal,.library-public-item,.pool-mode-card) .btn-primary:hover:not(:disabled){
+  background:var(--gb-action-blue-hover)!important;
+  border-color:var(--gb-action-blue-hover)!important;
+  color:#fff!important;
+}
+body :is(.app-shell,.student-landing,.cbt-shell,.result-wrap,.boost-student-shell,.login-wrap,.modal-backdrop,.confirm-modal,.library-public-item,.pool-mode-card) .btn-primary :is(span,strong,b,small,i){color:inherit!important;-webkit-text-fill-color:inherit!important}
+/* Exception: prominent hero action retains its familiar brand gold with dark text. */
+body .app-shell .hero .btn-primary,
+body .app-shell .hero .btn-primary:hover:not(:disabled){background:#f5b301!important;border-color:#e4a400!important;color:#102943!important;-webkit-text-fill-color:#102943!important}
+body .app-shell .hero .btn-primary *{color:#102943!important;-webkit-text-fill-color:#102943!important}
+/* White secondary/result/review buttons remain white, rather than navy on black. */
+body :is(.app-shell,.student-landing,.cbt-shell,.result-wrap,.boost-student-shell,.login-wrap,.modal-backdrop,.confirm-modal) .btn-light,
+body .student-result .result-actions .btn-light,
+body .student-result .shared-result-actions .btn-light{
+  background:#fff!important;color:var(--gb-action-ink)!important;
+  -webkit-text-fill-color:var(--gb-action-ink)!important;
+  border:1px solid #c7d7e7!important;
+}
+body :is(.app-shell,.student-landing,.cbt-shell,.result-wrap,.boost-student-shell,.login-wrap,.modal-backdrop,.confirm-modal) .btn-ghost{
+  background:#eaf2fb!important;color:var(--gb-action-ink)!important;
+  -webkit-text-fill-color:var(--gb-action-ink)!important;
+  border:1px solid #c7d7e7!important;
+}
+/* Explicitly green WhatsApp channel call-to-action on desktop and mobile. */
+body #app .student-landing .student-card .optional-channel-card,
+body #app .student-card .optional-channel-card,
+body .optional-channel-card{
+  background:linear-gradient(110deg,#148c48,#1a9f54)!important;
+  border:1px solid #128347!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:0 5px 17px rgba(16,107,54,.18)!important;
+  text-decoration:none!important;
+}
+body #app .student-landing .student-card .optional-channel-card :is(strong,small,span),
+body #app .student-landing .optional-channel-card .optional-channel-arrow,
+body .optional-channel-card :is(strong,small,span){
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+body .optional-channel-card .optional-channel-icon{background:rgba(255,255,255,.13)!important;border-color:rgba(255,255,255,.75)!important;color:#fff!important}
+body .optional-channel-card:hover{background:linear-gradient(110deg,#107a3c,#138847)!important}
+body .whatsapp-card .whatsapp-btn{background:#148c48!important;border-color:#128347!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+/* Keyboard, disabled, and low-end-device affordances. */
+body .btn:focus-visible,body .optional-channel-card:focus-visible{outline:3px solid #e2b44b!important;outline-offset:3px!important}
+body .btn:disabled,body .btn[aria-disabled="true"]{cursor:not-allowed;opacity:.58!important}
+@media(prefers-reduced-motion:reduce){body .btn,body .optional-channel-card{transition:none!important;animation:none!important}}
+
+/* v50.8: the same quiet opt-in prompt for Assessment Hub landing screens. */
+.gb-hub-channel-overlay{position:fixed;inset:0;z-index:12000;background:rgba(5,21,48,.50);display:grid;place-items:center;padding:16px}
+.gb-hub-channel-dialog{position:relative;width:min(365px,100%);background:#fff;color:#153451;border:1px solid #dce6ef;border-radius:19px;padding:28px 23px 20px;text-align:center;box-shadow:0 21px 68px rgba(6,27,54,.25)}
+.gb-hub-channel-dialog h2{font-size:21px;line-height:1.22;margin:11px 8px 8px;color:#132f52;font-weight:900}
+.gb-hub-channel-dialog p{color:#4d647c;font-size:14px;line-height:1.5;margin:0 0 18px}
+.gb-hub-channel-mark{display:grid;place-items:center;margin:0 auto;width:44px;height:44px;border-radius:12px;background:#e6f8ed;color:#108143;font-size:22px}
+.gb-hub-channel-close{position:absolute;right:11px;top:10px;width:34px;height:34px;border:0;border-radius:9px;color:#35506c;background:#f0f4f8;font-size:23px;cursor:pointer}
+.gb-hub-channel-follow{display:flex;justify-content:center;align-items:center;width:100%;min-height:46px;background:#148b47!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border-radius:11px;font-size:15px;font-weight:900;text-decoration:none!important}
+.gb-hub-channel-follow:hover{background:#0c743a!important}.gb-hub-channel-follow:visited{color:#fff!important}
+.gb-hub-channel-later{background:transparent;border:0;color:#556b81;padding:12px 8px 3px;cursor:pointer;font-weight:700;font-size:14px}
+.gb-hub-channel-dialog :is(button,a):focus-visible{outline:3px solid #e2b44b;outline-offset:3px}
+@media(max-width:420px){.gb-hub-channel-dialog{padding:25px 17px 16px;border-radius:16px}.gb-hub-channel-dialog h2{font-size:19px}}
+@media(prefers-reduced-motion:reduce){.gb-hub-channel-dialog *{transition:none!important}}

@@ -1,0 +1,23 @@
+/* Shared Gifted Brainz premium visual language — same source artwork as EduSpace. */
+:root{--navy:#0d2e59;--gold:#c99b47;--line:#dbe5ef;--ink:#17324f;--muted:#657b96}
+.student-landing,.student-exit,.result-wrap{background:radial-gradient(circle at 92% 10%,rgba(216,174,101,.10),transparent 30%),linear-gradient(165deg,#edf3fa 0%,#f6f9fd 60%,#fff 100%)}
+.student-card,.result-card,.library-public{border:1px solid #d9e4ee;box-shadow:0 18px 50px rgba(8,37,72,.09);border-radius:22px}
+.student-card{position:relative;overflow:hidden}
+.student-card:before{content:"";position:absolute;right:-54px;top:-70px;height:200px;width:200px;border:1px solid rgba(199,155,72,.26);border-radius:50%;box-shadow:0 0 0 28px rgba(13,49,87,.025),0 0 0 64px rgba(13,49,87,.015);pointer-events:none}
+.student-card>*{position:relative}
+.student-logo{width:72px;height:72px;padding:6px;border-radius:18px;background:#f7faff;border:1px solid #e4edf5;object-fit:contain;box-shadow:none}
+
+.student-card h1,.result-card h1{font-family:inherit;letter-spacing:-.045em;font-weight:850;color:#102f57}
+.student-summary>div{background:#f1f6fc;border-radius:13px;border:1px solid #e0eaf4}
+.student-summary span{letter-spacing:.02em}
+.btn-primary,.start-assessment-btn{background:#0d376a;border-color:#0d376a;color:#fff;font-weight:780;box-shadow:0 5px 16px rgba(12,53,102,.17)}
+.btn-primary:hover,.start-assessment-btn:hover{background:#134981;border-color:#134981}
+.library-public-item{border-radius:14px;border:1px solid #dbe5ee;background:#fff;transition:box-shadow .15s,border-color .15s}
+.library-public-item:hover{box-shadow:0 6px 17px rgba(12,47,90,.09);border-color:#aabfd5}
+.cbt-option{border:1px solid #dbe4ed;border-radius:13px;transition:background .15s,border-color .15s,box-shadow .15s}
+.cbt-option.selected{background:#edf5fc;border-color:#4876aa;box-shadow:0 0 0 2px rgba(25,85,150,.08)}
+.question-main,.navigator{box-shadow:0 12px 32px rgba(12,43,78,.055);border-color:#dce5f0}
+.question-text{font-family:inherit;font-weight:650;line-height:1.65}
+.result-card{background:#fff}
+@media(max-width:600px){.student-card:before{width:100px;height:100px}}
+@media(prefers-reduced-motion:reduce){.cbt-option,.library-public-item{transition:none}}

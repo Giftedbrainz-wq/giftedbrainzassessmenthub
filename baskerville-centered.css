@@ -1,0 +1,89 @@
+/* Assessment Hub v50.4.2 — Baskerville Old Face and centred student presentation.
+   No fonts are bundled. The installed Baskerville Old Face takes priority;
+   Baskervville (Google Fonts), Georgia and serif are the fallbacks. */
+:root{--gb-font:'Baskerville Old Face',Baskerville,'Baskervville',Georgia,'Times New Roman',serif}
+html,body,button,input,select,textarea,option{font-family:var(--gb-font)}
+body{font-size:15px;line-height:1.58}
+/* Most headings and cards already inherit, but these explicitly override legacy display fonts. */
+body h1,body h2,body h3,body h4,body h5,
+body .page-title,body .crumb,body .brand strong,body .hero h1,
+body .card h2,body .card h3,body .student-card h1,body .result-card h1,
+body .stat .value,body .quiz-title,body .question-title,body .question-text,
+body .btn,body .mini,body .tag,body .navigator-title,
+body .biltz-page,body .biltz-entry-card h1,body .boost-welcome h1,
+body .boost-play h1,body .boost-results h1,
+body .startup-fallback,body .login-card h1 {font-family:var(--gb-font)!important}
+/* KaTeX uses its own math fonts for correct glyphs and mathematical spacing. */
+body .katex,body .katex *,body .gb-math-fallback{font-family:KaTeX_Main,'Times New Roman',serif}
+/* Clear centred preparation and loading: emblem, title, progress, supporting copy. */
+.student-landing,.student-loading-landing{display:grid;place-items:center}
+.student-loading-landing .student-loading-card{width:min(620px,100%);text-align:center!important;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.student-loading-card .student-card-topbar{width:100%;align-self:stretch;justify-content:flex-end}
+.student-loading-card .loading-emblem{margin:4px auto 18px}
+.student-loading-card h1,.student-loading-card .eyebrow,.student-loading-card .sub,
+.student-loading-card .loading-status{text-align:center;width:100%;max-width:520px;margin-inline:auto}
+.student-loading-card .loading-progress-track{width:min(290px,90%);margin:20px auto 12px}
+/* Test cover, candidate sign-in and rules: the focal content is centrally aligned. */
+.student-landing .student-card{margin-inline:auto;text-align:center}
+.student-landing .student-card.left{text-align:center}
+.student-landing .student-card .student-logo{display:block;margin:0 auto 15px}
+.student-landing .gb-student-identity{justify-content:center;text-align:center;max-width:100%;margin-inline:auto}
+.student-landing .gb-student-identity .student-logo{margin:0;flex:none}
+.student-landing .gb-student-identity>div{text-align:center;min-width:0}
+.student-landing .student-card .gb-assessment-preview{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center!important}
+.student-landing .student-card .gb-assessment-copy{width:100%;margin-inline:auto;padding-right:0!important;text-align:center}
+.student-landing .student-card .gb-assessment-preview h1,
+.student-landing .student-card .gb-assessment-preview .student-description,
+.student-landing .student-card .student-description{margin-inline:auto;text-align:center}
+.student-landing .student-card .student-summary>div{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.student-landing .student-card .student-actions,
+.student-landing .student-card .toolbar.end{justify-content:center;flex-wrap:wrap}
+.student-landing .student-card .step,.student-landing .student-card h1,
+.student-landing .student-card .eyebrow{text-align:center}
+/* Keep typing and detailed exam instructions readable in the centre-framed card. */
+.student-landing .student-card .student-form,
+.student-landing .student-card .field,
+.student-landing .student-card .field label,
+.student-landing .student-card .field input,
+.student-landing .student-card .field textarea,
+.student-landing .student-card .rules,.student-landing .student-card .instructions-box{text-align:left}
+.student-landing .student-card .student-form{width:min(580px,100%);margin-inline:auto}
+/* CBT header has a central candidate identity and a separate right-side timer/tools. */
+.cbt-header{display:grid;grid-template-columns:minmax(90px,1fr) minmax(0,480px) minmax(90px,1fr);align-items:center;gap:12px}
+.cbt-header .cbt-brand{grid-column:2;justify-self:center;display:flex;flex:none;justify-content:center;align-items:center;gap:12px;min-width:0;width:100%;max-width:100%;text-align:center}
+.cbt-header .cbt-brand>div{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.cbt-header .cbt-brand b,.cbt-header .cbt-brand small{max-width:100%;white-space:normal;overflow:visible;text-overflow:clip;text-align:center}
+.cbt-header .cbt-tools{grid-column:3;justify-self:end;justify-content:flex-end;flex-wrap:wrap;min-width:0}
+.cbt-header .cbt-brand small{display:block;color:#627287;font-size:13px;line-height:1.35}
+/* Question number belongs in the middle; questions and answer choices remain left aligned. */
+.cbt-shell .question-top{text-align:center;justify-content:center}
+.cbt-shell .question-text,.cbt-shell .cbt-option,.cbt-shell .passage-box{text-align:left}
+.cbt-shell .question-main{min-width:0}
+/* Result front matter, assessment summaries, and Brainz Biltz intro are centred. */
+.result-wrap,.result-card,.result-card h1,.result-card .result-stats,
+.result-card .result-actions{text-align:center}
+.result-card .result-stat{text-align:center}
+.boost-welcome,.boost-results{text-align:center}
+.boost-welcome .boost-facts>div,.boost-results .boost-score{text-align:center}
+.biltz-page .biltz-entry-card,.biltz-page .biltz-entry-card h1,
+.biltz-page .biltz-entry-card .biltz-challenge-description{text-align:center}
+/* Prevent long names and titles from escaping the centred layout. */
+.student-card h1,.student-card .gb-assessment-preview h1,
+.cbt-brand,.result-card h1{overflow-wrap:anywhere}
+@media(max-width:760px){
+ .cbt-header{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px 10px}
+ .cbt-header .cbt-brand{width:100%;flex:none;max-width:100%;text-align:center;justify-content:center}
+ .cbt-header .cbt-brand b{font-size:14px;max-width:100%}
+ .cbt-header .cbt-brand small{display:block!important;font-size:12px;max-width:100%}
+ .cbt-header .cbt-tools{width:100%;max-width:100%;align-self:center;justify-content:center;gap:8px}
+ .cbt-header .cbt-tools>.btn{max-width:100%;white-space:normal;font-size:12px!important;width:auto!important;min-width:0;padding:9px 10px}
+ .cbt-header .cbt-tools>.btn::first-letter{font-size:inherit}
+ .student-loading-card{padding:clamp(20px,5vw,32px) 16px}
+ .student-landing .student-card .student-actions>*{max-width:100%}
+}
+@media(max-width:380px){
+ .cbt-header .cbt-brand img{width:31px;height:31px}
+ .cbt-header .cbt-tools{gap:6px}
+ .cbt-header .cbt-tools .btn{font-size:12px;min-height:38px}
+ .student-landing .student-card .gb-assessment-preview{padding:17px 13px}
+}

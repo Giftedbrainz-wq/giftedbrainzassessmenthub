@@ -1,0 +1,93 @@
+/* Gifted Brainz Assessment Hub — Daily Challenge and Roman formatting v51.11 */
+:root{--dc-navy:#092d5a;--dc-blue:#1a5799;--dc-gold:#d6a839;--dc-line:#dbe5f2;--dc-ink:#193454}
+/* Roman numerals must remain vertically aligned even when a statement wraps. */
+.gb-question-intro{margin:0 0 .7em;white-space:pre-line}
+.cbt-shell .question-text,.gb-exam-question .question-text{white-space:pre-line}
+.gb-roman-list{display:grid!important;gap:8px!important;max-width:100%;margin:12px 0 14px!important;padding:12px!important;border:1px solid #dce5f0;border-left:3px solid #d6a839;background:#fcfdff;border-radius:11px;white-space:normal!important}
+.gb-roman-item{display:grid!important;grid-template-columns:2.6rem minmax(0,1fr)!important;gap:.65rem!important;align-items:start!important;margin:0!important;padding:0!important;text-align:left!important;line-height:1.6!important;font-style:normal!important}
+.gb-roman-number{display:block!important;text-align:left!important;font-family:inherit!important;font-weight:800!important;font-style:normal!important;font-size:1em!important;letter-spacing:0!important;font-variant-numeric:tabular-nums;white-space:nowrap;color:#174779!important}
+.gb-roman-content{min-width:0;white-space:pre-line!important;text-align:left!important;font-style:normal!important;overflow-wrap:anywhere}
+.gb-roman-followup{margin:12px 0 0;white-space:pre-line;line-height:1.65;font-weight:600}
+.daily-admin h1{font-size:clamp(1.45rem,2.5vw,2rem);color:var(--dc-ink);margin:0 0 5px}
+.daily-admin .section-head{align-items:center;flex-wrap:wrap}
+.daily-admin-list{display:grid;gap:12px;margin-block:20px}
+.daily-admin-item{border:1px solid var(--dc-line);border-radius:16px;background:#fff;padding:17px 20px;display:flex;justify-content:space-between;gap:20px;align-items:center;box-shadow:0 6px 19px rgba(15,52,97,.05)}
+.daily-admin-overline{text-transform:uppercase;font-size:10px;font-weight:800;letter-spacing:.06em;color:#537094;margin-bottom:5px}
+.daily-admin-item h3{font-size:1.02rem;color:var(--dc-navy);margin:3px 0 6px;line-height:1.35}
+.daily-admin-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;flex-shrink:0}
+.daily-admin-actions .btn{font-size:.83rem;padding:9px 12px;white-space:nowrap}
+.daily-empty{text-align:center;color:#506884}
+.daily-editor{margin-top:18px}
+.daily-editor h2{margin:0}
+.daily-edit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.daily-edit-grid .field{min-width:0}
+.daily-edit-grid .daily-full{grid-column:1/-1}
+.daily-edit-grid textarea{min-height:90px;width:100%;resize:vertical}
+.daily-edit-grid .field input,.daily-edit-grid .field textarea,.daily-edit-grid .field select{max-width:100%;width:100%}
+.daily-media-upload{display:grid;gap:7px}
+.daily-media-upload input[type=file]{width:100%;background:#f7fafe;border:1px solid var(--dc-line);border-radius:10px;padding:10px;font-size:.84rem}
+.daily-media-upload span{font-size:11px;color:#647793}
+.daily-actions{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:16px}
+.daily-note{font-size:12px;color:#63758d;line-height:1.5}
+.daily-submissions{margin-top:20px}
+.daily-submission{padding:14px;border:1px solid var(--dc-line);border-radius:12px;margin:10px 0}
+.daily-submission summary{cursor:pointer;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--dc-navy)}
+.daily-student-response{white-space:pre-wrap;overflow-wrap:anywhere;background:#f7f9fd;border-radius:10px;padding:12px;line-height:1.55}
+.daily-student-page{min-height:100vh;min-height:100dvh;background:radial-gradient(circle at 85% 0%,#e2ebfa,transparent 43%),linear-gradient(155deg,#f4f7fd,#f7fafc);color:var(--dc-ink);font-family:var(--gb-font,'Plus Jakarta Sans',sans-serif);padding:clamp(13px,3vw,36px) 12px 20px}
+.daily-student-container{width:min(780px,100%);margin:0 auto}
+.daily-student-brand{display:flex;gap:12px;align-items:center;margin:0 0 18px;padding:5px 2px}
+.daily-student-brand img{width:43px;height:43px;object-fit:contain;border-radius:11px}
+.daily-student-brand strong{font-size:.88rem;letter-spacing:.08em;display:block;color:#0d335e}
+.daily-student-brand small{display:block;font-size:.66rem;color:#59708f;letter-spacing:.045em;margin-top:3px}
+.daily-student-card{border:1px solid #e0e8f3;border-radius:clamp(15px,2vw,24px);background:#fff;box-shadow:0 22px 56px rgba(22,53,89,.09);padding:clamp(20px,3.4vw,35px);overflow:hidden}
+.daily-student-card h1{font-size:clamp(1.43rem,3.4vw,2.13rem);line-height:1.22;color:#10345f;letter-spacing:-.025em;margin:12px 0}
+.daily-student-card p{line-height:1.65}
+.daily-welcome,.daily-submitted,.daily-result-wait{text-align:center;max-width:650px;margin:3vh auto}
+.daily-welcome h1{max-width:510px;margin:15px auto}
+.daily-pill{display:inline-flex;align-items:center;gap:5px;padding:7px 12px;background:#edf3fb;color:#24518d;border:1px solid #dae7f7;border-radius:100px;letter-spacing:.07em;font-weight:850;font-size:.68rem}
+.daily-lead{font-size:clamp(.91rem,1.8vw,1.04rem);color:#4b6280;margin:8px 0 22px}
+.daily-challenge-summary{border:1px solid var(--dc-line);border-radius:15px;background:linear-gradient(180deg,#fbfdff,#f4f8fd);padding:17px;display:grid;gap:8px;margin:22px 0;text-align:center}
+.daily-challenge-summary strong{color:#143d6c;font-size:1.04rem}
+.daily-challenge-summary span{font-size:.82rem;color:#526d89;overflow-wrap:anywhere}
+.daily-welcome .btn,.daily-submitted .btn{max-width:330px;margin:10px auto;min-height:45px;display:flex}
+.daily-welcome small,.daily-submitted small,.daily-result-wait small{display:block;margin-top:12px;color:#6d809b;line-height:1.55}
+.daily-closed{padding:14px;border-radius:10px;background:#fff4e4;color:#8b5d11;margin:16px 0;font-weight:750}
+.daily-top-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.daily-mark-chip{font-size:.78rem;color:#426485;font-weight:750;background:#f0f5fb;border-radius:20px;padding:8px 12px}
+.daily-question-stem{margin:16px 0;line-height:1.8;font-size:clamp(1rem,2vw,1.14rem);white-space:pre-line;overflow-wrap:anywhere}
+.daily-question-stem .gb-roman-list{white-space:normal}
+.daily-question-image{display:block;width:auto;max-width:100%;max-height:500px;object-fit:contain;margin:14px auto;border:1px solid #e3eaf3;border-radius:11px}
+.daily-video{width:100%;aspect-ratio:16/9;margin:15px 0;border-radius:12px;overflow:hidden;background:#0c182c}
+.daily-video iframe{width:100%;height:100%;border:0}
+.daily-video-player{display:block;max-width:100%;width:100%;max-height:460px;margin:15px 0;border-radius:12px;background:#0c182c}
+.daily-media-link a{color:#186bb0;font-weight:800}
+.daily-answer-form{border-top:1px solid #e6edf5;margin-top:22px;padding-top:19px}
+.daily-answer-form .field{margin:12px 0}
+.daily-answer-form .field label{display:block;font-weight:800;font-size:.87rem;margin-bottom:7px}
+.daily-answer-form input,.daily-answer-form textarea{width:100%;border:1px solid #cad8e9;border-radius:11px;padding:12px 14px;font-size:1rem;color:#1e3550;background:#fff;line-height:1.6}
+.daily-answer-form textarea{min-height:210px;resize:vertical}
+.daily-answer-form input:focus,.daily-answer-form textarea:focus{outline:3px solid #d5e8fc;border-color:#468fc9}
+.daily-answer-form .field small{display:block;color:#637b95;margin-top:6px;font-size:.73rem}
+.daily-answer-form .daily-actions{justify-content:space-between}
+.daily-success-icon{display:grid;place-items:center;background:#e8f9ef;color:#158352;width:60px;height:60px;font-size:2rem;font-weight:900;border-radius:50%;margin:8px auto 16px}
+.daily-release-time{border:1px solid #d9e5f5;border-radius:11px;background:#f1f6fd;padding:13px;font-weight:800;margin:19px 0;color:#174679}
+.daily-result-ready{max-width:780px;margin:0 auto}
+.daily-result-ready>h1{margin:13px 0 4px}
+.daily-result-score{background:#ecf3fb;color:#114477;border:1px solid #d7e5f6;padding:18px 22px;font-weight:900;font-size:clamp(1.2rem,4vw,1.75rem);border-radius:14px;text-align:center;margin:17px 0}
+.daily-result-score small{display:block;font-size:.8rem;color:#476887;margin-top:3px}
+.daily-result-section{margin:22px 0;padding:16px;border:1px solid #e0e9f3;border-radius:12px;line-height:1.65}
+.daily-result-section h2{font-size:.99rem;color:#143c6b;margin:0 0 9px}
+.daily-result-section ul{padding-left:20px;margin:0}
+.daily-review-flag,.daily-pending{background:#fff6de;border:1px solid #f1dba4;border-radius:12px;padding:12px;color:#74551c}
+.daily-student-foot{text-align:center;margin:18px 0 4px;color:#71829a;font-size:.75rem}
+@media(max-width:650px){
+ .gb-roman-list{padding:10px!important;gap:6px!important}.gb-roman-item{grid-template-columns:2.15rem minmax(0,1fr)!important;gap:.45rem!important}
+ .daily-admin-item{padding:13px;flex-direction:column;align-items:stretch;gap:12px}
+ .daily-admin-actions{justify-content:flex-start;flex-wrap:wrap}.daily-admin-actions .btn{font-size:.78rem;padding:9px 10px}
+ .daily-edit-grid{grid-template-columns:1fr;gap:11px}.daily-edit-grid .daily-full{grid-column:auto}
+ .daily-editor{padding:15px}.daily-student-brand{margin-bottom:11px}.daily-student-brand img{width:39px;height:39px}
+ .daily-welcome,.daily-submitted,.daily-result-wait{margin:0 auto}.daily-result-section{padding:12px}
+ .daily-student-card{padding:20px 17px}.daily-answer-form .daily-actions .btn{flex:1}
+}
+@media print{.daily-student-page{background:white!important;padding:0}.daily-student-card{box-shadow:none;border:0}.daily-result-ready .daily-actions{display:none}}
+@media(prefers-reduced-motion:reduce){.daily-student-page *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}

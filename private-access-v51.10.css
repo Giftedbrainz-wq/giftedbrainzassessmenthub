@@ -1,0 +1,183 @@
+/* Gifted Brainz Assessment Hub v51.10.0
+   Compact mobile admin layout and manually approved private access.
+   The desktop typography and geometry stay intentionally unchanged. */
+[hidden]{display:none!important}
+.gb-private-landing{min-height:100svh;display:flex;justify-content:center;align-items:flex-start;padding:clamp(14px,3vw,36px) 12px;background:radial-gradient(ellipse at top right,rgba(20,89,164,.11),transparent 52%),linear-gradient(155deg,#f4f7fc 0%,#eaf0f9 100%)}
+.gb-private-card{width:min(590px,100%);max-width:100%;padding:clamp(20px,4vw,32px)!important;text-align:center!important;border:1px solid #d9e4f2!important;border-radius:22px!important;box-shadow:0 18px 55px rgba(17,47,87,.11)!important;background:#fff!important;overflow-wrap:anywhere}
+.gb-private-mark{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:8px 0 17px;color:#0c3872;font-size:.76rem;letter-spacing:.065em;font-weight:900}
+.gb-private-mark span{color:#85600a}
+.gb-private-lock{width:47px;height:47px;display:grid;place-items:center;margin:0 0 16px;border:1px solid #dce8f5;border-radius:14px;background:#eef5ff;font-size:1.45rem}
+.gb-private-card .eyebrow{color:#4d6e97;font-size:.67rem;letter-spacing:.11em;margin:0 0 5px}
+.gb-private-card h1{font-size:clamp(1.45rem,4.2vw,2.15rem)!important;line-height:1.19!important;letter-spacing:-.025em;color:#103466;margin:4px 0 10px}
+.gb-private-desc{font-size:.94rem;line-height:1.55;color:#536780;margin:0 0 16px}
+.gb-private-fee{border:1px solid #cbdcf2;border-top:4px solid #1459a4;background:linear-gradient(110deg,#f4f8ff,#fff);padding:14px 17px;border-radius:13px;margin:16px 0}
+.gb-private-fee>span{display:block;color:#425b77;font-size:.8rem;font-weight:750;letter-spacing:.01em}
+.gb-private-fee strong{display:block;font-size:clamp(1.6rem,5vw,2.2rem);line-height:1.25;color:#0b3e7e;margin:5px 0}
+.gb-private-fee small{font-size:.82rem;font-weight:600;color:#54708e}
+.gb-private-fee p{font-size:.79rem;margin:5px 0 0;line-height:1.48;color:#5e718a}
+.gb-private-card .private-library-summary{display:grid;gap:4px;margin:13px 0;padding:11px 13px;border:1px solid #e2eaf5;border-radius:11px;background:#fafcfe;text-align:center}
+.gb-private-card .private-library-summary span{font-size:.74rem;color:#61758e}
+.gb-private-card .private-library-summary strong{font-size:.93rem;color:#162f51;line-height:1.4}
+.gb-private-steps{display:flex;align-items:flex-start;gap:10px;margin:13px 0}
+.gb-private-steps p{font-size:.85rem;line-height:1.55;color:#4e627c;margin:0}
+.gb-private-step-dot{flex:none;display:grid;place-items:center;background:#dfeafb;border-radius:50%;width:25px;height:25px;color:#10457e;font-size:.77rem;font-weight:800}
+.gb-private-card .private-device-field{text-align:left;margin:10px 0 14px}
+.gb-private-card .private-device-field label{font-size:.81rem;font-weight:800;color:#274362;margin:0 0 7px;display:block}
+.gb-private-card .device-id-entry{display:flex;gap:8px;align-items:stretch;min-width:0}
+.gb-private-card .device-id-entry input{min-width:0;flex:1 1 0;width:100%;font-size:.8rem;letter-spacing:.015em;background:#f6f9ff;border:1px solid #cbd6e6;padding:11px 12px;color:#183558}
+.gb-private-card .device-id-entry .mini{flex:none;white-space:nowrap;background:#e7f0fd;color:#0d4684;padding:9px 12px;font-weight:800;border:1px solid #cbdff6;border-radius:9px}
+.gb-private-contact{display:flex;justify-content:center;align-items:center;gap:7px;text-align:center;text-decoration:none!important;color:#fff!important;background:#1457a2!important;border:1px solid #124c8b;border-radius:11px;padding:12px 14px;margin:15px 0;font-size:.86rem;font-weight:800;line-height:1.45;box-shadow:0 7px 17px rgba(20,87,162,.17);transition:background .15s}
+.gb-private-contact:hover{background:#0d4384!important}
+.gb-private-check{margin:4px 0 9px;display:block;width:100%;max-width:100%;min-height:43px;white-space:normal;font-size:.92rem!important}
+.gb-private-footnote{display:block;color:#788ca1;font-size:.69rem;line-height:1.5;margin:10px 0 0}
+@media (max-width:850px){
+  /* The earlier desktop 320px flex-basis was becoming a 320px HIGH row
+     after flex-direction changed to column on a narrow screen. */
+  .app-shell .library-card>.section-head,
+  .app-shell .pool-collection-card>.section-head{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:10px!important;height:auto!important;min-height:0!important}
+  .app-shell .library-card>.section-head>div:first-child,
+  .app-shell .pool-collection-card>.section-head>div:first-child{
+    flex:0 1 auto!important;flex-basis:auto!important;flex-grow:0!important;flex-shrink:1!important;
+    width:100%!important;max-width:100%!important;height:auto!important;min-height:0!important;margin:0!important
+  }
+  .app-shell .library-card>.section-head>.toolbar,
+  .app-shell .pool-collection-card>.section-head>.toolbar{
+    flex:0 0 auto!important;flex-basis:auto!important;width:100%!important;align-self:flex-start!important;
+    margin:0!important;padding:0!important;display:flex!important;gap:7px!important;flex-wrap:wrap!important
+  }
+  .app-shell .library-card,.app-shell .pool-collection-card{height:auto!important;min-height:0!important;max-height:none!important;display:block!important}
+  .app-shell .library-card .hub-library-topic-list,
+  .app-shell .pool-collection-card .pool-topics-disclosure{margin:12px 0 8px!important;min-height:0!important}
+  .app-shell .library-card .hub-library-chip-grid{gap:7px!important}
+  .app-shell .library-card .hub-library-topic-chip{min-height:0!important;padding:9px 10px!important}
+  .app-shell .library-card .library-link{margin-top:9px!important;font-size:.77rem;word-break:break-word}
+  .app-shell .pool-collection-card .pool-topic-chip{min-height:0!important;max-width:100%;height:auto!important}
+}
+@media (max-width:680px){
+ .app-shell .library-card .section-head h2,.app-shell .pool-collection-card .section-head h2{font-size:clamp(1rem,3.8vw,1.18rem)!important;line-height:1.35!important;overflow-wrap:anywhere;margin:0!important}
+ .app-shell .library-card>.section-head .sub,.app-shell .pool-collection-card>.section-head .sub{font-size:.79rem!important;line-height:1.45!important}
+ .app-shell .library-card>.section-head>.toolbar .mini,
+ .app-shell .pool-collection-card>.section-head>.toolbar .mini{font-size:.78rem!important;min-height:35px!important;padding:8px 10px!important}
+ /* Review-generated-content controls no longer squeeze two oversized buttons into a half-width column. */
+ .app-shell .card>.section-head:has(+ .draft-page-toolbar){flex-direction:column!important;align-items:stretch!important;gap:12px!important}
+ .app-shell .card>.section-head:has(+ .draft-page-toolbar)>div:first-child{flex-basis:auto!important;flex-grow:0!important;height:auto!important;min-height:0!important;width:100%!important}
+ .app-shell .card>.section-head:has(+ .draft-page-toolbar)>.toolbar{display:grid!important;grid-template-columns:1fr!important;width:100%!important;gap:8px!important}
+ .app-shell .card>.section-head:has(+ .draft-page-toolbar)>.toolbar>.btn{width:100%!important;white-space:normal!important;min-height:40px!important;text-align:center;padding:10px 12px!important;font-size:.82rem!important;overflow-wrap:anywhere;line-height:1.4}
+ .app-shell .draft-page-toolbar{display:flex!important;gap:8px!important;align-items:center!important;flex-wrap:wrap!important;margin-top:12px!important}
+ .app-shell .draft-page-toolbar>.toolbar{width:100%!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
+ .app-shell .draft-page-toolbar .btn{padding:9px 10px!important;min-height:36px!important;font-size:.78rem!important}
+ .app-shell .draft-card{padding:12px!important;border-radius:11px!important;overflow:hidden}
+ .app-shell .draft-card textarea,.app-shell .draft-card input{font-size:.9rem!important;min-width:0!important;width:100%!important;max-width:100%!important}
+ .app-shell .draft-options{grid-template-columns:minmax(0,1fr)!important;gap:8px!important}
+ .app-shell .draft-options>div{grid-template-columns:minmax(0,1fr) auto!important;gap:7px!important}
+ .app-shell .draft-card .field{min-width:0!important}
+ .gb-private-landing{padding:10px 8px 22px!important}
+ .gb-private-card{padding:18px 14px!important;border-radius:15px!important}
+ .gb-private-fee{padding:12px 14px}
+ .gb-private-card .student-card-topbar{margin-bottom:5px}
+}
+@media (max-width:360px){
+ .gb-private-card .device-id-entry{flex-wrap:wrap}
+ .gb-private-card .device-id-entry input{flex-basis:100%;width:100%}
+ .gb-private-card .device-id-entry .mini{width:100%}
+ .app-shell .library-card>.section-head>.toolbar .mini,
+ .app-shell .pool-collection-card>.section-head>.toolbar .mini{font-size:.72rem!important;padding:7px 8px!important}
+}
+@media(prefers-reduced-motion:reduce){.gb-private-contact{animation:none;transition:none}}
+
+/* v51.9: centre the private access card on phones AND laptops. */
+.gb-private-landing{align-items:center!important;justify-content:center!important}
+.gb-private-card{margin-inline:auto!important;text-align:center!important}
+.gb-private-card .student-card-topbar,.gb-private-card .gb-private-mark{
+  justify-content:center!important;text-align:center!important;
+}
+.gb-private-card .gb-private-lock{margin:2px auto 15px!important}
+.gb-private-card .eyebrow,.gb-private-card h1,.gb-private-card .gb-private-desc,
+.gb-private-card .gb-private-fee,.gb-private-card .private-library-summary,
+.gb-private-card .gb-private-footnote{text-align:center!important}
+.gb-private-card .gb-private-steps{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;margin:13px auto}
+.gb-private-card .gb-private-steps p{max-width:440px;text-align:center;margin:0 auto}
+.gb-private-card .private-device-field{text-align:center!important}
+.gb-private-card .private-device-field label{text-align:center!important}
+#gbPrivateStatus{text-align:center!important;margin:8px auto 11px;font-size:.8rem;color:#455f7a;line-height:1.45}
+.gb-private-card .device-id-entry{max-width:510px;margin-inline:auto}
+.gb-private-card .device-id-entry input{text-align:center!important;min-width:0}
+.gb-private-card .gb-private-contact{justify-content:center!important;text-align:center!important}
+.gb-private-card .gb-private-fee{margin-inline:auto}
+.gb-private-card .private-library-summary{justify-items:center}
+.gb-private-card .gb-private-mark{font-size:clamp(.68rem,1.7vw,.84rem);letter-spacing:.025em;gap:5px}
+.gb-private-card h1{font-size:clamp(1.4rem,3vw,2rem)!important}
+/* Mock titles: fit text dynamically to one row without extreme shrinking.
+   On tiny phones, the ending is elided rather than using an unreadable font. */
+.gb-mock-singleline{display:block;min-width:0!important;max-width:100%;width:100%;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;overflow-wrap:normal!important;line-height:1.3!important}
+.gb-assessment-copy{min-width:0;width:100%}
+.gb-assessment-copy .gb-mock-singleline{margin-inline:auto;max-width:100%}
+.quiz-card-main,.quiz-card-main>div:first-child,.quiz-row>div:first-child{min-width:0}
+.quiz-management-card .gb-mock-singleline{font-size:clamp(1rem,1.8vw,1.22rem)}
+/* Only the active CBT header's brand must remain left-aligned. */
+.gb-exam-workspace .gb-exam-header>.cbt-brand{
+  justify-self:start!important;justify-content:flex-start!important;text-align:left!important;
+  align-self:center;min-width:0;
+}
+.gb-exam-workspace .gb-exam-header>.cbt-brand>div{text-align:left!important;min-width:0}
+.gb-exam-workspace .gb-exam-header>.cbt-brand small{white-space:nowrap;letter-spacing:0}
+@media(max-width:680px){
+  .gb-private-landing{padding:12px 9px 20px!important}
+  .gb-private-card{padding:18px 14px!important}
+  .gb-private-card .gb-private-mark{margin:4px auto 11px!important}
+  .gb-private-card .gb-private-fee{margin:12px auto!important}
+  .gb-private-card .gb-private-step-dot{width:25px;height:25px}
+  .gb-exam-workspace .gb-exam-header>.cbt-brand small{font-size:clamp(8px,2vw,10px)!important}
+  .gb-exam-workspace .gb-exam-header>.cbt-brand b{font-size:clamp(10px,2.7vw,12px)!important}
+}
+@media(max-width:355px){
+  .gb-exam-workspace .gb-exam-header>.cbt-brand img{width:28px!important;height:28px!important}
+  .gb-exam-workspace .gb-exam-header>.cbt-brand{gap:5px!important}
+  .gb-exam-workspace .gb-exam-header>.cbt-brand small{font-size:8px!important}
+}
+
+/* v51.10: dedicated private-access layout, centred on all screen widths. */
+.gb-private-landing{min-height:100svh!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:clamp(13px,4vw,34px) 12px!important;box-sizing:border-box}
+.gb-private-card{width:min(560px,100%)!important;margin:auto!important;padding:clamp(18px,3.5vw,32px)!important;border-radius:22px!important;text-align:center!important;box-sizing:border-box}
+.gb-private-card .student-card-topbar{display:flex;justify-content:center!important;width:100%;margin:0 0 8px!important}
+.gb-private-mark{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;margin:4px auto 15px!important;max-width:100%;font-weight:850!important;letter-spacing:.08em!important;color:#143d70!important;font-size:clamp(.76rem,2.5vw,.9rem)!important;text-align:left!important}
+.gb-private-mark img{width:35px!important;height:35px!important;object-fit:contain}
+.gb-private-mark span{display:flex;flex-direction:column;gap:2px}
+.gb-private-mark small{font-size:.69em;color:#6985a5;letter-spacing:.15em}
+.gb-private-card .gb-private-lock{height:60px;width:60px;margin:0 auto 15px!important;background:linear-gradient(140deg,#e8f3ff,#f5f9ff);border:1px solid #bfd7f1;border-radius:19px;display:flex;align-items:center;justify-content:center;color:#1764b0;box-shadow:0 10px 24px rgba(16,80,149,.08)}
+.gb-private-card>.eyebrow{color:#44709e!important;letter-spacing:.13em!important;font-size:.69rem!important;text-align:center!important;margin:0 auto 6px!important}
+.gb-private-card h1{font-size:clamp(1.47rem,4vw,2rem)!important;line-height:1.2!important;margin:0 auto 9px!important;max-width:460px!important;text-align:center!important;color:#133b68!important}
+.gb-private-card .gb-private-desc{max-width:460px;margin:0 auto 15px!important;color:#516d8a;font-size:clamp(.83rem,2.7vw,.94rem)!important;line-height:1.6!important;text-align:center!important}
+.gb-private-card .private-library-summary{max-width:480px;width:100%;margin:0 auto 15px!important;padding:12px 14px!important;text-align:center!important;justify-items:center;border:1px solid #dfe9f5!important;border-radius:12px!important;background:#f8fbff!important}
+.gb-private-card .private-library-summary span{color:#71849d;font-size:.73rem}
+.gb-private-card .private-library-summary strong{font-size:.95rem;line-height:1.4;overflow-wrap:anywhere}
+.gb-private-card .gb-private-fee{max-width:480px;margin:0 auto 14px!important;padding:12px;border:1px solid #ceddf0;border-radius:12px;background:#f9fbff;text-align:center}
+.gb-private-card .gb-private-fee>span{display:block;color:#496784;font-size:.8rem}
+.gb-private-card .gb-private-fee strong{display:block;font-size:1.42rem;color:#143e72;margin:4px 0}
+.gb-private-card .gb-private-fee p{font-size:.79rem;color:#607891;line-height:1.5;margin:0}
+.gb-private-card .gb-private-steps{display:flex;flex-direction:column;align-items:center;gap:6px;margin:12px auto!important;text-align:center;max-width:460px}
+.gb-private-card .gb-private-steps p{margin:0!important;line-height:1.5;color:#54718b;font-size:.83rem}
+.gb-private-card .gb-private-step-dot{width:23px;height:23px;border-radius:50%;background:#e5f0fc;color:#0c4b84;display:grid;place-items:center;font-size:.78rem;font-weight:850}
+.gb-private-card .private-device-field{margin:9px auto 13px!important;max-width:480px!important;width:100%;text-align:center!important}
+.gb-private-card .private-device-field label{margin:0 auto 7px!important;text-align:center!important;color:#264a6d;font-weight:750;font-size:.81rem}
+.gb-private-card .device-id-entry{display:flex;align-items:stretch;gap:8px;max-width:480px;width:100%;margin:0 auto!important}
+.gb-private-card .device-id-entry input{width:100%;min-width:0;flex:1 1 0;background:#f7faff;border:1px solid #ccdbea;padding:10px 12px;font-size:.77rem;text-align:center!important;border-radius:9px;color:#274969}
+.gb-private-card .device-id-entry .mini{flex:0 0 auto;border-radius:9px;min-height:41px;padding:8px 12px;font-weight:800;white-space:nowrap;background:#e9f2ff;color:#184d7f;border:1px solid #c9dcf4}
+.gb-private-card .gb-private-contact{display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;max-width:480px;margin:13px auto 17px!important;padding:13px 14px!important;min-height:49px;background:linear-gradient(145deg,#1fca65,#0ca454)!important;border:1px solid #10a554!important;border-radius:12px!important;text-align:center!important;color:#fff!important;text-decoration:none!important;font-size:clamp(.82rem,2.6vw,.95rem)!important;font-weight:850!important;box-shadow:0 6px 21px rgba(25,183,93,.32),0 0 0 3px rgba(37,211,102,.09)!important;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease!important;animation:gbWhatsAppGlow 2.7s ease-in-out infinite}
+.gb-private-card .gb-private-contact:hover,.gb-private-card .gb-private-contact:focus-visible{transform:translateY(-2px);filter:brightness(1.03);box-shadow:0 8px 28px rgba(23,180,90,.42),0 0 0 4px rgba(37,211,102,.15)!important}
+.gb-private-card .gb-private-contact .gb-whatsapp-icon{width:23px;height:23px;flex:0 0 23px;color:#fff}
+.gb-private-card .gb-private-contact-unavailable{max-width:480px;margin:13px auto 17px;padding:10px 13px;border-radius:9px;background:#f0f4fa;border:1px solid #d9e2ee;color:#54708c;font-size:.8rem;line-height:1.5}
+.gb-private-card .gb-private-check{display:block!important;max-width:480px!important;width:100%;margin:8px auto 7px!important;min-height:46px;font-size:.91rem!important}
+.gb-private-card #gbPrivateStatus{text-align:center!important;font-size:.79rem;line-height:1.5;color:#53708d;max-width:460px;margin:7px auto 10px!important}
+.gb-private-card .gb-private-footnote{display:block!important;font-size:.7rem;line-height:1.52;color:#8293a5;max-width:440px;margin:10px auto 0;text-align:center!important}
+@keyframes gbWhatsAppGlow{0%,100%{box-shadow:0 6px 20px rgba(25,183,93,.25),0 0 0 3px rgba(37,211,102,.08)}50%{box-shadow:0 9px 30px rgba(25,183,93,.39),0 0 0 5px rgba(37,211,102,.12)}}
+@media(max-width:520px){.gb-private-landing{padding:12px 8px!important}.gb-private-card{padding:18px 14px!important;border-radius:17px!important}.gb-private-mark{margin-bottom:11px!important}.gb-private-card .gb-private-lock{height:52px;width:52px;border-radius:15px;margin-bottom:11px!important}.gb-private-card .device-id-entry{flex-wrap:wrap}.gb-private-card .device-id-entry input{flex:1 1 100%}.gb-private-card .device-id-entry .mini{flex:1 1 100%;width:100%}.gb-private-card .gb-private-contact{margin:12px auto!important;min-height:48px}.gb-private-card .gb-private-steps{margin:9px auto!important}}
+@media(prefers-reduced-motion:reduce){.gb-private-contact{animation:none!important;transition:none!important}}
+/* Mock-test engagement: centred compact chips, never tall square tiles. */
+.gb-quiz-engagement{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin:12px auto 15px;max-width:100%;color:#315978;font-size:.81rem;line-height:1.35}
+.gb-quiz-engagement span{display:inline-flex;align-items:center;gap:5px;border:1px solid #dbe6f2;border-radius:999px;padding:7px 12px;background:linear-gradient(180deg,#fff,#f7faff);white-space:nowrap}
+.gb-quiz-engagement strong{font-weight:850;color:#104d88}
+.gb-quiz-engagement.compact{justify-content:flex-start;gap:7px;margin:7px 0 4px;font-size:.75rem}
+.gb-quiz-engagement.compact span{padding:5px 10px}
+.student-card .gb-quiz-engagement{justify-content:center}
+@media(max-width:380px){.gb-quiz-engagement{gap:6px;font-size:.76rem}.gb-quiz-engagement span{padding:6px 9px}}

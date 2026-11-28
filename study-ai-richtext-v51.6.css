@@ -1,0 +1,39 @@
+/* Gifted Brainz v51.6 - organised AI explanations and softened dialogue */
+.gb-study-ai-panel{
+  top:12px;right:12px;height:calc(100dvh - 24px);height:calc(100svh - 24px);
+  width:min(492px,calc(100vw - 24px));
+  border:1px solid #dbe6f3;border-radius:24px;
+  box-shadow:0 18px 65px rgba(5,26,55,.30);
+}
+.gb-study-ai-head{border-radius:23px 23px 0 0;}
+.gb-study-ai-new,.gb-study-ai-dismiss{border-radius:14px}
+.gb-study-ai-context{border-radius:0}
+.gb-study-ai-message{border-radius:20px;padding:17px 18px}
+.gb-study-ai-loading,.gb-study-ai-error,.gb-study-ai-welcome{border-radius:17px}
+.gb-study-ai-compose{border-radius:17px}
+.gb-study-ai-compose button{border-radius:13px}
+.gb-study-ai-entry{border-radius:18px}
+.gb-study-ai-entry .gb-study-ai-open{border-radius:14px}
+.gb-ai-richtext{font-size:13px;line-height:1.75;letter-spacing:0;color:inherit;overflow-wrap:anywhere}
+.gb-ai-richtext p{margin:0 0 12px;line-height:1.72;font-size:inherit;}
+.gb-ai-richtext :last-child{margin-bottom:0}
+.gb-ai-section-heading{font-size:13.5px;font-weight:800;line-height:1.4;color:#0e3868;margin:16px 0 8px;padding:0 0 6px;border-bottom:1px solid #dfe9f4}
+.gb-ai-richtext>.gb-ai-section-heading:first-child{margin-top:0}
+.gb-ai-richtext strong{font-weight:800;color:#12385f}
+.gb-ai-list{padding-left:21px;margin:7px 0 15px;display:block;list-style-position:outside;}
+.gb-ai-list li{padding-left:3px;margin:7px 0;line-height:1.7}
+.gb-ai-list li::marker{color:#ac7f2c;font-weight:800}
+.gb-ai-richtext ul.gb-ai-list{list-style:disc}
+.gb-ai-richtext ol.gb-ai-list{list-style:decimal}
+.gb-ai-richtext blockquote{margin:10px 0 14px;padding:8px 12px;border-left:3px solid #c7a052;background:#fffaf0;border-radius:0 12px 12px 0;}
+.gb-ai-math-block{padding:11px 10px;margin:12px 0 16px;background:#fff;border:1px solid #dfebf6;border-radius:14px;text-align:center;overflow-x:auto;max-width:100%;white-space:nowrap}
+.gb-ai-math-inline{display:inline-block;vertical-align:baseline;max-width:100%;overflow-x:auto;}
+.gb-ai-math-fallback{white-space:normal;font-family:inherit;color:#243854}
+.gb-ai-inline-code{font-family:ui-monospace,monospace;color:#153658;background:#eaf0fa;border-radius:5px;padding:1px 4px}
+.gb-ai-code-block{font-size:12px;line-height:1.5;background:#f0f4fa;padding:13px;border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere;overflow:auto;margin:12px 0}
+.gb-ai-empty{color:#607186}
+@media(max-width:700px){
+ .gb-study-ai-panel{left:0;right:0;top:max(8px,env(safe-area-inset-top));bottom:0;height:auto;width:100%;border-radius:23px 23px 0 0;border-bottom:0;}
+ .gb-study-ai-head{border-radius:22px 22px 0 0}
+ .gb-study-ai-message{border-radius:17px;padding:15px}
+}

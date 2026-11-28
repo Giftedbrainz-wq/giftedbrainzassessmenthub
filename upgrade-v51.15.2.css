@@ -1,0 +1,21 @@
+/* v51.15.2: shared English passage display and editing */
+.gb-shared-passage-note{margin:12px 0;padding:11px 13px;border:1px solid #c8d8ec;border-radius:10px;background:#f4f8fe;color:#244767;font-size:13px;line-height:1.55}
+.gb-shared-passage-note span{display:block;font-size:12px;opacity:.8}
+.gb-draft-passage-preview,.gb-bank-passage,.gb-review-passage,.gb-exam-passage-revisit{border:1px solid #d2e0ef;border-radius:12px;background:#f7faff;overflow:hidden;margin:14px 0}
+.gb-draft-passage-preview>summary,.gb-bank-passage>summary,.gb-review-passage>summary,.gb-exam-passage-revisit>summary{cursor:pointer;list-style:none;padding:13px 16px;color:#174976;font-weight:750;font-size:14px}
+.gb-draft-passage-preview>summary::-webkit-details-marker,.gb-bank-passage>summary::-webkit-details-marker,.gb-review-passage>summary::-webkit-details-marker,.gb-exam-passage-revisit>summary::-webkit-details-marker{display:none}
+.gb-draft-passage-preview[open]>summary,.gb-bank-passage[open]>summary,.gb-review-passage[open]>summary,.gb-exam-passage-revisit[open]>summary{border-bottom:1px solid #d2e0ef}
+.gb-bank-passage>div,.gb-review-passage>div,.gb-exam-passage-revisit .reading-passage{padding:15px;background:#fff;color:#253a4e;line-height:1.75}
+.gb-exam-passage-revisit>summary{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.gb-exam-passage-revisit .passage-box{margin:0;border:0;box-shadow:none}
+.gb-exam-passage-revisit .reading-passage-content{max-height:55vh;overflow-y:auto}
+@media(max-width:860px){.gb-exam-passage-revisit{margin:10px 0 20px}.gb-exam-passage-revisit>summary{padding:12px 14px}}
+
+/* v51.15.3: keep passage prose OUT of repeated question cards. */
+.gb-passage-open-button{width:100%;margin:12px 0 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 17px;border:1px solid #cbdcf1;border-radius:12px;background:#f5f9ff;color:#174976;text-align:left;font-weight:800;font-size:14px;cursor:pointer}
+.gb-passage-open-button:hover,.gb-passage-open-button:focus-visible{border-color:#bd931b;background:#fff8e8;outline:2px solid #e7ca7e;outline-offset:2px}
+.gb-shared-passage-backdrop{position:fixed;inset:0;z-index:10010;background:rgba(10,25,53,.82);display:flex;align-items:center;justify-content:center;padding:16px}
+.gb-shared-passage-dialog{position:relative;width:min(850px,100%);max-height:90svh;overflow:auto;border-radius:18px;background:#fff;padding:clamp(16px,3vw,26px);box-shadow:0 20px 80px rgba(2,16,42,.32)}
+.gb-shared-passage-dialog .passage-box{margin:0;padding:8px;border:0;box-shadow:none;max-height:none}
+.gb-shared-passage-dialog .reading-passage-content{line-height:1.8;font-size:15px;overflow-wrap:anywhere}
+.gb-shared-passage-close{position:sticky;top:0;margin-left:auto;display:block;z-index:1;border:0;background:#153966;color:#fff;font-size:26px;border-radius:9px;cursor:pointer;width:42px;height:42px;line-height:1}

@@ -1,0 +1,14 @@
+/* Daily result reliable-loading and grading states; v51.13.1 */
+.daily-result-connecting,.daily-result-load-error{background:#fff;border:1px solid #cddff3;border-radius:24px;box-shadow:0 14px 32px rgba(15,59,113,.08);padding:45px 32px!important}
+.daily-result-connecting h1,.daily-result-load-error h1{font-size:clamp(1.3rem,3vw,1.9rem);color:#0b3a76}
+.daily-result-connecting p,.daily-result-load-error p{color:#496789;line-height:1.7}
+.daily-result-loader{margin:0 auto 22px;width:48px;height:48px;border:5px solid #d9eaff;border-top-color:#c8a53d;border-radius:50%;animation:gbDailySpin .9s linear infinite}
+@keyframes gbDailySpin{to{transform:rotate(360deg)}}
+.daily-grade-progress{display:flex;align-items:center;gap:15px;background:#f0f7ff;color:#133f78;border:1px solid #bedaf7;border-left:4px solid #e4b83a;border-radius:16px;padding:16px 18px;margin:14px 0 24px}
+.daily-grade-progress-icon{font-size:2rem;color:#1761b0;line-height:1}
+.daily-grade-progress>div{flex:1;min-width:0}.daily-grade-progress strong{color:#124578;font-weight:800;display:block;margin-bottom:4px}
+.daily-grade-progress p{margin:0;color:#345b84;font-size:.92rem;line-height:1.5}
+.daily-grade-progress .btn{flex:none;min-height:42px}
+.daily-result-warning{background:#fff3df;color:#6a4917;border:1px solid #e2bd7a;border-radius:12px;padding:12px 16px;margin:14px 0}
+@media(max-width:590px){.daily-grade-progress{flex-wrap:wrap;padding:14px}.daily-grade-progress .btn{width:100%}.daily-result-connecting,.daily-result-load-error{padding:32px 19px!important}}
+@media print{.daily-grade-progress button,.daily-result-connecting button,.daily-result-load-error button{display:none!important}.daily-grade-progress{break-inside:avoid}}

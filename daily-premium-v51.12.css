@@ -1,0 +1,185 @@
+/* Gifted Brainz Assessment Hub v51.12 – accessible blue + white + logo gold. */
+:root{
+  --gbc-blue:#1558b0;
+  --gbc-blue-strong:#0a469b;
+  --gbc-blue-soft:#eaf3ff;
+  --gbc-gold:#e8b842;
+  --gbc-gold-soft:#fff6dc;
+  --gbc-white:#ffffff;
+  --gbc-ink:#173453;
+  --gbc-muted:#5f748e;
+}
+
+/* Editing and review screens */
+.daily-admin{--dc-navy:var(--gbc-blue-strong);--dc-gold:var(--gbc-gold)}
+.daily-admin>.section-head{background:linear-gradient(112deg,#f0f7ff 0%,#fff 75%);border:1px solid #d9e8fb;padding:22px 23px;border-radius:20px;box-shadow:0 10px 32px rgba(23,87,165,.06);position:relative;overflow:hidden}
+.daily-admin>.section-head:after{content:"✦";position:absolute;right:20%;top:-55px;font-size:10rem;color:rgba(232,184,66,.12);pointer-events:none}
+.daily-admin>.section-head>*{position:relative;z-index:1}
+.daily-admin .eyebrow{color:#986e16!important}
+.daily-admin h1{letter-spacing:-.035em!important;color:#134c95!important}
+.daily-admin-item{border:1px solid #dbe8fa;border-left:4px solid var(--gbc-gold);box-shadow:0 9px 27px rgba(15,74,139,.06);transition:transform .16s,box-shadow .16s}
+.daily-admin-item:hover{transform:translateY(-2px);box-shadow:0 13px 32px rgba(15,74,139,.10)}
+.daily-admin .btn-primary{background:var(--gbc-blue)!important;color:white!important;-webkit-text-fill-color:white!important;border:1px solid var(--gbc-blue)!important}
+.daily-admin .btn-primary:hover:not(:disabled){background:var(--gbc-blue-strong)!important;border-color:var(--gbc-blue-strong)!important}
+.daily-admin .btn-light{background:#fff!important;color:#124f96!important;border:1px solid #c9ddf2!important}
+.daily-admin .btn-ghost{background:#ecf4ff!important;color:#124f96!important;border:1px solid #d3e4f7!important}
+.daily-admin .btn{box-shadow:0 5px 12px rgba(20,80,150,.09)}
+.daily-editor{border-top:4px solid var(--gbc-gold)}
+.daily-edit-grid .field textarea{line-height:1.8;tab-size:4;white-space:pre-wrap}
+.daily-format-hint{display:block;color:#2d639f;font-size:.75rem;line-height:1.5;margin:-1px 0 7px}
+.daily-preview-details{margin-top:11px;background:#f6faff;border:1px solid #dbe9fa;border-radius:13px;overflow:hidden}
+.daily-preview-details>summary{padding:11px 14px;color:#215997;font-weight:800;cursor:pointer;background:#f1f7ff;list-style-position:inside}
+.daily-editor-preview{min-height:56px;border-top:1px solid #dceafa;padding:16px 17px;background:#fff;color:var(--gbc-ink);font-size:.94rem;line-height:1.8}
+.daily-editor-preview:empty:before{content:'Your exact formatting will appear here as you type.';color:#91a4bb;font-style:italic}
+
+/* Student-facing page: clearly blue/white instead of blue/black. */
+.daily-student-page{color:var(--gbc-ink);background:radial-gradient(ellipse at 98% 4%,rgba(234,189,71,.20),transparent 31%),radial-gradient(ellipse at 0% 15%,rgba(68,142,239,.17),transparent 40%),linear-gradient(160deg,#f1f7ff 0%,#fcfdff 75%);padding:clamp(16px,3vw,40px) 16px 40px}
+.daily-student-container{width:min(840px,100%)}
+.daily-student-brand{display:flex;justify-content:flex-start;align-items:center;gap:13px;margin-bottom:18px;padding:11px 14px;border-radius:16px;border:1px solid rgba(182,211,248,.8);background:#fff;box-shadow:0 6px 24px rgba(26,86,160,.06)}
+.daily-brand-logo{display:grid;place-items:center;width:52px;height:52px;flex-shrink:0;border-radius:15px;background:#fff9e9;border:1px solid #f4e3b4}
+.daily-student-brand .daily-brand-logo img{width:43px;height:43px;object-fit:contain;border:0;background:transparent}
+.daily-student-brand strong{color:#114a93;font-size:.92rem;letter-spacing:.085em}
+.daily-student-brand small{color:#537298;font-size:.66rem}
+.daily-brand-spark{margin-left:auto;background:var(--gbc-gold-soft);color:#b98514;border:1px solid #f2daa0;border-radius:12px;padding:7px 12px;font-size:1.5rem;line-height:1}
+.daily-student-card{background:#fff;border:1px solid #d8e7f9;border-top:4px solid var(--gbc-gold);box-shadow:0 20px 55px rgba(25,86,153,.11);border-radius:22px;padding:clamp(21px,4vw,38px);position:relative}
+.daily-student-card h1{color:#134b90;font-weight:850;letter-spacing:-.038em}
+.daily-student-page :is(.btn,.btn-primary,.btn-light,.btn-ghost){min-height:46px;border-radius:12px;text-align:center;box-shadow:0 5px 16px rgba(15,83,162,.10);text-decoration:none;transition:transform .16s ease,background .16s ease,box-shadow .16s ease}
+.daily-student-page .btn-primary,.daily-student-page :is(.daily-welcome,.daily-submitted,.daily-question-card,.daily-result-ready) .btn-primary{background:#135cba!important;color:#fff!important;-webkit-text-fill-color:#fff!important;border:1px solid #135cba!important}
+.daily-student-page .btn-primary:hover:not(:disabled){background:#0b4999!important;border-color:#0b4999!important;box-shadow:0 8px 23px rgba(12,75,156,.19);transform:translateY(-1px)}
+.daily-student-page .btn-light{background:#fff!important;color:#155398!important;-webkit-text-fill-color:#155398!important;border:1px solid #b8d1ee!important}
+.daily-student-page .btn-ghost{background:#eaf3ff!important;color:#155398!important;-webkit-text-fill-color:#155398!important;border:1px solid #c6dcf6!important}
+.daily-student-page .btn:focus-visible{outline:3px solid #f0bc3b!important;outline-offset:3px}
+.daily-student-page button:disabled{opacity:.6;cursor:not-allowed;box-shadow:none}
+.daily-pill{background:#eef6ff!important;border:1px solid #c8ddf7!important;color:#15539f!important;font-weight:900;padding:9px 15px;letter-spacing:.065em}
+.daily-lead{color:#4a6786;line-height:1.8}
+.daily-hero-icon{margin:4px auto 16px;border:1px solid #efcf7a;background:linear-gradient(140deg,#fff8e2,#ffe7a3);border-radius:23px;width:76px;height:76px;display:grid;place-items:center;color:#9c6d10;font-size:2.25rem;box-shadow:0 9px 22px rgba(198,144,30,.12)}
+.daily-steps{display:flex;align-items:center;justify-content:center;gap:10px;margin:19px auto 2px;flex-wrap:wrap;font-size:.76rem;color:#3b689a}
+.daily-steps span:not([aria-hidden]){display:inline-flex;gap:7px;align-items:center;background:#f2f7ff;border:1px solid #d5e4fa;padding:7px 10px;border-radius:18px;font-weight:800}
+.daily-steps b{color:#a57813;background:#fff1c8;padding:3px 5px;border-radius:7px}
+.daily-challenge-summary{border:1px solid #d5e5f9;border-left:4px solid var(--gbc-gold);background:linear-gradient(140deg,#f7fbff,#fff);border-radius:16px;box-shadow:0 6px 15px rgba(23,90,160,.05);gap:12px;padding:20px}
+.daily-challenge-summary strong{color:#0f4b93;font-size:1.11rem}
+.daily-challenge-summary span{color:#486b8e}
+.daily-question-card .daily-top-row{padding-bottom:17px;border-bottom:1px solid #e2eafb}
+.daily-mark-chip{background:#fff4d6;color:#946b15;border:1px solid #f2dda4;font-weight:900}
+.daily-task-label{display:inline-block;font-size:.72rem;font-weight:900;letter-spacing:.1em;color:#946b14;margin-top:6px}
+.daily-question-stem{background:#f7faff;border:1px solid #dfeafa;border-left:4px solid #2b74d0;border-radius:14px;padding:19px;margin:12px 0 20px;color:#163956}
+.daily-answer-form{border-top:1px solid #dce9f7}
+.daily-answer-form .field label{color:#164e92}
+.daily-answer-form input,.daily-answer-form textarea{border-color:#bed5ef!important;background:#fff!important;color:#173453!important}
+.daily-answer-form input:focus,.daily-answer-form textarea:focus{outline:3px solid #dcecff!important;border-color:#2575d3!important;box-shadow:0 0 0 4px rgba(39,111,201,.08)}
+.daily-writing-tip{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border-radius:13px;background:#f0f6ff;border:1px solid #d6e5fb;margin-bottom:16px}
+.daily-writing-tip>span{font-size:1.3rem}
+.daily-writing-tip strong{color:#164e91;display:block;font-size:.87rem}
+.daily-writing-tip small{display:block;color:#546f8b;line-height:1.6;font-size:.78rem;margin-top:3px}
+.daily-success-icon{background:#e7f4ff;color:#1763b9;border:2px solid #cfe5fc}
+.daily-release-time{background:#fff8e9;color:#805f1e;border-color:#f0daa2}
+.daily-student-foot{color:#5f7794;font-size:.74rem;line-height:1.65}
+.daily-student-foot span{color:#bd912c;padding:0 6px}
+
+/* The same whitespace handling applies on-screen and on every printed page. */
+.daily-preserve-text,.daily-question-stem,.daily-student-response,.daily-editor-preview{
+  white-space:break-spaces!important;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  tab-size:4;
+  text-align:left;
+}
+.daily-preserve-text :is(.katex,.katex-display){white-space:normal}
+.daily-preserve-text .katex-display{overflow-x:auto;overflow-y:hidden;max-width:100%;padding:3px 0}
+.daily-preserve-text .gb-math-fallback{white-space:normal}
+
+/* Rich result cards */
+.daily-result-ready{padding-top:32px}
+.daily-result-header{text-align:center;position:relative}
+.daily-result-header>.daily-pill{margin:auto}
+.daily-result-header>h1{text-align:center;margin:16px auto 8px;font-size:clamp(1.48rem,3.8vw,2.15rem);max-width:660px}
+.daily-result-header .daily-candidate-name{text-align:center;color:#205c9b;font-weight:850;font-size:1.03rem;margin:0 0 6px}
+.daily-result-subtitle{display:inline-flex;align-items:center;color:#6782a0;font-size:.77rem;font-weight:800;letter-spacing:.025em;margin-bottom:6px}
+.daily-print-meta{display:none}
+.daily-result-score{background:linear-gradient(130deg,#eaf4ff 0%,#fff 72%);border:1px solid #c9e0fb;border-left:5px solid var(--gbc-gold);box-shadow:0 9px 25px rgba(34,95,165,.08);color:#104990;border-radius:18px;margin:20px 0 24px;padding:20px 24px;display:flex;flex-direction:column;align-items:center;gap:3px;position:relative}
+.daily-score-icon{position:absolute;right:20px;top:13px;color:#bc8d1b;font-size:1.65rem}
+.daily-score-label{font-weight:900;letter-spacing:.1em;font-size:.65rem;color:#587da8}
+.daily-result-score strong{font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.035em}
+.daily-result-score small{font-size:1rem;color:#2b68aa;font-weight:900;margin:1px 0}
+.daily-score-track{width:min(260px,80%);height:8px;display:block;background:#d5e5f9;border-radius:999px;overflow:hidden;margin:9px auto 1px}
+.daily-score-track i{display:block;height:100%;background:linear-gradient(90deg,#2675c8,#edb83f);border-radius:999px}
+.daily-result-section{border:1px solid #dce8f7;border-radius:16px;background:#fff;padding:20px 22px;margin:17px 0;box-shadow:0 5px 19px rgba(20,80,156,.04);line-height:1.8;overflow:hidden}
+.daily-result-section h2{display:flex;align-items:center;gap:10px;color:#165396;margin:0 0 13px;font-size:1rem;font-weight:900;border-bottom:1px solid #edf3fa;padding-bottom:11px}
+.daily-result-section h2 span{display:grid;place-items:center;flex-shrink:0;width:30px;height:30px;background:#e9f4ff;color:#1756a0;border-radius:9px;font-size:1rem}
+.daily-section-question{border-left:4px solid #5393db}
+.daily-section-student{border-left:4px solid #adc6e9;background:#fcfdff}
+.daily-section-official{border-left:4px solid #e8b842;background:linear-gradient(115deg,#fffdf8,#fff 35%)}
+.daily-section-official h2 span{background:#fff0c6;color:#996b0c}
+.daily-section-feedback{border-left:4px solid #6aa5dd}
+.daily-section-strength{border-left:4px solid #65ae9a}
+.daily-section-improve{border-left:4px solid #f0c66e}
+.daily-result-section .daily-student-response{padding:0;background:transparent;line-height:1.8}
+.daily-result-section ul{padding-left:24px;line-height:1.8}
+.daily-result-section li{margin:6px 0;padding-left:3px}
+.daily-result-image{margin:17px auto 4px;max-height:450px;border:1px solid #d6e7f8}
+.daily-result-actions{justify-content:center;padding-top:7px;gap:12px}
+.daily-result-actions .btn{flex:1 1 180px;max-width:290px}
+.daily-pdf-helper{text-align:center;font-size:.72rem;color:#6681a1;margin:4px 0 14px!important}
+.daily-disclaimer{text-align:center;border-top:1px solid #e1eaf6;padding-top:16px;margin-top:18px!important;font-size:.74rem}
+.daily-review-flag,.daily-pending{line-height:1.65}
+
+@media(max-width:650px){
+ .daily-student-page{padding:11px 10px 30px}
+ .daily-student-brand{padding:10px}
+ .daily-student-card{border-radius:18px}
+ .daily-result-section{padding:16px;margin:12px 0;border-radius:13px}
+ .daily-result-score{padding:17px}
+ .daily-result-actions .btn{flex:1 1 100%;max-width:none}
+ .daily-brand-spark{font-size:1.2rem}
+ .daily-steps{gap:6px}
+ .daily-steps span:not([aria-hidden]){padding:6px 8px}
+}
+
+/* EdgeOne/browser PDF: force zero browser print margins, which removes Chromium's
+   automatic URL, document title and header/footer. Add our own report spacing. */
+@page gbDailyResult{size:A4;margin:0}
+@media print{
+ .daily-student-page:has(.daily-result-ready){page:gbDailyResult}
+ html,body,#app{margin:0!important;padding:0!important;background:#fff!important;color:#173453!important;overflow:visible!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ body>*:not(#app){display:none!important}
+ .daily-student-page{min-height:0!important;background:#fff!important;padding:0!important;margin:0!important;width:100%!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+ .daily-student-container{width:100%!important;max-width:none!important;margin:0!important;padding:13mm 15mm 14mm!important;box-sizing:border-box!important;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+ .daily-student-brand{display:flex!important;border:0!important;border-bottom:1px solid #dae6f3!important;border-radius:0!important;box-shadow:none!important;margin:0 0 13px!important;padding:0 0 11px!important;background:#fff!important;break-after:avoid!important}
+ .daily-brand-logo{width:38px;height:38px;background:transparent!important;border:0!important}
+ .daily-brand-logo img,.daily-student-brand img{width:35px!important;height:35px!important}
+ .daily-brand-spark,.daily-student-foot,.daily-actions,.daily-pdf-helper{display:none!important}
+ .daily-student-card,.daily-result-ready{width:100%!important;max-width:none!important;box-shadow:none!important;border:0!important;background:#fff!important;border-radius:0!important;padding:0!important;margin:0!important;overflow:visible!important}
+ .daily-result-header{margin:0 0 8px!important;text-align:center!important;break-after:avoid!important}
+ .daily-result-header>h1{font-size:19pt!important;line-height:1.27!important;margin:10px auto 4px!important;text-align:center!important}
+ .daily-result-header .daily-candidate-name{font-size:11pt!important;margin:0 auto 3px!important;text-align:center!important}
+ .daily-result-subtitle{font-size:8.5pt!important}
+ .daily-print-meta{display:block!important;text-align:center!important;font-size:8pt;color:#6e8197!important;margin-top:3px!important}
+ .daily-pill{padding:5px 10px!important;font-size:8pt!important}
+ .daily-result-score{margin:11px 0 12px!important;padding:12px!important;border-radius:12px!important;box-shadow:none!important;break-inside:avoid!important}
+ .daily-result-score strong{font-size:17pt!important}
+ .daily-score-track{height:5px!important}
+ .daily-result-section{box-shadow:none!important;border:1px solid #d8e4f1!important;border-left:3px solid #9fc3e9!important;background:#fff!important;border-radius:10px!important;margin:9px 0!important;padding:12px 13px!important;overflow:visible!important;font-size:9.8pt!important;line-height:1.6!important;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+ .daily-result-section.daily-section-official{border-left-color:#dcb144!important}
+ .daily-result-section h2{font-size:10pt!important;margin:0 0 7px!important;padding-bottom:7px!important;line-height:1.2!important;break-after:avoid!important}
+ .daily-result-section h2 span{width:23px;height:23px;font-size:9pt}
+ .daily-result-section .daily-student-response{line-height:1.6!important}
+ .daily-result-section .daily-preserve-text{white-space:break-spaces!important;overflow-wrap:anywhere!important;line-height:1.6!important}
+ .daily-result-section li{break-inside:avoid}
+ .daily-result-image{max-height:110mm;max-width:100%;break-inside:avoid}
+ .daily-disclaimer{font-size:7.6pt!important;line-height:1.4;border-top:0!important;text-align:center!important}
+ .daily-result-section a[href]::after{content:none!important}
+ .daily-result-section a[href]{color:inherit!important;text-decoration:none!important}
+}
+
+/* Prepared for direct html2pdf export (no browser-generated URL/header/footer). */
+.daily-pdf-export{width:728px!important;max-width:728px!important;margin:0 auto!important;box-sizing:border-box!important;background:#fff!important;color:#173453!important}
+.daily-pdf-export .daily-student-brand{box-shadow:none!important;margin-bottom:15px!important}
+.daily-pdf-export .daily-brand-spark{display:none!important}
+.daily-pdf-export .daily-student-card{padding:12px!important;box-shadow:none!important;border:0!important}
+.daily-pdf-export .daily-result-header{page-break-inside:avoid;break-inside:avoid}
+.daily-pdf-export .daily-result-score{page-break-inside:avoid;break-inside:avoid}
+.daily-pdf-export .daily-result-section{box-shadow:none!important;break-inside:auto}
+.daily-pdf-export .daily-result-section h2{break-after:avoid;page-break-after:avoid}
+.daily-pdf-export .daily-print-meta{display:block!important;text-align:center;color:#6784a5;font-size:.74rem;margin:2px auto 5px}
+.daily-pdf-export :is(.daily-result-actions,.daily-pdf-helper,.daily-student-foot){display:none!important}
+.daily-pdf-export .daily-question-image{max-width:100%;max-height:500px}

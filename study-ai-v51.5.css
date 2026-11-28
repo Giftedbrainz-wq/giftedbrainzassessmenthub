@@ -1,0 +1,63 @@
+/* Gifted Brainz | Study Mode AI · navy / gold / white, light-only */
+.gb-study-ai-entry{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:20px 0 12px;padding:14px 16px;border:1px solid #e6d4a8;border-radius:14px;background:linear-gradient(105deg,#fffaf0 0%,#fff 75%)}
+.gb-study-ai-entry .gb-study-ai-open{background:#113c72!important;border:1px solid #1a4677!important;color:#fff!important;min-height:44px;min-width:125px;border-radius:11px;font-weight:800;letter-spacing:.01em;box-shadow:0 2px 8px #123b701a}
+.gb-study-ai-entry .gb-study-ai-open:hover{background:#0a2b57!important;transform:none}
+.gb-study-ai-entry .gb-study-ai-open span{color:#e9c46c;margin-left:8px}
+.gb-study-ai-entry>span{font-size:12px;font-weight:600;color:#5c6880}
+.gb-study-ai-shade{position:fixed;inset:0;background:rgba(7,24,46,.43);z-index:4000;animation:gbStudyAiShade .16s ease-out}
+@keyframes gbStudyAiShade{from{opacity:0}to{opacity:1}}
+.gb-study-ai-panel{box-sizing:border-box;position:fixed;top:0;right:0;height:100dvh;height:100svh;width:min(490px,100vw);z-index:4001;background:#fff;border-left:1px solid #dce5f1;box-shadow:-15px 0 55px #081e3c3c;display:flex;flex-direction:column;color:#173456;font-family:'Plus Jakarta Sans',system-ui,sans-serif;overflow:hidden}
+.gb-study-ai-panel *{box-sizing:border-box}
+.gb-study-ai-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 19px 13px;border-bottom:1px solid #e6edf6;background:linear-gradient(115deg,#0c2e5a,#154778);color:#fff}
+.gb-study-ai-eyebrow{font-size:10px;letter-spacing:.14em;font-weight:800;color:#f6d588}
+.gb-study-ai-head h2{font-size:20px;line-height:1.2;font-weight:800;color:#fff;margin:6px 0 0}
+.gb-study-ai-head h2 small{font-size:11px;font-weight:500;color:#e8effa;white-space:nowrap;margin-left:3px}
+.gb-study-ai-head-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.gb-study-ai-new,.gb-study-ai-dismiss{border:1px solid #ffffff4a;color:#fff;background:#ffffff14;border-radius:10px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;min-height:38px}
+.gb-study-ai-new{font-size:12px;font-weight:700;padding:9px 11px}
+.gb-study-ai-dismiss{font-size:22px;line-height:1;width:40px}
+.gb-study-ai-new:hover,.gb-study-ai-dismiss:hover{background:#ffffff2c}
+.gb-study-ai-context{padding:14px 19px;border-bottom:1px solid #ebeff5;background:#f6f9fd;flex-shrink:0}
+.gb-study-ai-context span{font-size:10px;letter-spacing:.11em;font-weight:800;color:#b0822c}
+.gb-study-ai-context p{margin:5px 0 0;font-size:12px;line-height:1.5;color:#42556c;max-height:3.1em;overflow:hidden}
+.gb-study-ai-messages{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:20px 18px;display:flex;flex-direction:column;gap:15px;background:#fff}
+.gb-study-ai-welcome{padding:18px;border:1px dashed #c5d6e9;color:#65768c;font-size:13px;border-radius:13px;line-height:1.65}
+.gb-study-ai-message{max-width:100%;border-radius:14px;padding:13px 15px;line-height:1.66;overflow-wrap:anywhere}
+.gb-study-ai-message>span{display:block;font-size:11px;font-weight:800;letter-spacing:.02em;margin-bottom:7px}
+.gb-study-ai-message p{margin:0 0 10px;font-size:13px;line-height:1.73}
+.gb-study-ai-message p:last-child{margin-bottom:0}
+.gb-study-ai-message .katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}
+.gb-study-ai-bot{align-self:flex-start;background:#f7f9fd;border:1px solid #e0e9f4;color:#1f3550}
+.gb-study-ai-bot>span{color:#8c661e}
+.gb-study-ai-user{align-self:flex-end;background:#e9f2ff;border:1px solid #d3e5f8;max-width:93%;color:#15395f}
+.gb-study-ai-user>span{color:#245780}
+.gb-study-ai-loading{padding:13px 15px;color:#1a4771;border-radius:12px;background:#f6f9ff;font-size:13px;font-weight:700;animation:gbAiPulse 1.5s infinite}
+@keyframes gbAiPulse{50%{opacity:.5}}
+.gb-study-ai-error{border:1px solid #f4b7b1;background:#fff5f2;color:#8e2e23;padding:12px;border-radius:12px;font-size:12px;line-height:1.5}
+.gb-study-ai-controls{background:#fff;border-top:1px solid #e9eef5;padding:13px 16px 16px;box-shadow:0 -7px 25px #09294a09}
+.gb-study-ai-chips{display:flex;gap:7px;overflow-x:auto;max-height:84px;flex-wrap:wrap;align-content:flex-start;padding-bottom:8px;scrollbar-width:thin}
+.gb-study-ai-chips button{border:1px solid #d7e2ee;border-radius:999px;background:#f5f8fc;color:#16406d;font:700 11px 'Plus Jakarta Sans',system-ui,sans-serif;padding:7px 10px;cursor:pointer;min-height:30px}
+.gb-study-ai-chips button:hover{border-color:#dcb963;background:#fff7df}
+.gb-study-ai-chips button:disabled{opacity:.5;cursor:default}
+.gb-study-ai-compose{display:flex;align-items:flex-end;gap:8px;border:1px solid #bccfe4;border-radius:12px;padding:7px;background:#fff}
+.gb-study-ai-compose:focus-within{border-color:#c49c44;box-shadow:0 0 0 3px #e3b75526}
+.gb-study-ai-compose textarea{border:0!important;box-shadow:none!important;resize:none;outline:0!important;min-height:44px;max-height:100px;line-height:1.45;font:500 13px 'Plus Jakarta Sans',system-ui,sans-serif;width:100%;padding:7px 9px!important;color:#183658;background:transparent!important}
+.gb-study-ai-compose button{flex-shrink:0;background:#0f396e;border:0;border-radius:9px;color:#fff;cursor:pointer;width:42px;height:42px;font-size:19px}
+.gb-study-ai-compose button:disabled{background:#8da0b5;cursor:default}
+.gb-study-ai-controls>small{display:block;margin-top:9px;color:#788394;font-size:10px;line-height:1.4}
+.gb-study-ai-panel :is(button,textarea):focus-visible,.gb-study-ai-open:focus-visible{outline:3px solid #e3b65b!important;outline-offset:2px!important}
+@media(max-width:700px){
+.gb-study-ai-panel{width:100vw;border-left:0}
+.gb-study-ai-head{padding:13px 14px 12px}
+.gb-study-ai-head h2{font-size:18px}
+.gb-study-ai-context{padding:10px 14px}
+.gb-study-ai-messages{padding:15px 13px}
+.gb-study-ai-controls{padding:10px 12px max(14px,env(safe-area-inset-bottom))}
+.gb-study-ai-chips{flex-wrap:nowrap;max-height:none;overflow-x:auto;padding-bottom:10px}
+.gb-study-ai-chips button{white-space:nowrap}
+.gb-study-ai-entry{padding:11px 12px;margin:16px 0 10px}
+.gb-study-ai-entry>span{flex-basis:100%}
+}
+@media(prefers-reduced-motion:reduce){.gb-study-ai-shade,.gb-study-ai-loading{animation:none}}
+/* Accessible label: retain it for screen readers without crowding the composer. */
+.gb-study-ai-compose .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}

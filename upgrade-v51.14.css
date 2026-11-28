@@ -1,0 +1,152 @@
+/* Gifted Brainz Assessment Hub v51.14.0
+   Responsive professional UI, independent subject selection, results and corrections.
+   Loaded last, preserving approved desktop layout elsewhere. */
+:root{--gb14-navy:#0c2f63;--gb14-deep:#092550;--gb14-gold:#d7a425;--gb14-line:#d8e3f0;--gb14-ink:#153254;--gb14-muted:#526d88;--gb14-canvas:#f6f9fd}
+*,*::before,*::after{box-sizing:border-box}
+#app,.app-shell,.student-landing,.student-card,.cbt-shell,.daily-student-page,.modal,.library-public-item,.gb-library-actions{min-width:0}
+#app img,.student-card img,.cbt-shell img,.daily-student-page img{max-width:100%;height:auto}
+#app :is(h1,h2,h3,h4,p),.modal :is(h1,h2,h3,h4,p){overflow-wrap:anywhere}
+#app :is(.btn,.mini,button,.option),#modalRoot :is(.btn,.mini,button){touch-action:manipulation}
+
+/* Moving light sweep over the existing WhatsApp button; original font, layout and link preserved. */
+.gb-private-card .gb-private-contact{position:relative;isolation:isolate;overflow:hidden;box-shadow:0 5px 19px rgba(13,146,77,.26)!important;animation:gb14ContactPulse 3.7s ease-in-out infinite!important;transform:translateZ(0)}
+.gb-private-card .gb-private-contact::before{content:"";position:absolute;z-index:1;pointer-events:none;inset:-65% -55%;background:linear-gradient(104deg,transparent 37%,rgba(255,255,255,.04) 44%,rgba(255,255,255,.45) 50%,rgba(255,255,255,.1) 56%,transparent 63%);transform:translateX(-65%);animation:gb14ContactSweep 4.4s ease-in-out infinite alternate}
+.gb-private-card .gb-private-contact>*{position:relative;z-index:2}
+.gb-private-card .gb-private-contact:is(:hover,:focus-visible){box-shadow:0 6px 23px rgba(9,157,74,.4)!important}
+@keyframes gb14ContactSweep{0%,9%{transform:translateX(-65%)}90%,100%{transform:translateX(65%)}}
+@keyframes gb14ContactPulse{0%,100%{filter:saturate(1);box-shadow:0 5px 18px rgba(13,146,77,.25)}50%{filter:saturate(1.07);box-shadow:0 7px 22px rgba(13,146,77,.35)}}
+
+/* CBT Library: compact, balanced dashboard cards on desktop rather than sprawling one-row ribbons. */
+/* The earlier centred grid gives the Library a narrow intrinsic track.
+   Give this page an explicit full-width flex context, while preserving other screens. */
+.student-landing:has(>.student-card.library-public){display:flex!important;width:100%!important;justify-content:center!important;align-items:flex-start!important}
+
+.student-landing .student-card.library-public{width:min(1140px,calc(100vw - 42px))!important;max-width:1140px!important;flex:0 1 1140px!important}
+.student-landing .student-card.library-public .library-public-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px!important;margin-top:21px!important}
+.student-landing .student-card.library-public .library-public-item{min-width:0!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:space-between!important;gap:13px!important;margin:0!important;padding:20px!important;min-height:192px!important;border:1px solid var(--gb14-line)!important;border-top:3px solid var(--gb14-navy)!important;border-radius:15px!important;background:linear-gradient(180deg,#fff,#fbfdff)!important;box-shadow:0 5px 17px rgba(9,42,85,.045)!important}
+.student-card.library-public .library-public-item .gb-library-card-body{min-width:0!important;width:100%}
+.student-card.library-public .library-public-item .gb-library-title{font-size:clamp(.94rem,1.38vw,1.04rem)!important;font-weight:830!important;line-height:1.52!important;white-space:normal!important;word-break:normal!important;letter-spacing:-.015em!important;overflow:visible!important;max-width:100%!important;min-width:0;display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden!important}
+.student-card.library-public .library-public-item p{font-size:.81rem!important;line-height:1.55;color:var(--gb14-muted)!important;margin:7px 0!important;max-width:100%}
+.student-landing .student-card.library-public .library-public-item .gb-library-actions{display:grid!important;max-width:none!important;grid-template-columns:minmax(0,1.35fr) minmax(0,1.35fr) minmax(72px,.7fr);gap:8px!important;width:100%;margin-top:auto;justify-content:stretch!important;align-items:stretch!important}
+.student-landing .student-card.library-public .library-public-item .gb-library-actions .btn{margin:0!important;min-width:0!important;width:100%!important;min-height:41px!important;padding:9px 8px!important;border-radius:9px!important;display:flex;align-items:center;justify-content:center;white-space:normal!important;font-size:clamp(.69rem,1.15vw,.78rem)!important;text-align:center!important;line-height:1.3!important;font-weight:750}
+.student-landing .student-card.library-public .library-public-item .gb-library-actions .btn-primary{background:var(--gb14-navy)!important;color:#fff!important}
+.student-landing .student-card.library-public .library-public-item .gb-library-actions .gb-library-share{grid-column:auto!important;background:#f1f6fc!important;border-color:#c7d8e9!important}
+
+/* Admin editor: explicit and compact subject-choice controls. */
+.gb-subject-config{margin:15px 0!important;padding:15px 18px!important;background:#f7faff!important;border:1px solid #cbdced!important;border-radius:13px!important}
+.gb-subject-config>.check{font-size:.93rem;font-weight:800;color:var(--gb14-navy);display:flex;align-items:center;gap:10px}
+.gb-subject-config #gbSubjectChoiceFields{padding:13px 0 0;display:grid;gap:7px}
+.gb-subject-config #gbSubjectChoiceFields[hidden]{display:none!important}
+.gb-subject-config #gbSubjectChoiceFields>label{font-size:.85rem;font-weight:740;color:var(--gb14-ink)}
+.gb-subject-config #gbSubjectChoiceFields input{max-width:160px;min-height:42px;border:1px solid #bccfe2;border-radius:9px;padding:8px 12px}
+.gb-subject-config small{display:block;max-width:750px;color:var(--gb14-muted);line-height:1.5}
+#sectionRows .section-row{display:flex;align-items:center;flex-wrap:wrap;gap:9px;min-width:0}
+#sectionRows .section-row>[data-s-title]{flex:1 1 150px;min-width:135px}
+#sectionRows .section-row>[data-s-desc]{flex:1 1 150px;min-width:130px}
+#sectionRows .section-row>[data-s-marks]{flex:0 1 112px;min-width:90px}
+#sectionRows .gb-required-section{flex:0 0 auto;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;padding:7px 9px;background:#fff8e3;border:1px solid #ead59c;border-radius:8px;color:#6e551d;font-weight:760;font-size:.77rem}
+#sectionRows .gb-required-section input{width:18px;height:18px;accent-color:var(--gb14-navy)}
+
+/* Student-selected sections: actual compulsory toggle disabled, maximum enforced in JS and API. */
+.student-landing .gb-subject-choice{width:min(830px,100%);padding:clamp(18px,3.1vw,32px)!important}
+.gb-choice-kicker{font-size:.72rem;font-weight:850;letter-spacing:.085em;color:#8c6612;margin:0 0 12px}
+.gb-subject-choice h1{margin:0 0 8px!important;font-size:clamp(1.55rem,3.2vw,2.1rem)!important}
+.gb-subject-choice>.sub{line-height:1.6!important;max-width:650px!important}
+.gb-choice-counter{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0;padding:11px 14px;border:1px solid #d8e6f6;border-left:4px solid var(--gb14-gold);border-radius:10px;background:#f5f9ff;font-size:.86rem;color:#30517a}
+.gb-choice-counter strong{font-size:.91rem;color:var(--gb14-navy)}
+.gb-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:14px 0 23px}
+.gb-choice-tile{display:flex;align-items:center;gap:12px;border:1px solid #cfdded;border-radius:12px;background:#fff;padding:14px;min-height:83px;cursor:pointer;transition:border-color .17s,background .17s;min-width:0}
+.gb-choice-tile.is-selected{background:#f0f6ff;border-color:#24609c;box-shadow:inset 0 0 0 1px rgba(36,96,156,.13)}
+.gb-choice-tile.is-required{background:#fff9e8;border-color:#cfa740}
+.gb-choice-tile input{width:21px;height:21px;flex-shrink:0;accent-color:var(--gb14-navy);cursor:pointer}
+.gb-choice-tile>span:nth-child(2){min-width:0;flex:1}
+.gb-choice-tile strong{display:block;color:var(--gb14-navy);font-size:.93rem;line-height:1.35;font-weight:850}
+.gb-choice-tile small{display:block;color:var(--gb14-muted);font-size:.76rem;line-height:1.4;margin-top:5px}
+.gb-choice-indicator{font-size:1.28rem;color:#21548c;font-weight:800}
+.gb-choice-tile.is-required .gb-choice-indicator{color:#996d0d}
+.gb-choice-tile:focus-within{outline:3px solid #dab148;outline-offset:2px}
+
+/* Topics based on questions answered, not fabricated advice. */
+.gb-weak-report{margin:23px 0;padding:19px;border:1px solid #d9e3f0;border-radius:15px;background:#f8fbff;text-align:left!important;color:var(--gb14-ink)}
+.gb-weak-heading{display:flex;align-items:center;gap:12px;margin-bottom:15px}
+.gb-weak-icon{width:40px;height:40px;flex:0 0 40px;border-radius:11px;display:grid;place-items:center;background:#e7f0ff;color:#174b84;font-size:1.6rem}
+.gb-weak-heading h2{font-size:1.04rem!important;line-height:1.35;margin:0!important;font-weight:850;color:var(--gb14-navy)}
+.gb-weak-heading p{font-size:.79rem;margin:3px 0 0;line-height:1.5;color:var(--gb14-muted)}
+.gb-weak-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.gb-weak-topic{min-width:0;display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:1px solid #dce5ef;border-radius:10px;padding:12px 13px}
+.gb-weak-topic .gb-weak-subject{display:block;font-size:.7rem;font-weight:770;text-transform:uppercase;letter-spacing:.045em;color:#7d5f20}
+.gb-weak-topic h3{font-size:.9rem!important;color:#173b67;margin:3px 0 5px!important;line-height:1.38!important;font-weight:810}
+.gb-weak-topic small{font-size:.73rem;color:var(--gb14-muted);line-height:1.42;display:block}
+.gb-weak-topic>strong{font-size:1.1rem;font-weight:850;color:var(--gb14-navy);min-width:46px;text-align:right}
+.gb-weak-note{font-size:.75rem;color:#687e97;margin:13px 1px 0;line-height:1.55}
+
+/* Corrections have a clearly delimited reading canvas, never a full-width white expanse. */
+#studentOverlay .modal-backdrop{padding:20px!important;display:flex;align-items:center;justify-content:center}
+#studentOverlay .gb-review-modal{width:min(890px,100%)!important;max-width:890px!important;max-height:calc(100vh - 40px)!important;max-height:calc(100dvh - 40px)!important;overflow-y:auto!important;margin:auto!important;background:#f6f9fd!important;border:1px solid #cfdeed!important;border-radius:18px!important;box-shadow:0 20px 65px rgba(9,36,75,.18)!important;padding:clamp(14px,2.4vw,26px)!important}
+#studentOverlay .gb-review-modal>.modal-head{background:var(--gb14-navy);color:#fff;border-radius:12px;padding:15px 18px;margin:0 0 16px;position:sticky;top:0;z-index:5}
+#studentOverlay .gb-review-modal>.modal-head h2{color:#fff!important;font-size:1.13rem;margin:0}
+#studentOverlay .gb-review-modal>.modal-head .sub{color:#dce8f8!important;font-size:.78rem}
+#studentOverlay .gb-review-modal .close{background:#fff!important;color:var(--gb14-navy)!important;border-radius:9px;flex-shrink:0}
+#studentOverlay .gb-review-modal .review-item{max-width:100%!important;width:100%!important;border:1px solid #dce6ef!important;background:#fff!important;border-radius:11px!important;padding:clamp(13px,2vw,18px)!important;margin:0 0 12px!important;line-height:1.65!important;box-shadow:none!important}
+#studentOverlay .gb-review-modal .review-answer{border:1px solid #e5edf5;margin:6px 0;padding:9px 10px;border-radius:8px;overflow-wrap:anywhere}
+#studentOverlay .gb-review-modal .gb-result-explanation{background:#f7faff;border-left:3px solid var(--gb14-gold);padding:10px 12px;border-radius:6px;font-size:.84rem;line-height:1.6;margin-top:9px}
+.student-result .gb-pool-result{max-width:850px}
+.shared-result-panel#sharedCorrections{max-width:900px!important;width:min(900px,100%)!important;margin:14px auto!important;background:#f8fbff!important;border:1px solid #d4e2f0!important;padding:clamp(15px,2vw,24px)!important;border-radius:14px!important}
+.shared-result-panel#sharedCorrections>.review-item{background:#fff!important;border:1px solid #dbe5ef!important;border-radius:11px;margin-bottom:13px;max-width:100%!important;padding:16px!important}
+
+/* Daily Challenge: formal branded welcome with smooth understated entrance. */
+.daily-student-page:has(.daily-welcome){background:linear-gradient(168deg,#f4f8fd 0%,#fff 52%,#edf3fa 100%)!important}
+.daily-student-page .daily-student-container:has(.daily-welcome){max-width:810px}
+.daily-student-page .daily-welcome{max-width:730px!important;padding:clamp(22px,4vw,39px)!important;border:1px solid #d5e0ed!important;border-top:5px solid var(--gb14-gold)!important;box-shadow:0 18px 40px rgba(13,48,95,.09)!important;border-radius:20px!important;animation:gb14WelcomeEntrance .58s cubic-bezier(.2,.73,.33,1) both}
+.daily-welcome .daily-hero-icon{width:70px!important;height:70px!important;border-radius:18px!important;background:var(--gb14-navy)!important;color:#fff!important;border:2px solid #e7bf55!important;box-shadow:0 6px 16px rgba(8,45,99,.14)!important;margin-bottom:14px!important;font-size:1.45rem!important;letter-spacing:.05em!important;font-weight:900!important}
+.daily-welcome .daily-pill{background:#edf4fc!important;border:1px solid #d2e1f0!important;color:var(--gb14-navy)!important}
+.daily-welcome h1{color:var(--gb14-deep)!important;font-size:clamp(1.6rem,3.1vw,2.05rem)!important;line-height:1.25!important;max-width:560px!important}
+.daily-welcome .daily-lead{font-size:clamp(.9rem,1.6vw,1rem)!important;line-height:1.6!important;margin-bottom:17px!important}
+.daily-welcome .daily-steps{gap:7px!important;margin:13px auto 15px!important}
+.daily-welcome .daily-steps span:not([aria-hidden]){border-radius:8px!important;background:#f6f9fc!important;border-color:#dae4ef!important;font-size:.77rem!important}
+.daily-welcome .daily-challenge-summary{background:#f8fbff!important;border:1px solid #d7e3ef!important;border-left:4px solid var(--gb14-gold)!important;box-shadow:none!important;border-radius:11px!important;padding:15px 17px!important;margin:16px 0!important;text-align:left!important}
+.daily-welcome .daily-challenge-summary strong{color:var(--gb14-deep)!important}
+.daily-welcome .daily-hero-icon span{font-family:inherit}
+.daily-welcome>.btn-primary{background:var(--gb14-navy)!important;border-color:var(--gb14-navy)!important;color:#fff!important}
+@keyframes gb14WelcomeEntrance{from{opacity:0;transform:translateY(16px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* Adaptive size constraints. Keep desktop sizes, reduce naturally on phone. */
+@media(max-width:900px){
+ .student-landing .student-card.library-public .library-public-list{grid-template-columns:minmax(0,1fr)}
+ .student-card.library-public .library-public-item .gb-library-title{font-size:1rem!important}
+ .student-card.library-public .gb-library-actions .btn{font-size:.79rem!important}
+}
+@media(max-width:620px){
+ html,body,#app{max-width:100%;overflow-x:clip}
+ .student-landing{padding-inline:8px!important}
+ .student-landing .student-card,.student-landing .student-card.library-public{width:100%!important;max-width:100%!important;padding:clamp(14px,4vw,21px)!important}
+ .student-card.library-public .library-public-item{padding:14px!important;min-height:0!important}
+ .student-landing .student-card.library-public .library-public-item .gb-library-actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px!important}
+ .student-landing .student-card.library-public .library-public-item .gb-library-actions .gb-library-share{grid-column:1/-1!important}
+ .student-card.library-public .gb-library-actions .btn{padding:9px 6px!important;font-size:clamp(.68rem,2.9vw,.8rem)!important;min-height:42px!important}
+ .gb-choice-grid,.gb-weak-list{grid-template-columns:minmax(0,1fr)}
+ .gb-choice-counter{align-items:flex-start;flex-direction:column}
+ .gb-choice-tile{min-height:72px;padding:11px 12px}
+ .gb-weak-report{padding:13px 11px}
+ .gb-weak-topic{padding:10px 11px}
+ .daily-student-page .daily-welcome{padding:18px 16px!important;animation-duration:.35s}
+ .daily-welcome .daily-hero-icon{width:54px!important;height:54px!important;font-size:1.15rem!important}
+ .daily-welcome .daily-challenge-summary{padding:12px!important}
+ .daily-welcome .daily-steps{gap:5px!important}
+ .daily-welcome .daily-steps span:not([aria-hidden]){padding:6px 7px!important}
+ #studentOverlay .modal-backdrop{padding:7px!important}
+ #studentOverlay .gb-review-modal{max-height:calc(100dvh - 14px)!important;border-radius:12px!important;padding:10px!important}
+ #studentOverlay .gb-review-modal>.modal-head{padding:12px!important;gap:6px}
+ #studentOverlay .gb-review-modal .review-item{padding:11px!important}
+ .cbt-shell .cbt-body,.cbt-shell .question-main,.cbt-shell .navigator{min-width:0}
+ .cbt-shell :is(.cbt-option,.question-text,.question-image){max-width:100%;overflow-wrap:anywhere}
+ .cbt-shell .question-image{width:auto;object-fit:contain}
+ .daily-student-page .daily-student-container{width:100%;max-width:100%;padding-inline:8px}
+ .gb-private-card .gb-private-contact{width:100%!important;max-width:100%!important;font-size:clamp(.75rem,3vw,.88rem)!important}
+ .gb-private-card .gb-private-contact span{min-width:0;overflow-wrap:anywhere}
+ .modal .form-grid>*{min-width:0!important}
+ .modal .form-grid input,.modal .form-grid textarea,.modal .form-grid select{max-width:100%;min-width:0}
+}
+@media(max-width:380px){.student-landing .student-card.library-public .library-public-item .gb-library-actions{grid-template-columns:1fr!important}.student-landing .student-card.library-public .library-public-item .gb-library-actions .gb-library-share{grid-column:auto!important}.student-card.library-public .gb-library-actions .btn{min-height:41px}.gb-choice-tile strong{font-size:.83rem}.student-card .student-summary{gap:6px!important}}
+@media(prefers-reduced-motion:reduce){.gb-private-card .gb-private-contact,.gb-private-card .gb-private-contact::before,.daily-student-page .daily-welcome{animation:none!important;transition:none!important}}
+@media print{.daily-student-page .daily-welcome{animation:none!important}.gb-private-card .gb-private-contact::before{display:none!important}}
